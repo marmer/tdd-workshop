@@ -24,15 +24,13 @@ import static org.mockito.Mockito.when;
 import org.mockito.runners.MockitoJUnitRunner;
 
 
-// TODO Konstruktor mit potentiellen Exceptions doof
-
 @RunWith(MockitoJUnitRunner.class)
-public class FooBarServiceGoodTest {
+public class TopLayerServiceTest {
     @InjectMocks
-    private FooBarService classUnderTest;
+    private TopLayerService classUnderTest;
 
     @Mock
-    private GoodMethodService methodServiceMock;
+    private MidLayerService methodServiceMock;
 
     @Test
     public void testgetConverted_Wert0Gegeben_SollteFalseZurueckgeben() throws Exception {
