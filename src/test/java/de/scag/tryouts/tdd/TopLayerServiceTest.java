@@ -71,7 +71,7 @@ public class TopLayerServiceTest {
         // Vorbereitung
         final int negativeValue = -1;
         final boolean serviceResult = true;
-        when(methodServiceMock.isComplicatedFoo(negativeValue)).thenReturn(serviceResult);
+        when(methodServiceMock.isComplicatedFoo(Math.abs(negativeValue))).thenReturn(serviceResult);
 
         // Ausführung
         final boolean converted = classUnderTest.getConverted(negativeValue);
