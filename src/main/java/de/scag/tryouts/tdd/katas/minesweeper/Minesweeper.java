@@ -1,5 +1,10 @@
 package de.scag.tryouts.tdd.katas.minesweeper;
 
+import org.springframework.boot.CommandLineRunner;
+
+import org.springframework.stereotype.Service;
+
+
 /**
  * Spezifikation grob: Ein aus einer Datei gelesenes Mienenfeld soll an allen
  * minenfreien Stellen mit Informationen (Zahl) versehen werden, wie viele Minen
@@ -33,7 +38,11 @@ package de.scag.tryouts.tdd.katas.minesweeper;
  * @author mertinat
  * @since  07.07.2016
  */
-public class MinesweeperStarter {
-    public static void main(final String... args) {
+@Service
+public class Minesweeper implements CommandLineRunner {
+    @Override
+    public void run(final String... args) throws Exception {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Implementierung fehlt");
     }
 }
