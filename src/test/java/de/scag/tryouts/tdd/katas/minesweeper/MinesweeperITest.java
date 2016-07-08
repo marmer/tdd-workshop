@@ -26,6 +26,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.util.List;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(
@@ -49,9 +51,9 @@ public class MinesweeperITest {
         classUnderTest.run(inputFile.toString(), outputFile.toString());
 
         // Prüfung
-        final byte[] expectedOutputBytes = Files.readAllBytes(
-                getResourcePathOf("examples/komplex_setup.mines"));
-        final byte[] outputBytes = Files.readAllBytes(outputFile.toPath());
+        final List<String> expectedOutputBytes = Files.readAllLines(
+                getResourcePathOf("examples/komplex_solution.mines"));
+        final List<String> outputBytes = Files.readAllLines(outputFile.toPath());
 
         assertThat(outputBytes, is(equalTo(expectedOutputBytes)));
     }
