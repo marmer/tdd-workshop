@@ -1,11 +1,15 @@
 package de.scag.tryouts.tdd.katas.minesweeper;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class FieldProcessor {
-    public int[][] process(final int[][] unprocessedField) {
+    public int[][] process(final int[][] unprocessedField) throws MinesweeperException {
+        checkWohlgeformt(unprocessedField);
+
         final int[][] processedField = new int[unprocessedField.length][];
 
         for (int line = 0; line < unprocessedField.length; line++) {
@@ -13,6 +17,22 @@ public class FieldProcessor {
         }
 
         return processedField;
+    }
+
+    private void checkWohlgeformt(final int[][] unprocessedField) throws MinesweeperException {
+        if (ArrayUtils.isEmpty(unprocessedField)) {
+            throw new MinesweeperException("Feld sollte mindestens Platz für ein Element bieten");
+        }
+
+        Integer length = null;
+
+        for (int i = 0; i < unprocessedField.length; i++) {
+            if (length == null) {
+                length = unprocessedField[i].length;
+            } else if (ArrayUtils.getLength(unprocessedField[i]) != length) {
+                throw new MinesweeperException("Das Mienenfeld hat unterschiedlich lange Zeilen.");
+            }
+        }
     }
 
     private void process(final int[][] unprocessedField,

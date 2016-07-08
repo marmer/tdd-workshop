@@ -47,7 +47,7 @@ public class MinesweeperTest {
         initMinefieldProcessor();
     }
 
-    private void initMinefieldProcessor() {
+    private void initMinefieldProcessor() throws Exception {
         when(minefieldProcessor.process(UNPROCESSED_FIELD)).thenReturn(PROCESSED_FIELD);
     }
 

@@ -64,7 +64,7 @@ public class Minesweeper {
         miningFileService.writeMineField(processedField, outpufFile);
     }
 
-    private int[][] process(final int[][] mineField) {
+    private int[][] process(final int[][] mineField) throws MinesweeperException {
         return fieldProcessor.process(mineField);
     }
 

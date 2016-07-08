@@ -6,7 +6,10 @@ import static org.hamcrest.Matchers.is;
 
 import static org.junit.Assert.assertThat;
 
+import org.junit.Rule;
 import org.junit.Test;
+
+import org.junit.rules.ExpectedException;
 
 import org.junit.runner.RunWith;
 
@@ -19,6 +22,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class FieldProcessorTest {
     @InjectMocks
     private FieldProcessor classUnderTest;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testprocess_FeldMitMieneGegeben_FeldMitMieneSollteUnveraendertBleiben()
@@ -199,5 +205,53 @@ public class FieldProcessorTest {
 
         // Prüfung
         assertThat(processed[1][1], is(8));
+    }
+
+    @Test
+    public void testprocess_AnzahlDerSpaltenNichtInJederZeileGleich_SollteExceptionMitEntsprechenderMeldungWerfen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {
+                { 0, 0 },
+                { 0 }
+            };
+
+        // Prüfung
+        exception.expect(MinesweeperException.class);
+        exception.expectMessage(is(equalTo("Das Mienenfeld hat unterschiedlich lange Zeilen.")));
+
+        // Ausführung
+        classUnderTest.process(field);
+    }
+
+    @Test
+    public void testprocess_ZeileMitNullInitialisiert_SollteExceptionMitEntsprechenderMeldungWerfen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {
+                { 0, 0 },
+                null
+            };
+
+        // Prüfung
+        exception.expect(MinesweeperException.class);
+        exception.expectMessage(is(equalTo("Das Mienenfeld hat unterschiedlich lange Zeilen.")));
+
+        // Ausführung
+        classUnderTest.process(field);
+    }
+
+    @Test
+    public void testprocess_LeeresFeldGegeben_SollteExceptionMitEntsprechenderMeldungWerfen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {};
+
+        // Prüfung
+        exception.expect(MinesweeperException.class);
+        exception.expectMessage(is(equalTo("Feld sollte mindestens Platz für ein Element bieten")));
+
+        // Ausführung
+        classUnderTest.process(field);
     }
 }
