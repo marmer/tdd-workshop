@@ -42,7 +42,7 @@ public class MinesweeperTest {
     private FieldProcessor minefieldProcessor;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         initIOMiningService();
         initMinefieldProcessor();
     }
@@ -51,7 +51,7 @@ public class MinesweeperTest {
         when(minefieldProcessor.process(UNPROCESSED_FIELD)).thenReturn(PROCESSED_FIELD);
     }
 
-    private void initIOMiningService() {
+    private void initIOMiningService() throws Exception {
         when(iOMiningService.readMineField(INPUT_PATH)).thenReturn(UNPROCESSED_FIELD);
     }
 

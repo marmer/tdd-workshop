@@ -68,7 +68,7 @@ public class Minesweeper {
         return fieldProcessor.process(mineField);
     }
 
-    private int[][] read(final String inputFile) {
+    private int[][] read(final String inputFile) throws MinesweeperException {
         return miningFileService.readMineField(inputFile);
     }
 
