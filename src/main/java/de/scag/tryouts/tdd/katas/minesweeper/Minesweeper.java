@@ -1,7 +1,5 @@
 package de.scag.tryouts.tdd.katas.minesweeper;
 
-import org.springframework.boot.CommandLineRunner;
-
 import org.springframework.stereotype.Service;
 
 
@@ -39,8 +37,7 @@ import org.springframework.stereotype.Service;
  * @since  07.07.2016
  */
 @Service
-public class Minesweeper implements CommandLineRunner {
-    @Override
+public class Minesweeper {
     public void run(final String... args) throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Implementierung fehlt");
