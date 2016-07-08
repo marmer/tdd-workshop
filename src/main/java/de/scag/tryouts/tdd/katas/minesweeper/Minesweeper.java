@@ -34,9 +34,11 @@ import org.springframework.stereotype.Service;
  *   <li>Die Größe eines Minenfeldes ist beliebig</li>
  *   <li>Bei Problemen mit den Eingabedaten soll das Programm mit einer
  *     angemessenen Fehlerbeschreibung enden.</li>
- *   <li>Der erste Parameter der Main Methode beschreibt die Eingabedatei</li>
- *   <li>Der zweite Parameter der Main Methode beschreibt die Ausgabedatei</li>
- *   <li>Beide Parameter sind pflicht</li>
+ *   <li>XXX Der erste Parameter der Main Methode beschreibt die
+ *     Eingabedatei</li>
+ *   <li>XXX Der zweite Parameter der Main Methode beschreibt die
+ *     Ausgabedatei</li>
+ *   <li>XXX Beide Parameter sind pflicht</li>
  * </ol>
  *
  * @author mertinat
@@ -46,16 +48,38 @@ import org.springframework.stereotype.Service;
 public class Minesweeper implements CommandLineRunner {
     @Autowired
     private MiningFileService miningFileService;
+    @Autowired
+    private FieldProcessor fieldProcessor;
 
     @Override
     public void run(final String... args) throws Exception {
         final String inputFile = getInputFile(args);
+        final String outpufFile = getOutputFile(args);
 
+        final int[][] mineField = read(inputFile);
+        final int[][] processedField = process(mineField);
+
+        write(outpufFile, processedField);
+    }
+
+    private void write(final String outpufFile, final int[][] processedField) {
+        miningFileService.writeMineField(processedField, outpufFile);
+    }
+
+    private int[][] process(final int[][] mineField) {
+        return fieldProcessor.process(mineField);
+    }
+
+    private int[][] read(final String inputFile) {
+        return miningFileService.readMineField(inputFile);
+    }
+
+    private String getOutputFile(final String... args) throws MinesweeperException {
         if (ArrayUtils.getLength(args) < 2) {
             throw new MinesweeperException("Keine Ausgabedatei angegeben.");
         }
 
-        miningFileService.readMineField(inputFile);
+        return args[1];
     }
 
     private String getInputFile(final String... args) throws MinesweeperException {
@@ -63,8 +87,6 @@ public class Minesweeper implements CommandLineRunner {
             throw new MinesweeperException("Keine Eingabedatei angegeben.");
         }
 
-        final String inputFile = args[0];
-
-        return inputFile;
+        return args[0];
     }
 }

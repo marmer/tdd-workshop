@@ -5,4 +5,9 @@ public class MiningFileService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Implementierung fehlt");
     }
+
+    public void writeMineField(final int[][] processedField, final String outputPath) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Implementierung fehlt");
+    }
 }
