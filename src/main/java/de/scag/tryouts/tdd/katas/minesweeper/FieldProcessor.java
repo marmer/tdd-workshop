@@ -31,6 +31,10 @@ public class FieldProcessor {
                 if ((isMine(unprocessedField[line][col + 1]))) {
                     processedField[line][col] = 1;
                 }
+
+                if (!isTopBorderReached(line) && isMine(unprocessedField[line - 1][col + 1])) {
+                    processedField[line][col] = 1;
+                }
             }
 
             if (!leftBoarderReached(col)) {

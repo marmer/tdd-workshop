@@ -115,6 +115,22 @@ public class FieldProcessorTest {
     }
 
     @Test
+    public void testprocess_FeldMitLeerplatzUndRechtsDarueberGegeben_LeerplatzSollteBenachbarteMieneAnzeigen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {
+                { 0, MiningFileService.FIELD_MINE },
+                { 0, 0 }
+            };
+
+        // Ausführung
+        final int[][] processed = classUnderTest.process(field);
+
+        // Prüfung
+        assertThat(processed[1][0], is(1));
+    }
+
+    @Test
     public void testprocess_LeerfeldOhneMienenNachbarnGegeben_LeerplatzSollteAnzahlKeineBenachbartenMienenEnthalten()
         throws Exception {
         // Vorbereitung
