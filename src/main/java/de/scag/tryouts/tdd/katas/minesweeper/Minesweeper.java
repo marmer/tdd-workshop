@@ -4,8 +4,6 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.boot.CommandLineRunner;
-
 import org.springframework.stereotype.Service;
 
 
@@ -45,14 +43,14 @@ import org.springframework.stereotype.Service;
  * @since  07.07.2016
  */
 @Service
-public class Minesweeper implements CommandLineRunner {
+public class Minesweeper {
     @Autowired
     private MiningFileService miningFileService;
+
     @Autowired
     private FieldProcessor fieldProcessor;
 
-    @Override
-    public void run(final String... args) throws Exception {
+    public void run(final String... args) throws MinesweeperException {
         final String inputFile = getInputFile(args);
         final String outpufFile = getOutputFile(args);
 
