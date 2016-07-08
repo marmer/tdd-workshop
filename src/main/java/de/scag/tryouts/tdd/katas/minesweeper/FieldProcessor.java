@@ -31,6 +31,10 @@ public class FieldProcessor {
                     (isMine(unprocessedField[line][col + 1]))) {
                 processedField[line][col] = 1;
             }
+
+            if (((col - 1) >= 0) && (isMine(unprocessedField[line][col - 1]))) {
+                processedField[line][col] = 1;
+            }
         }
     }
 

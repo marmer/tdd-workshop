@@ -53,4 +53,21 @@ public class FieldProcessorTest {
                         { 1, MiningFileService.FIELD_MINE }
                     })));
     }
+
+    @Test
+    public void testprocess_FeldMitLeerplatzUndMieneLinksDavonGegeben_LeerplatzSollteBenachbarteMieneAnzeigen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {
+                { MiningFileService.FIELD_MINE, 0 }
+            };
+
+        // Ausführung
+        final int[][] processed = classUnderTest.process(field);
+
+        // Prüfung
+        assertThat(processed, is(equalTo(new int[][] {
+                        { MiningFileService.FIELD_MINE, 1 }
+                    })));
+    }
 }
