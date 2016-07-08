@@ -25,7 +25,9 @@ public class MiningFileService {
 
             return lines.stream().map(this::toFieldLine).toArray(size -> new int[size][]);
         } catch (IOException e) {
-            throw new UnsupportedOperationException("Implementierung fehlt", e); // TODO implement me
+            // Simulation mit "defekter" Datei für Tests nötig oder zusätzliche Schicht, die das
+            // Lesen kapselt
+            throw new MinesweeperException("Fehler beim Einlesen der Datei: " + inpufPath);
         }
     }
 
