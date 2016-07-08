@@ -25,46 +25,48 @@ public class FieldProcessor {
                 processedField[line][col] = MiningFileService.FIELD_MINE;
 
                 continue;
+            } else {
+                processedField[line][col] = 0;
             }
 
             if (!isRightBoarder(unprocessedField, line, col)) {
                 if ((isMine(unprocessedField[line][col + 1]))) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
 
                 if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col + 1])) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
             }
 
             if (!leftBoarder(col)) {
                 if ((isMine(unprocessedField[line][col - 1]))) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
 
                 if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col - 1])) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
             }
 
             if (!isBottomBoarder(unprocessedField, line)) {
                 if ((isMine(unprocessedField[line + 1][col]))) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
 
                 if (!leftBoarder(col) && isMine(unprocessedField[line + 1][col - 1])) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
 
                 if (!isRightBoarder(unprocessedField, line, col) &&
                         isMine(unprocessedField[line + 1][col + 1])) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
             }
 
             if (!isTopBorder(line)) {
                 if ((isMine(unprocessedField[line - 1][col]))) {
-                    processedField[line][col] = 1;
+                    processedField[line][col]++;
                 }
             }
         }

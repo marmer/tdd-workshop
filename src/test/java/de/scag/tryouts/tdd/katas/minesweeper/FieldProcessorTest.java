@@ -6,7 +6,6 @@ import static org.hamcrest.Matchers.is;
 
 import static org.junit.Assert.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
@@ -180,7 +179,6 @@ public class FieldProcessorTest {
     }
 
     @Test
-    @Ignore
     public void testprocess_LeerfeldKomplettMitMienenUmgeben_LeerplatzSollteAnzahlAllerBenachbartenMienenEnthalten()
         throws Exception {
         // Vorbereitung
