@@ -1,13 +1,12 @@
 package de.scag.tryouts.tdd.katas.minesweeper;
 
+import static org.hamcrest.CoreMatchers.either;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
-import org.junit.After;
-
 import static org.junit.Assert.assertThat;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -20,6 +19,7 @@ import org.mockito.InjectMocks;
 
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.io.File;
 import java.io.IOException;
 
 import java.nio.file.Files;
@@ -37,14 +37,6 @@ public class MiningFileServiceTest {
 
     @Rule
     public TemporaryFolder temp = new TemporaryFolder();
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
 
     @Test
     public void testreadMineField_DateiExistiertNicht_SollteExceptionMitPassendenTextLiefern()
@@ -95,5 +87,54 @@ public class MiningFileServiceTest {
         Files.write(file, output.getBytes(), StandardOpenOption.WRITE);
 
         return file;
+    }
+
+    @Test
+    public void testwriteMineField_MinenfeldMitMieneGegeben_SollteMieneInDateiGespeichertHaben()
+        throws Exception {
+        // Vorbereitung
+        final File outputFile = temp.newFile();
+        final int[][] processedField = new int[][] {
+                { -1 }
+            };
+
+        // Ausführung
+        classUnderTest.writeMineField(processedField, outputFile.toString());
+
+        // Prüfung
+        final String fileContent = new String(Files.readAllBytes(outputFile.toPath()));
+        assertThat(fileContent,
+            is(either(equalTo(stringOf(MiningFileService.FILE_MINE))).or(
+                    equalTo(
+                        stringOf(MiningFileService.FILE_MINE) +
+                        System.getProperty("line.separator")))));
+    }
+
+    @Test
+    public void testwriteMineField_MienenfeldMitEntfernungszahlGegeben_SollteEntfernungszahlInDateiGespeichertHaben()
+        throws Exception {
+        // Vorbereitung
+        final File outputFile = temp.newFile();
+        final int entfernungszahl = 8;
+        final int[][] processedField = new int[][] {
+                { entfernungszahl }
+            };
+
+        // Ausführung
+        classUnderTest.writeMineField(processedField, outputFile.toString());
+
+        // Prüfung
+        final String fileContent = new String(Files.readAllBytes(outputFile.toPath()));
+        assertThat(fileContent,
+            is(either(equalTo(stringOf(entfernungszahl))).or(
+                    equalTo(stringOf(entfernungszahl) + System.getProperty("line.separator")))));
+    }
+
+    private String stringOf(final int number) {
+        return Integer.toString(number);
+    }
+
+    private String stringOf(final char character) {
+        return Character.toString(character);
     }
 }

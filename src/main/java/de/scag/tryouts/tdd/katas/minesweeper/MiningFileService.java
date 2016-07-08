@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -42,8 +44,39 @@ public class MiningFileService {
     }
 
     public void writeMineField(final int[][] processedField, final String outputPath) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Implementierung fehlt");
+        final List<String> outputLines = new LinkedList<>();
+
+        for (final int[] fieldLine : processedField) {
+            outputLines.add(toFileLine(fieldLine));
+        }
+
+        try {
+            Files.write(Paths.get(outputPath),
+                outputLines,
+                StandardOpenOption.WRITE,
+                StandardOpenOption.TRUNCATE_EXISTING,
+                StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            // Simulation mit "defekter" Datei für Tests nötig oder zusätzliche Schicht, die das
+            // Lesen kapselt
+            new MinesweeperException(
+                "Fehler beim Schreiben des Ergebnisses in Datei: " + outputPath,
+                e);
+        }
+    }
+
+    private String toFileLine(final int[] fieldLine) {
+        final StringBuffer lineBuffer = new StringBuffer();
+
+        for (int i = 0; i < fieldLine.length; i++) {
+            if (fieldLine[i] == FIELD_MINE) {
+                lineBuffer.append(FILE_MINE);
+            } else {
+                lineBuffer.append(fieldLine[i]);
+            }
+        }
+
+        return lineBuffer.toString();
     }
 
     private int[] toFieldLine(final String fileLine) {
