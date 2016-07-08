@@ -27,42 +27,52 @@ public class FieldProcessor {
                 continue;
             }
 
-            if (isRightBoarderReached(unprocessedField, line, col) &&
-                    (isMine(unprocessedField[line][col + 1]))) {
-                processedField[line][col] = 1;
+            if (!isRightBoarderReached(unprocessedField, line, col)) {
+                if ((isMine(unprocessedField[line][col + 1]))) {
+                    processedField[line][col] = 1;
+                }
             }
 
-            if (leftBoarderReached(col) && (isMine(unprocessedField[line][col - 1]))) {
-                processedField[line][col] = 1;
+            if (!leftBoarderReached(col)) {
+                if ((isMine(unprocessedField[line][col - 1]))) {
+                    processedField[line][col] = 1;
+                }
+
+                if (!isTopBorderReached(line) && isMine(unprocessedField[line - 1][col - 1])) {
+                    processedField[line][col] = 1;
+                }
             }
 
-            if (isBottomBoarderReached(unprocessedField, line) &&
-                    (isMine(unprocessedField[line + 1][col]))) {
-                processedField[line][col] = 1;
+            if (!isBottomBoarderReached(unprocessedField, line)) {
+                if ((isMine(unprocessedField[line + 1][col]))) {
+                    processedField[line][col] = 1;
+                }
             }
 
-            if (isTopBorderReached(line) && (isMine(unprocessedField[line - 1][col]))) {
-                processedField[line][col] = 1;
+            if (!isTopBorderReached(line)) {
+                if ((isMine(unprocessedField[line - 1][col]))) {
+                    processedField[line][col] = 1;
+                }
             }
         }
     }
 
     private boolean isRightBoarderReached(final int[][] unprocessedField,
-        final int line,
-        final int col) {
-        return (col + 1) < unprocessedField[line].length;
+        final int lineNr,
+        final int colNr) {
+        return (colNr + 1) >= unprocessedField[lineNr].length;
     }
 
-    private boolean isBottomBoarderReached(final int[][] unprocessedField, final int line) {
-        return (line + 1) < unprocessedField.length;
+    private boolean isBottomBoarderReached(final int[][] unprocessedField, final int lineNr) {
+        return (lineNr + 1) >= unprocessedField.length;
     }
 
-    private boolean isTopBorderReached(final int line) {
-        return (line - 1) >= 0;
+    private boolean isTopBorderReached(final int lineNr) {
+        return (lineNr - 1) < 0;
     }
 
-    private boolean leftBoarderReached(final int lineNr) {
-        return isTopBorderReached(lineNr);
+    private boolean leftBoarderReached(final int colNr) {
+        return (colNr - 1) < 0;
     }
 
     private boolean isMine(final int potentialMine) {

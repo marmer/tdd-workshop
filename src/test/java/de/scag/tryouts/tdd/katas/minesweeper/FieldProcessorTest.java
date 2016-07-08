@@ -98,22 +98,21 @@ public class FieldProcessorTest {
         assertThat(processed[0][0], is(1));
     }
 
-    // @Test
-    // public void
-    // testprocess_FeldMitLeerplatzUndMienedarunterLinksGegeben_LeerplatzSollteBenachbarteMieneAnzeigen()
-    // throws Exception {
-    // // Vorbereitung
-    // final int[][] field = {
-    // { 0, 0 },
-    // { MiningFileService.FIELD_MINE, 0 }
-    // };
-    //
-    // // Ausführung
-    // final int[][] processed = classUnderTest.process(field);
-    //
-    // // Prüfung
-    // assertThat(processed[0][1], is(1));
-    // }
+    @Test
+    public void testprocess_FeldMitLeerplatzUndLinksDarueberGegeben_LeerplatzSollteBenachbarteMieneAnzeigen()
+        throws Exception {
+        // Vorbereitung
+        final int[][] field = {
+                { MiningFileService.FIELD_MINE, 0 },
+                { 0, 0 }
+            };
+
+        // Ausführung
+        final int[][] processed = classUnderTest.process(field);
+
+        // Prüfung
+        assertThat(processed[1][1], is(1));
+    }
 
     @Test
     public void testprocess_LeerfeldOhneMienenNachbarnGegeben_LeerplatzSollteAnzahlKeineBenachbartenMienenEnthalten()
