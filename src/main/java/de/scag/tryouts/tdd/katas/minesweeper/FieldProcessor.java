@@ -27,33 +27,42 @@ public class FieldProcessor {
                 continue;
             }
 
-            if (!isRightBoarderReached(unprocessedField, line, col)) {
+            if (!isRightBoarder(unprocessedField, line, col)) {
                 if ((isMine(unprocessedField[line][col + 1]))) {
                     processedField[line][col] = 1;
                 }
 
-                if (!isTopBorderReached(line) && isMine(unprocessedField[line - 1][col + 1])) {
+                if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col + 1])) {
                     processedField[line][col] = 1;
                 }
             }
 
-            if (!leftBoarderReached(col)) {
+            if (!leftBoarder(col)) {
                 if ((isMine(unprocessedField[line][col - 1]))) {
                     processedField[line][col] = 1;
                 }
 
-                if (!isTopBorderReached(line) && isMine(unprocessedField[line - 1][col - 1])) {
+                if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col - 1])) {
                     processedField[line][col] = 1;
                 }
             }
 
-            if (!isBottomBoarderReached(unprocessedField, line)) {
+            if (!isBottomBoarder(unprocessedField, line)) {
                 if ((isMine(unprocessedField[line + 1][col]))) {
                     processedField[line][col] = 1;
                 }
+
+                if (!leftBoarder(col) && isMine(unprocessedField[line + 1][col - 1])) {
+                    processedField[line][col] = 1;
+                }
+
+                if (!isRightBoarder(unprocessedField, line, col) &&
+                        isMine(unprocessedField[line + 1][col + 1])) {
+                    processedField[line][col] = 1;
+                }
             }
 
-            if (!isTopBorderReached(line)) {
+            if (!isTopBorder(line)) {
                 if ((isMine(unprocessedField[line - 1][col]))) {
                     processedField[line][col] = 1;
                 }
@@ -61,21 +70,21 @@ public class FieldProcessor {
         }
     }
 
-    private boolean isRightBoarderReached(final int[][] unprocessedField,
+    private boolean isRightBoarder(final int[][] unprocessedField,
         final int lineNr,
         final int colNr) {
         return (colNr + 1) >= unprocessedField[lineNr].length;
     }
 
-    private boolean isBottomBoarderReached(final int[][] unprocessedField, final int lineNr) {
+    private boolean isBottomBoarder(final int[][] unprocessedField, final int lineNr) {
         return (lineNr + 1) >= unprocessedField.length;
     }
 
-    private boolean isTopBorderReached(final int lineNr) {
+    private boolean isTopBorder(final int lineNr) {
         return (lineNr - 1) < 0;
     }
 
-    private boolean leftBoarderReached(final int colNr) {
+    private boolean leftBoarder(final int colNr) {
         return (colNr - 1) < 0;
     }
 
