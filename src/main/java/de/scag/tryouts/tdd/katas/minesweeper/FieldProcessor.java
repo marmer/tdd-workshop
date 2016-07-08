@@ -27,12 +27,21 @@ public class FieldProcessor {
                 continue;
             }
 
-            if (((col + 1) <= unprocessedField.length) &&
+            if (((col + 1) < unprocessedField[line].length) &&
                     (isMine(unprocessedField[line][col + 1]))) {
                 processedField[line][col] = 1;
             }
 
             if (((col - 1) >= 0) && (isMine(unprocessedField[line][col - 1]))) {
+                processedField[line][col] = 1;
+            }
+
+            if (((line + 1) < unprocessedField.length) &&
+                    (isMine(unprocessedField[line + 1][col]))) {
+                processedField[line][col] = 1;
+            }
+
+            if (((line - 1) >= 0) && (isMine(unprocessedField[line - 1][col]))) {
                 processedField[line][col] = 1;
             }
         }
