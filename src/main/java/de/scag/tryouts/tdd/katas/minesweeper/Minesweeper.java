@@ -2,6 +2,8 @@ package de.scag.tryouts.tdd.katas.minesweeper;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.stereotype.Service;
@@ -42,13 +44,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Minesweeper implements CommandLineRunner {
+    @Autowired
+    private MiningFileService miningFileService;
+
     @Override
     public void run(final String... args) throws Exception {
+        final String inputFile = getInputFile(args);
+
+        if (ArrayUtils.getLength(args) < 2) {
+            throw new MinesweeperException("Keine Ausgabedatei angegeben.");
+        }
+
+        miningFileService.readMineField(inputFile);
+    }
+
+    private String getInputFile(final String... args) throws MinesweeperException {
         if (ArrayUtils.getLength(args) < 1) {
             throw new MinesweeperException("Keine Eingabedatei angegeben.");
         }
 
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Implementierung fehlt");
+        final String inputFile = args[0];
+
+        return inputFile;
     }
 }
