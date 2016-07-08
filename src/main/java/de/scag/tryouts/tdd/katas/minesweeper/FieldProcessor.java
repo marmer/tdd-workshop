@@ -30,46 +30,82 @@ public class FieldProcessor {
             }
 
             if (!isRightBoarder(unprocessedField, line, col)) {
-                if ((isMine(unprocessedField[line][col + 1]))) {
+                if (hasRightMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
 
-                if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col + 1])) {
+                if (!isTopBorder(line) && hasTopRightMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
             }
 
             if (!leftBoarder(col)) {
-                if ((isMine(unprocessedField[line][col - 1]))) {
+                if (hasLeftMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
 
-                if (!isTopBorder(line) && isMine(unprocessedField[line - 1][col - 1])) {
+                if (!isTopBorder(line) && hasTopLeftMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
             }
 
             if (!isBottomBoarder(unprocessedField, line)) {
-                if ((isMine(unprocessedField[line + 1][col]))) {
+                if (hasBottomMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
 
-                if (!leftBoarder(col) && isMine(unprocessedField[line + 1][col - 1])) {
+                if (!leftBoarder(col) && hasBottomLeftMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
 
                 if (!isRightBoarder(unprocessedField, line, col) &&
-                        isMine(unprocessedField[line + 1][col + 1])) {
+                        hasBottomRightMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
             }
 
             if (!isTopBorder(line)) {
-                if ((isMine(unprocessedField[line - 1][col]))) {
+                if (hasTopMine(unprocessedField, line, col)) {
                     processedField[line][col]++;
                 }
             }
         }
+    }
+
+    private boolean hasTopMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line - 1][col]);
+    }
+
+    private boolean hasBottomRightMine(final int[][] unprocessedField,
+        final int line,
+        final int col) {
+        return isMine(unprocessedField[line + 1][col + 1]);
+    }
+
+    private boolean hasBottomLeftMine(final int[][] unprocessedField,
+        final int line,
+        final int col) {
+        return isMine(unprocessedField[line + 1][col - 1]);
+    }
+
+    private boolean hasBottomMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line + 1][col]);
+    }
+
+    private boolean hasTopLeftMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line - 1][col - 1]);
+    }
+
+    private boolean hasLeftMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line][col - 1]);
+    }
+
+    private boolean hasTopRightMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line - 1][col + 1]);
+    }
+
+    private boolean hasRightMine(final int[][] unprocessedField, final int line, final int col) {
+        return isMine(unprocessedField[line][col + 1]);
     }
 
     private boolean isRightBoarder(final int[][] unprocessedField,
