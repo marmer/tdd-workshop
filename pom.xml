@@ -2,12 +2,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>de.sci</groupId>
-		<artifactId>sci-parent-pom</artifactId>
-		<version>1.1</version>
-	</parent>
-
 	<groupId>de.scag.tryouts</groupId>
 	<artifactId>tdd-workshop</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -18,7 +12,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
+			<version>4.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
