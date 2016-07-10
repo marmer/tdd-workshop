@@ -7,6 +7,10 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>tdd-workshop</name>
 	<description>Showcase-Projekt für TDD Workshop</description>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<dependencies>
 		<dependency>
