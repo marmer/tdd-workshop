@@ -14,7 +14,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class BottomServiceTest {
+public class BottomLayerServiceTest {
     @InjectMocks
     private BottomLayerService classUnderTest;
 
