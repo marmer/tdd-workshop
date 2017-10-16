@@ -17,7 +17,7 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -43,16 +43,6 @@ public class MinesweeperTest {
 
     @Before
     public void setUp() throws Exception {
-        initIOMiningService();
-        initMinefieldProcessor();
-    }
-
-    private void initMinefieldProcessor() throws Exception {
-        when(minefieldProcessor.process(UNPROCESSED_FIELD)).thenReturn(PROCESSED_FIELD);
-    }
-
-    private void initIOMiningService() throws Exception {
-        when(iOMiningService.readMineField(INPUT_PATH)).thenReturn(UNPROCESSED_FIELD);
     }
 
     @Test
@@ -101,6 +91,7 @@ public class MinesweeperTest {
     @Test
     public void testrun_MinenfeldVerarbeitet_MinenfeldWirdHerausgeschrieben() throws Exception {
         // Vorbereitung
+        when(iOMiningService.readMineField(INPUT_PATH)).thenReturn(UNPROCESSED_FIELD);
         when(minefieldProcessor.process(UNPROCESSED_FIELD)).thenReturn(PROCESSED_FIELD);
 
         // Ausführung
