@@ -30,27 +30,13 @@ import java.nio.file.Paths;
 import java.util.List;
 
 
-// Spring 1.3 Weg
-// @RunWith(SpringJUnit4ClassRunner.class)
-// @SpringApplicationConfiguration(
-// { Minesweeper.class, FieldProcessor.class, MiningFileService.class }
-// )
-
-// Spring 1.5 Weg
 @RunWith(SpringRunner.class)
-@SpringBootTest( /*properties = {"job.autorun.enabled=false"} wenn Bedingung an Config ist*/)
-
-// 1. Möglichkeit zusammen mit @Profile("!test") (siehe Klasse Config) den Commandlinerunner zu
-// unterdrücken. In Spring 1.3 nicht nötig
-@ActiveProfiles("test")
-// Der Annotation SpringBootTest können auch ausgewählte Klassen mitgegeben werden. In dem Fall
-// werden ausschließlich diese verwendet
+@SpringBootTest
 public class MinesweeperITest {
-    @Autowired
-    private Minesweeper classUnderTest;
-
     @Rule
     public TemporaryFolder tmp = new TemporaryFolder();
+    @Autowired
+    private Minesweeper classUnderTest;
 
     @Test
     public void testRun_DateiMitGueltigemMinenfeldGegeben_SollteDateiMitAufgeloestemMinenfeldErzeugen()
