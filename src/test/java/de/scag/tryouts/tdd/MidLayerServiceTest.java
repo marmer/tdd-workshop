@@ -31,7 +31,7 @@ public class MidLayerServiceTest {
     private BottomLayerService bottomLayerServiceMock;
 
     @Test
-    public void testIsComplicatedFoo_DurchVierTeilbareZahlGegeben_TrueErwartet() throws Exception {
+    public void testIsComplicatedFoo_GivenValueIsDividableByFour_ShuoldReturnTrue() throws Exception {
         // Ausführung
         final boolean result = classUnderTest.isComplicatedFoo(DURCH_VIER_TEILBARE_ZAHL);
 
@@ -40,7 +40,7 @@ public class MidLayerServiceTest {
     }
 
     @Test
-    public void testIsComplicatedFoo_WertDurchVierIstRest3_FalseErwartet() throws Exception {
+    public void testIsComplicatedFoo_ValueDividedByFourIsRest3_ShouldReturnFalse() throws Exception {
         // Ausführung
         final boolean result = classUnderTest.isComplicatedFoo(DURCH_VIER_TEILBARE_ZAHL + 3);
 
@@ -49,7 +49,7 @@ public class MidLayerServiceTest {
     }
 
     @Test
-    public void testIsComplicatedFoo_WertDurchVierIstRest1_ServiceErgebnisErwartet()
+    public void testIsComplicatedFoo_ValueDividedByFourIsRest1_ShouldReturnResultOfNextService()
         throws Exception {
         // Vorbereitung
         when(bottomLayerServiceMock.anotherComplicatedLogic(anyInt())).thenReturn(true);
@@ -62,20 +62,20 @@ public class MidLayerServiceTest {
     }
 
     @Test
-    public void testIsComplicatedFoo_WertDurchVierIstRest1_ParameterWirdAnServiceWeitergereicht()
+    public void testIsComplicatedFoo_ValueDividedByFourIsRest1_ValueShouldBeGivenToNextService()
         throws Exception {
         // Vorbereitung
-        final int parameterwert = DURCH_VIER_TEILBARE_ZAHL + 1;
+        final int paramValue = DURCH_VIER_TEILBARE_ZAHL + 1;
 
         // Ausführung
-        classUnderTest.isComplicatedFoo(parameterwert);
+        classUnderTest.isComplicatedFoo(paramValue);
 
         // Prüfung
-        verify(bottomLayerServiceMock).anotherComplicatedLogic(parameterwert);
+        verify(bottomLayerServiceMock).anotherComplicatedLogic(paramValue);
     }
 
     @Test
-    public void testIsComplicatedFoo_WertDurchVierIstRest2_GegenteilDesServiceErgebnisErwartet()
+    public void testIsComplicatedFoo_ValueDividedByFourIsRest2_ShouldReturnOppositOfTheNextService()
         throws Exception {
         // Vorbereitung
         when(bottomLayerServiceMock.anotherComplicatedLogic(anyInt())).thenReturn(true);
@@ -88,15 +88,15 @@ public class MidLayerServiceTest {
     }
 
     @Test
-    public void testIsComplicatedFoo_WertDurchVierIstRest2_ParameterWirdAnServiceWeitergereicht()
+    public void testIsComplicatedFoo_ValueDividedByFourIsRest2_ShouldCallServiceWithTheGivenValue()
         throws Exception {
         // Vorbereitung
-        final int parameterwert = DURCH_VIER_TEILBARE_ZAHL + 2;
+        final int paramValue = DURCH_VIER_TEILBARE_ZAHL + 2;
 
         // Ausführung
-        classUnderTest.isComplicatedFoo(parameterwert);
+        classUnderTest.isComplicatedFoo(paramValue);
 
         // Prüfung
-        verify(bottomLayerServiceMock).anotherComplicatedLogic(parameterwert);
+        verify(bottomLayerServiceMock).anotherComplicatedLogic(paramValue);
     }
 }

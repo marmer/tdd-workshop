@@ -3,3 +3,6 @@
 /.classpath
 /bin/
 /test-output/
+/.idea/
+*.iml
+*.eml

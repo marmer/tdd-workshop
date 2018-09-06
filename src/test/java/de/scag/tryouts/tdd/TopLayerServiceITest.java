@@ -1,11 +1,10 @@
 package de.scag.tryouts.tdd;
 
-import static org.hamcrest.Matchers.is;
-
-import static org.junit.Assert.assertThat;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 
 public class TopLayerServiceITest {
@@ -13,17 +12,17 @@ public class TopLayerServiceITest {
 
     @Before
     public void setUp() throws Exception {
-        // Darum kümmert sich üblicherweise Spring und co.
+        // This setup may be done by any DI Framework
         classUnderTest = new TopLayerService(new MidLayerService(new BottomLayerService()));
     }
 
     /**
-     * Der Methodenname würde bei einem Integrationstest üblicherweise einer
-     * allgemeineren fachlichen Schreibweise entsprechen statt einer so
-     * technischen wie hier beschrieben.
+     * Typically the name of an integrationtest should be pretty general, about a business case or business requirement
+     * and avoid technical details. So it's easier to get the intention of the origin developer. In addition it helps
+     * the origin developer itself to think about what's important now.
      */
     @Test
-    public void testGetConverted_WertUnterNullDerModuloVierRestEinsUndRestlosDurchDreiTeilbarIst_SollteTrueZurueckgeben()
+    public void testGetConverted_ValueBelowZeroWhichIsModulo4RestOneAndModulo3Rest0_ShouldReturnTrue()
         throws Exception {
         // Ausführung
         final boolean converted = classUnderTest.getConverted(-13);

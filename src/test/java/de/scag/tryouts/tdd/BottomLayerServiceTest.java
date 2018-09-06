@@ -18,31 +18,31 @@ public class BottomLayerServiceTest {
     @InjectMocks
     private BottomLayerService classUnderTest;
 
-    final int DURCH_DREI_TEILBAR = 3;
+    final int DIVIDABLE_BY_THREE = 3;
 
     @Test
-    public void testAnotherComplicatedLogic_WertIstGlattDurchDreiTeilbar_ErwarteFalse()
+    public void testAnotherComplicatedLogic_ValueIsDividableByThree_ShouldReturnFalse()
         throws Exception {
         // Ausführung
-        final boolean result = classUnderTest.anotherComplicatedLogic(DURCH_DREI_TEILBAR);
+        final boolean result = classUnderTest.anotherComplicatedLogic(DIVIDABLE_BY_THREE);
 
         // Prüfung
         assertThat(result, is(false));
     }
 
     @Test
-    public void testAnotherComplicatedLogic_WertDurchDreiIstRest1_ErwarteTrue() throws Exception {
+    public void testAnotherComplicatedLogic_ValueDividedByThreeIsRest1_ShouldReturnTrue() throws Exception {
         // Ausführung
-        final boolean result = classUnderTest.anotherComplicatedLogic(DURCH_DREI_TEILBAR + 1);
+        final boolean result = classUnderTest.anotherComplicatedLogic(DIVIDABLE_BY_THREE + 1);
 
         // Prüfung
         assertThat(result, is(true));
     }
 
     @Test
-    public void testAnotherComplicatedLogic_WertDurchDreiIstRest2_ErwarteFalse() throws Exception {
+    public void testAnotherComplicatedLogic_ValueDividedByThreeIs2_ShouldReturnFalse() throws Exception {
         // Ausführung
-        final boolean result = classUnderTest.anotherComplicatedLogic(DURCH_DREI_TEILBAR + 2);
+        final boolean result = classUnderTest.anotherComplicatedLogic(DIVIDABLE_BY_THREE + 2);
 
         // Prüfung
         assertThat(result, is(false));
