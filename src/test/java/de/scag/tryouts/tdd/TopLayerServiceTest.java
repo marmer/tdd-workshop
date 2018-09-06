@@ -1,31 +1,24 @@
 package de.scag.tryouts.tdd;
 
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+import org.mockito.quality.Strictness;
+
 import static org.hamcrest.CoreMatchers.not;
-
 import static org.hamcrest.Matchers.is;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
-
-import org.junit.Test;
-
-import org.junit.runner.RunWith;
-
-import org.mockito.InjectMocks;
-
 import static org.mockito.Matchers.anyInt;
-
-import org.mockito.Mock;
-
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.*;
 
 
-@RunWith(MockitoJUnitRunner.class)
 public class TopLayerServiceTest {
+    @Rule
+    public MockitoRule mockito = MockitoJUnit.rule().strictness(Strictness.STRICT_STUBS);
     @InjectMocks
     private TopLayerService classUnderTest;
 
@@ -85,13 +78,11 @@ public class TopLayerServiceTest {
         throws Exception {
         // Vorbereitung
         final int negativeValue = -1;
-        final boolean serviceResult = false;
-        when(methodServiceMock.isComplicatedFoo(negativeValue)).thenReturn(serviceResult);
 
         // Ausführung
         final boolean converted = classUnderTest.getConverted(negativeValue);
 
         // Prüfung
-        assertThat(converted, is(not(serviceResult)));
+        assertThat(converted, is(not(false)));
     }
 }

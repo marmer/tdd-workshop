@@ -1,29 +1,29 @@
 package de.scag.tryouts.tdd;
 
 public class MidLayerService {
-	BottomLayerService bottomService;
+    BottomLayerService bottomService;
 
-	public MidLayerService(final BottomLayerService bottomService) {
-		this.bottomService = bottomService;
-	}
+    public MidLayerService(final BottomLayerService bottomService) {
+        this.bottomService = bottomService;
+    }
 
-	public boolean isComplicatedFoo(final int val) {
-		switch (val % 4) {
-		case 0:
-			return true;
+    public boolean isComplicatedFoo(final int val) {
+        switch (val % 4) {
+            case 0:
+                return true;
 
-		case 1:
-			return !bottomService.anotherComplicatedLogic(val);
-			
-			// throw new NullPointerException("Fehler im genutzten Modul.");
-			// return !bottomService.anotherComplicatedLogic(val + 2);
-			// return !bottomService.anotherComplicatedLogic(val + 3);
+            case 1:
+                return !bottomService.anotherComplicatedLogic(val);
 
-		case 2:
-			return bottomService.anotherComplicatedLogic(val);
+            // throw new NullPointerException("Fehler im genutzten Modul.");
+            // return !bottomService.anotherComplicatedLogic(val + 2);
+            // return !bottomService.anotherComplicatedLogic(val + 3);
 
-		default:
-			return false;
-		}
-	}
+            case 2:
+                return bottomService.anotherComplicatedLogic(val);
+
+            default:
+                return false;
+        }
+    }
 }

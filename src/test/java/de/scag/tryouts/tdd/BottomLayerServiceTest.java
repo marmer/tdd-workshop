@@ -1,24 +1,23 @@
 package de.scag.tryouts.tdd;
 
-import static org.hamcrest.CoreMatchers.is;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+import org.mockito.quality.Strictness;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Test;
 
-import org.junit.runner.RunWith;
-
-import org.mockito.InjectMocks;
-
-import org.mockito.runners.MockitoJUnitRunner;
-
-
-@RunWith(MockitoJUnitRunner.class)
 public class BottomLayerServiceTest {
+    final int DIVIDABLE_BY_THREE = 3;
+    @Rule
+    public MockitoRule mockito = MockitoJUnit.rule().strictness(Strictness.STRICT_STUBS);
+
     @InjectMocks
     private BottomLayerService classUnderTest;
-
-    final int DIVIDABLE_BY_THREE = 3;
 
     @Test
     public void testAnotherComplicatedLogic_ValueIsDividableByThree_ShouldReturnFalse()
