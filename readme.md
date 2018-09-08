@@ -27,6 +27,9 @@ At las the calculation has to be written in another file. Each dot of the origin
 ```
 
 ## Rules
+* The application has to be started with two commandline parameters
+* The first parameter takes the path of the input file
+* The second parameter takes the path of the output file
 * The minefield is a rectangular matrix.
 * The field can be initialized with any width and length bigger or equal to 1
 * The field width can be different from the fields length
