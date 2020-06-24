@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import {helloWorld} from "./helloWorld";
 
-helloWorld(process.argv.slice(2))
+import readline from "readline-sync"
+import {Ohce} from "./ohce";
+
+new Ohce(readline.question, console.log)
