@@ -1,0 +1,52 @@
+{
+  "name": "katabase",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.3",
+    "@types/node": "^14.0.13",
+    "@types/jest": "^26.0.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "jest-junit": "^10.0.0",
+    "jest-junit-reporter": "^1.1.0",
+    "ts-jest": "^26.1.0",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "tsc": "^1.20150623.0",
+    "npm": "^6.14.5"
+  },
+  "version": "1.0.0",
+  "main": "build/classes/scripts/application.js",
+  "scripts": {
+    "start": "ts-node src/main/scripts/application.ts",
+    "start-watch": "nodemon --watch 'src/main/scripts/**/*.ts' --exec ts-node src/main/scripts/application.ts Spiderman",
+    "build": "tsc -p .",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "refresh": "rm -rf ./node_modules ./package-lock.json yarn.lock build && npm install"
+  },
+  "bin": {
+    "katabase": "build/classes/scripts/application.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marmer/katabase.git"
+  },
+  "keywords": [
+    "kata"
+  ],
+  "author": "marmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marmer/katabase/issues"
+  },
+  "homepage": "https://github.com/marmer/katabase#readme",
+  "description": "kata base"
+}
