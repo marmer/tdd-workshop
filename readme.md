@@ -1,4 +1,4 @@
-# TDD-Workshop Showcases
+# TDD-Workshop
 Im Masterbranch befindet sich die globale Konfiguration. Die tatsächlichen Show-Cases befinden sich in den entsprechend benannten anderen Branches 
 
 
@@ -9,10 +9,10 @@ Ferner ist eine Installation von Node (ab Verison 12) hilfreich, wenn mit Javasc
 
 ## Bauen
 
-### Gradle (Java, Kotlin, Typescript, Javascript)
+### Gradle (Java, Kotlin)
 ```.\gradlew.bat build```
 
-Durch auskommentieren von ```dependsOn("npm_run_test")``` in ```build.gradle.kts```  wird nur noch der Java und Kotlin Teil gebaut.
+Durch einkommentieren von ```dependsOn("npm_run_test")``` in ```build.gradle.kts``` sollte ein Bauen aller hier benannten Sprachen mit einem Kommando möglich sein.
 
 ### Node (Javascript und Typescript)
 Hier kann wahlweise mit npm oder yarn gebaut werden
