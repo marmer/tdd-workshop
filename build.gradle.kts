@@ -12,6 +12,7 @@ plugins {
     id("io.freefair.lombok") version "5.0.1"
     id("com.github.node-gradle.node") version "2.2.4"
     application
+    `eclipse-wtp`
 }
 
 //Can be run wich gradle run --args="..."
@@ -75,6 +76,13 @@ tasks.withType<Test>() {
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.javaParameters = true
     kotlinOptions.jvmTarget = javaVersion.toString()
+}
+
+tasks.findByPath("eclipse")?.dependsOn("createSourceFolders")
+
+tasks.create("createSourceFolders") {
+    arrayOf("java", "kotlin", "scripts", "resources")
+        .forEach { type -> File("src/main/${type}").mkdirs() }
 }
 
 fun sourcePathDirectoriesIn(sourtePathRoot: String): String {

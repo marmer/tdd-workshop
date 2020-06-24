@@ -194,3 +194,6 @@ workspace.cachenpm
 coverage/
 junit.xml
 test-report.xml
+.project
+.settings
+.classpath
