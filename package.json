@@ -1,5 +1,5 @@
 {
-  "name": "katabase",
+  "name": "tdd-workshop",
   "dependencies": {
     "readline-sync": "^1.4.10"
   },
@@ -33,11 +33,11 @@
     "refresh": "rm -rf ./node_modules ./package-lock.json yarn.lock build && npm install"
   },
   "bin": {
-    "katabase": "build/classes/scripts/application.js"
+    "tdd-workshop": "build/classes/scripts/application.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marmer/katabase.git"
+    "url": "git+https://github.com/marmer/tdd-workshop.git"
   },
   "keywords": [
     "kata"
@@ -45,8 +45,8 @@
   "author": "marmer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marmer/katabase/issues"
+    "url": "https://github.com/marmer/tdd-workshop/issues"
   },
-  "homepage": "https://github.com/marmer/katabase#readme",
+  "homepage": "https://github.com/marmer/tdd-workshop#readme",
   "description": "kata base"
 }

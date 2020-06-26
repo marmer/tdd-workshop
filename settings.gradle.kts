@@ -1,1 +1,1 @@
-rootProject.name = "katabase"
+rootProject.name = "tdd-workshop"
