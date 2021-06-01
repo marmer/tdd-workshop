@@ -2,7 +2,7 @@ package io.github.marmer
 
 import org.junit.jupiter.api.Test
 
-class ApplicationTest {
+class ApplicationKtTest {
 
     @Test
     fun helloTest() {
