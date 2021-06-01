@@ -2,14 +2,14 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-var javaVersion = JavaVersion.VERSION_12
-val kotlinVersion = "1.3.72"
+var javaVersion = JavaVersion.VERSION_11
+val kotlinVersion = "1.5.10"
 
 plugins {
     java
-    kotlin("jvm") version "1.3.72"
+    kotlin("jvm") version "1.5.10"
     jacoco
-    id("io.freefair.lombok") version "5.0.1"
+    id("io.freefair.lombok") version "5.3.3.3"
     id("com.github.node-gradle.node") version "2.2.4"
     application
     `eclipse-wtp`
@@ -32,11 +32,12 @@ dependencies {
     implementation(kotlin("reflect", kotlinVersion))
     testImplementation(kotlin("test", kotlinVersion))
     testImplementation(kotlin("test-junit5", kotlinVersion))
-    testImplementation("org.junit.jupiter", "junit-jupiter", "5.6.2")
-    testImplementation("org.assertj", "assertj-core", "3.16.1")
-    testImplementation("org.hamcrest", "hamcrest-core", "2.2")
-    testImplementation("org.mockito", "mockito-core", "3.3.3")
-    testImplementation("org.mockito", "mockito-junit-jupiter", "3.3.3")
+    testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.2")
+    testImplementation("org.assertj", "assertj-core", "3.19.0")
+    testImplementation("org.rnorth.visible-assertions", "visible-assertions", "2.1.2")
+    testImplementation("org.hamcrest", "hamcrest", "2.2")
+    testImplementation("org.mockito", "mockito-core", "3.10.0")
+    testImplementation("org.mockito", "mockito-junit-jupiter", "3.10.0")
     testImplementation("com.nhaarman.mockitokotlin2", "mockito-kotlin", "2.2.0")
 }
 
