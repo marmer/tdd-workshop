@@ -197,3 +197,4 @@ test-report.xml
 .project
 .settings
 .classpath
+*.iml

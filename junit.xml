@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" time="7.422">
-  <testsuite name="application tests" errors="0" failures="0" skipped="0" timestamp="2020-06-24T07:59:12" time="5.287" tests="1">
-    <testcase classname="application tests should run" name="application tests should run" time="0.032">
+<testsuites name="jest tests" tests="1" failures="0" time="1.716">
+  <testsuite name="application tests" errors="0" failures="0" skipped="0" timestamp="2021-06-01T09:54:29" time="0.725" tests="1">
+    <testcase classname="application tests should run" name="application tests should run" time="0.013">
     </testcase>
   </testsuite>
 </testsuites>
