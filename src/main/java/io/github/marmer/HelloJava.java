@@ -1,6 +1,8 @@
 package io.github.marmer;
 
 
+import static java.util.stream.IntStream.rangeClosed;
+
 public class HelloJava {
 
     /**
@@ -8,20 +10,38 @@ public class HelloJava {
      * 6 => „Fizz“) Durch 5 teilbare Zahlen werden durch den String „Buzz“ ersetzt (Bsp.: 10 => „Buzz“) Zahlen auf denen
      * mehrere Regeln zutreffen erhalten alle Ersetzungen Concateniert (Bsp.: 15 => „FizzBuzz“
      *
-     * @param startValue is klar, oder?
+     * @param startExclusive is klar, oder?
+     * @param endExclusive   is klar, oder?
      */
-    public String[] doFizzles(final int startValue) {
-        if (isFizzValue(startValue)) {
-            return new String[]{"Fizz"};
+    public String[] doFizzles(final int startExclusive, final int endExclusive) {
+        return rangeClosed(startExclusive, endExclusive)
+            .mapToObj(this::toFizzle)
+            .toArray(String[]::new);
+    }
+
+    private String toFizzle(final int number) {
+        String result = "";
+
+        if (isFizzValue(number)) {
+            result += "Fizz";
         }
-        if (isBuzzValue(startValue)) {
-            return new String[]{"Buzz"};
+        if (isBuzzValue(number)) {
+            result += "Buzz";
         }
-        return new String[]{"" + startValue};
+        if (isPopValue(number)) {
+            result += "Pop";
+        }
+        return result.isEmpty() ?
+            "" + number :
+            result;
     }
 
     private boolean isBuzzValue(final int startValue) {
         return startValue % 5 == 0;
+    }
+
+    private boolean isPopValue(final int startValue) {
+        return startValue % 7 == 0;
     }
 
     private boolean isFizzValue(final int startValue) {
