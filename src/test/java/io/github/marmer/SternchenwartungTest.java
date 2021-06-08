@@ -42,11 +42,26 @@ class SternchenwartungTest {
 
 
     @Test
-    @DisplayName("Stern mit einem Fehler sollte ausgebessert werden")
+    @DisplayName("Stern mit einem Fehler sollte als gut betrachtet werden")
     @SneakyThrows
-    void warteSternBeiKoordinate_SternMitEinemFehlerSollteAusgebessertWerden() {
+    void warteSternBeiKoordinate_SternMitEinemFehlerSolltenAlsGutBetrachtetWerden() {
         final var zielkoordinaten = "x120";
         final var zuWartenderStern = newSternMitEinemFehler();
+        when(versandDienstleister.holeSternVon(zielkoordinaten)).thenReturn(zuWartenderStern);
+
+        // Execution
+        underTest.warteSternBeiKoordinate(zielkoordinaten);
+
+        // Assertion
+        verify(versandDienstleister).versende(zuWartenderStern, zielkoordinaten);
+    }
+
+    @Test
+    @DisplayName("Stern mit genau zwei Fehler sollte ausgebessert werden")
+    @SneakyThrows
+    void warteSternBeiKoordinate_SternMitGenauZweiFehlerSollteAusgebessertWerden() {
+        final var zielkoordinaten = "x120";
+        final var zuWartenderStern = newSternMitZweiFehler();
         final var reparierterStern = newFehlerfreierStern();
         when(versandDienstleister.holeSternVon(zielkoordinaten)).thenReturn(zuWartenderStern);
         when(werkstatt.repariere(zuWartenderStern)).thenReturn(reparierterStern);
@@ -59,11 +74,11 @@ class SternchenwartungTest {
     }
 
     @Test
-    @DisplayName("Stern mit mehr als einem Fehler sollte ausgetauscht werden")
+    @DisplayName("Stern mit mehr als zwie Fehler sollten neu gekauft werden")
     @SneakyThrows
-    void warteSternBeiKoordinate_SternMitMehrAlsEinemFehlerSollteAusgetauschtWerden() {
+    void warteSternBeiKoordinate_SternMitMehrAlsZwieFehlerSolltenNeuGekauftWerden() {
         final var zielkoordinaten = "x120";
-        final var zuWartenderStern = newSternMitZweiFehler();
+        final var zuWartenderStern = newSternMitDreiFehler();
         final var neuerStern = newFehlerfreierStern();
         when(versandDienstleister.holeSternVon(zielkoordinaten)).thenReturn(zuWartenderStern);
         when(starShop24.kaufeSternFuerKoordinate(zielkoordinaten)).thenReturn(neuerStern);
@@ -76,18 +91,23 @@ class SternchenwartungTest {
     }
 
     @NotNull
+    private Stern newSternMitDreiFehler() {
+        return new Stern(4, 39, 5, 5777);
+    }
+
+    @NotNull
     private Stern newSternMitZweiFehler() {
-        return new Stern(5, 59, 6);
+        return new Stern(5, 39, 5, 5777);
     }
 
     @NotNull
     private Stern newSternMitEinemFehler() {
-        return new Stern(5, 59, 5);
+        return new Stern(5, 39, 5, 5778);
     }
 
     @NotNull
     private Stern newFehlerfreierStern() {
-        return new Stern(5, 60, 5);
+        return new Stern(5, 40, 5, 5778);
     }
 
 }

@@ -23,8 +23,9 @@ public class Sternchenwartung {
     private Stern fuehreWartungDurch(final String zielkoordinaten, final Stern stern) {
         switch (stern.getAnzahlFehler()) {
             case 0:
-                return stern;
             case 1:
+                return stern;
+            case 2:
                 return werkstatt.repariere(stern);
             default:
                 return starShop24.kaufeSternFuerKoordinate(zielkoordinaten);

@@ -26,7 +26,7 @@ public class SternTest {
 
     @NotNull
     private Stern newFehlerFreierStern() {
-        return new Stern(5, 60, 5);
+        return new Stern(5, 40, 5, 5778);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class SternTest {
     void getAnzahlFehler_SternMitZuGereingerLichintensitaetGiltAlsFehlerhaft() {
         // Preparation
         final Stern stern = newFehlerFreierStern()
-            .setLichtintensitaet(59);
+            .setLichtintensitaet(39);
 
         // Execution
         final var result = stern.getAnzahlFehler();
@@ -45,13 +45,12 @@ public class SternTest {
     }
 
     @Test
-    @DisplayName("Zuviele Sonnenflecken gelten als Fehler")
+    @DisplayName("Zu geringe Temperatur gilt als Fehler")
     @SneakyThrows
-    void getAnzahlFehler_ZuvieleSonnenfleckenGeltenAlsFehler() {
+    void getAnzahlFehler_ZuGeringeTemperaturGiltAlsFehler() {
         // Preparation
-        final Stern fehlerfreierStern = newFehlerFreierStern();
-        final Stern stern = fehlerfreierStern
-            .setSonnenflecken(fehlerfreierStern.getAnzahlEcken() + 1);
+        final Stern stern = newFehlerFreierStern()
+            .setTemperatur(5777);
 
         // Execution
         final var result = stern.getAnzahlFehler();

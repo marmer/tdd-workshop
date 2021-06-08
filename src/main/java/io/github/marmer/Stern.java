@@ -12,22 +12,24 @@ public class Stern {
     private int anzahlEcken;
     private int lichtintensitaet;
     private int sonnenflecken;
+    private int temperatur;
 
     public int getAnzahlFehler() {
         return anzahlLichtintensitaetsFehler() +
-            anzahlSonnenfleckenFehler() +
+            anzahlTemperaturFehler() +
             anzahlEckenFehler();
+    }
+
+    private int anzahlTemperaturFehler() {
+        return temperatur < 5778 ? 1 : 0;
     }
 
     private int anzahlEckenFehler() {
         return anzahlEcken != 5 && anzahlEcken % 3 != 0 ? 1 : 0;
     }
 
-    private int anzahlSonnenfleckenFehler() {
-        return sonnenflecken > anzahlEcken ? 1 : 0;
-    }
 
     private int anzahlLichtintensitaetsFehler() {
-        return lichtintensitaet < 60 ? 1 : 0;
+        return lichtintensitaet < 40 ? 1 : 0;
     }
 }
