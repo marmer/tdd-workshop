@@ -49,8 +49,9 @@ public class SternTest {
     @SneakyThrows
     void getAnzahlFehler_ZuvieleSonnenfleckenGeltenAlsFehler() {
         // Preparation
-        final Stern stern = newFehlerFreierStern()
-            .setLichtintensitaet(59);
+        final Stern fehlerfreierStern = newFehlerFreierStern();
+        final Stern stern = fehlerfreierStern
+            .setSonnenflecken(fehlerfreierStern.getAnzahlEcken() + 1);
 
         // Execution
         final var result = stern.getAnzahlFehler();
