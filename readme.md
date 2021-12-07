@@ -14,7 +14,7 @@ alles mit Gradle gebaut werden.
 
 ### Node (Nur bei mit Node laufenden Sprachen)
 
-Ferner ist eine Installation von Node (ab Verison 12) hilfreich, wenn mit Javascript oder Typescript gearbeitet wird.
+Ferner ist eine Installation von Node (ab Verison 16) hilfreich, wenn mit Javascript oder Typescript gearbeitet wird.
 
 ## Maven
 
