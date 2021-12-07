@@ -7,12 +7,16 @@ benannten anderen Branches
 
 ### JDK (JVM Sprachen)
 
-Zum Bauen des Projektes ist mindestens ein korrekt eingerichtetes JDK in der Version 12 notwendig. In dem Fall könnte
+Zum Bauen des Projektes ist mindestens ein korrekt eingerichtetes JDK in der Version 11 notwendig. In dem Fall könnte
 alles mit Gradle gebaut werden.
 
 ### Node (Nur bei mit Node laufenden Sprachen)
 
 Ferner ist eine Installation von Node (ab Verison 12) hilfreich, wenn mit Javascript oder Typescript gearbeitet wird.
+
+## Maven
+
+Nicht zwingend erforderlich, da ein Wrapper mitgeliefert wird
 
 ## Gradle
 
@@ -45,6 +49,12 @@ Eclipse Spezifische Dateien zu generieren:
 ```.\gradlew.bat eclipse```
 
 ## Build Tools
+
+### Maven (Java, Kotlin)
+
+```.\mvnw.bat clean install```
+bzw.
+```mvnw clean install```
 
 ### Gradle (Java, Kotlin)
 
