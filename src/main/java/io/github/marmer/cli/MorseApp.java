@@ -10,12 +10,14 @@ import io.github.marmer.ResourceMorseDictionary;
 public class MorseApp {
 
     private final Printer printer;
+    private final InputReader inputReader;
     private final MorseTranslator morseTranslator;
     private final InputTypeDetector inputTypeDetector;
 
-    public MorseApp(Printer printer, MorseTranslator morseTranslator,
+    public MorseApp(Printer printer, InputReader inputReader, MorseTranslator morseTranslator,
         InputTypeDetector inputTypeDetector) {
         this.printer = printer;
+        this.inputReader = inputReader;
         this.morseTranslator = morseTranslator;
         this.inputTypeDetector = inputTypeDetector;
     }
@@ -23,13 +25,14 @@ public class MorseApp {
     public static void main(String... args) {
         new MorseApp(
             new ConsolePrinter(),
+            () -> args[args.length - 1],
             new MorseTranslator(new ResourceMorseDictionary("/morse.dict")),
             new InputTypeDetector())
-            .run(args);
+            .run();
     }
 
-    void run(String... args) {
-        final String toTranslate = args[args.length - 1];
+    void run() {
+        final String toTranslate = inputReader.read();
 
         if (inputTypeDetector.getTypeOf(toTranslate) == InputType.MORSE) {
             printer.print(morseTranslator.morseToText(toTranslate));

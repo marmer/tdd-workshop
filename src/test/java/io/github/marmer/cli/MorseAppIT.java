@@ -17,13 +17,16 @@ class MorseAppIT {
 
     private MorseApp underTest;
     private List<String> writtenLines;
+    private String input;
 
     @BeforeEach
     void setUp() {
         writtenLines = new ArrayList<>();
         Printer printerMock = writtenLines::add;
+        input = null;
         underTest = new MorseApp(
             printerMock,
+            () -> input,
             new MorseTranslator(new ResourceMorseDictionary("/morse.dict")),
             new InputTypeDetector()
         );
@@ -34,9 +37,10 @@ class MorseAppIT {
     @SneakyThrows
     void run_SollteBeiAufrufMitEinemMorsecodeParameterTextAusgeben() {
         // Preparation
+        input = "-.. . .-.   -- --- .--. ...";
 
         // Execution
-        underTest.run("-.. . .-.   -- --- .--. ...");
+        underTest.run();
 
         // Assertion
         assertEquals(List.of("DER MOPS"), writtenLines);
@@ -48,9 +52,10 @@ class MorseAppIT {
     @SneakyThrows
     void run_SollteBeiAufrufMitEinemTextParameterMorsecodeAusgeben() {
         // Preparation
+        input = "Der Mops";
 
         // Execution
-        underTest.run("Der Mops");
+        underTest.run();
 
         // Assertion
         assertEquals(List.of("-.. . .-.   -- --- .--. ..."), writtenLines);
