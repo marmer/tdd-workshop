@@ -5,7 +5,6 @@ import io.github.marmer.morse.domain.MorseDecoder;
 import io.github.marmer.morse.domain.MorseDictionary;
 import io.github.marmer.morse.domain.MorseEncoder;
 import io.github.marmer.morse.usecases.MorseTranslator;
-import java.nio.file.Path;
 
 public class MorseTranslatorFactory {
 
@@ -17,17 +16,9 @@ public class MorseTranslatorFactory {
         this.printerFactory = printerFactory;
     }
 
-    public MorseTranslator create() {
+    public MorseTranslator create(String[] args) {
         return new MorseTranslator(
-            printerFactory.create(),
-            new MorseEncoder(dict),
-            new MorseDecoder(dict),
-            new InputTypeDetector());
-    }
-
-    public MorseTranslator createWithOutFile(Path outFile) {
-        return new MorseTranslator(
-            printerFactory.create(outFile),
+            printerFactory.create(args),
             new MorseEncoder(dict),
             new MorseDecoder(dict),
             new InputTypeDetector());

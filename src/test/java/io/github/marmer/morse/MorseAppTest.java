@@ -24,10 +24,11 @@ class MorseAppTest {
 
     @BeforeEach
     void setUp() {
+        final CLIProcessor cliProcessor = new CLIProcessor();
         printerMock = mock(Printer.class);
-        printerFactory = spy(new PrinterFactory());
+        printerFactory = spy(new PrinterFactory(cliProcessor));
         inputFileReaderMock = mock(InputFileReader.class);
-        underTest = new MorseApp(new CLIProcessor(), new MorseTranslatorFactory(printerFactory), inputFileReaderMock);
+        underTest = new MorseApp(cliProcessor, new MorseTranslatorFactory(printerFactory), inputFileReaderMock);
     }
 
     @Test
@@ -35,10 +36,11 @@ class MorseAppTest {
     @SneakyThrows
     void run_StandarduebersetzungSollteFunktionieren() {
         // Preparation
-        when(printerFactory.create()).thenReturn(printerMock);
+        final String[] args = {"-.. . .-.   -- --- .--. ..."};
+        when(printerFactory.create(args)).thenReturn(printerMock);
 
         // Execution
-        underTest.run("-.. . .-.   -- --- .--. ...");
+        underTest.run(args);
 
         // Assertion
         verify(printerMock).print("DER MOPS");
@@ -49,10 +51,11 @@ class MorseAppTest {
     @SneakyThrows
     void run_UebersetzungAusEingabedateiSollteFunktionieren() {
         // Preparation
-        when(printerFactory.create(Paths.get("outFilePath"))).thenReturn(printerMock);
+        final String[] args = {"-o=outFilePath", "-.. . .-.   -- --- .--. ..."};
+        when(printerFactory.create(args)).thenReturn(printerMock);
 
         // Execution
-        underTest.run("-o=outFilePath", "-.. . .-.   -- --- .--. ...");
+        underTest.run(args);
 
         // Assertion
         verify(printerMock).print("DER MOPS");
@@ -63,11 +66,12 @@ class MorseAppTest {
     @SneakyThrows
     void run_UebersetzungMitEingabedateiSollteFunktionieren() {
         // Preparation
-        when(printerFactory.create()).thenReturn(printerMock);
+        final String[] args = {"-i=inputFilePath"};
+        when(printerFactory.create(args)).thenReturn(printerMock);
         when(inputFileReaderMock.read(Paths.get("inputFilePath"))).thenReturn("-.. . .-.   -- --- .--. ...");
 
         // Execution
-        underTest.run("-i=inputFilePath");
+        underTest.run(args);
 
         // Assertion
         verify(printerMock).print("DER MOPS");
@@ -78,11 +82,12 @@ class MorseAppTest {
     @SneakyThrows
     void run_UebersetzungMitEingabedateiUndAusgabedateiSollteFunktionieren() {
         // Preparation
-        when(printerFactory.create(Paths.get("outFilePath"))).thenReturn(printerMock);
+        final String[] args = {"-i=inputFilePath", "-o=outFilePath"};
+        when(printerFactory.create(args)).thenReturn(printerMock);
         when(inputFileReaderMock.read(Paths.get("inputFilePath"))).thenReturn("-.. . .-.   -- --- .--. ...");
 
         // Execution
-        underTest.run("-i=inputFilePath", "-o=outFilePath");
+        underTest.run(args);
 
         // Assertion
         verify(printerMock).print("DER MOPS");

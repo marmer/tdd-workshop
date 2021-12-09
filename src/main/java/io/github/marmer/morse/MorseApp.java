@@ -2,6 +2,7 @@ package io.github.marmer.morse;
 
 import io.github.marmer.morse.adapter.cli.CLIProcessor;
 import io.github.marmer.morse.adapter.fs.InputFileReader;
+import io.github.marmer.morse.usecases.MorseTranslator;
 
 public class MorseApp {
 
@@ -22,13 +23,12 @@ public class MorseApp {
     }
 
     public void run(String... args) {
-        cliProcessor.getInFile(args).map(inputFileReaderMock::read)
+        final MorseTranslator morseTranslator = morseTranslatorFactory.create(args);
+
+        cliProcessor.getInFile(args)
+            .map(inputFileReaderMock::read)
             .or(() -> cliProcessor.getDefaultInput(args))
-            .ifPresent(defaultInput ->
-                cliProcessor.getOutFile(args).ifPresentOrElse(outFile ->
-                        morseTranslatorFactory.createWithOutFile(outFile).translate(defaultInput),
-                    () -> morseTranslatorFactory.create().translate(defaultInput))
-            );
+            .ifPresent(morseTranslator::translate);
     }
 
 

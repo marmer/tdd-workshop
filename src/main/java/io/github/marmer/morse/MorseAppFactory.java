@@ -6,9 +6,10 @@ import io.github.marmer.morse.adapter.fs.InputFileReader;
 public class MorseAppFactory {
 
     public MorseApp create() {
+        final CLIProcessor cliProcessor = new CLIProcessor();
         return new MorseApp(
-            new CLIProcessor(),
-            new MorseTranslatorFactory(new PrinterFactory()),
+            cliProcessor,
+            new MorseTranslatorFactory(new PrinterFactory(cliProcessor)),
             new InputFileReader());
     }
 }
