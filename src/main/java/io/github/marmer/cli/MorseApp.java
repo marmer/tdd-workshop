@@ -5,6 +5,9 @@ import io.github.marmer.InputTypeDetector;
 import io.github.marmer.InputTypeDetector.InputType;
 import io.github.marmer.MorseTranslator;
 import io.github.marmer.Printer;
+import java.io.BufferedReader;
+import java.io.StringReader;
+import lombok.SneakyThrows;
 
 public class MorseApp {
 
@@ -31,9 +34,15 @@ public class MorseApp {
             .run();
     }
 
+    @SneakyThrows
     void run() {
-        final String toTranslate = inputReader.read();
+        try (var reader = new BufferedReader(new StringReader(inputReader.read()))) {
+            reader.lines()
+                .forEach(this::translate);
+        }
+    }
 
+    private void translate(String toTranslate) {
         if (inputTypeDetector.getTypeOf(toTranslate) == InputType.MORSE) {
             printer.print(morseTranslator.morseToText(toTranslate));
         } else {

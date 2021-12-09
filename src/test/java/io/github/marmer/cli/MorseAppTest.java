@@ -60,4 +60,19 @@ class MorseAppTest {
         // Assertion
         assertEquals(List.of("-.. . .-.   -- --- .--. ..."), writtenLines);
     }
+
+    @Test
+    @DisplayName("Sollte Mehrzeilige Eingaben übersetzen können")
+    @SneakyThrows
+    void run_SollteMehrzeiligeEingabenUebersetzenKoennen() {
+        // Preparation
+        input = "Der\n" +
+            "Der Mops";
+
+        // Execution
+        underTest.run();
+
+        // Assertion
+        assertEquals(List.of("-.. . .-.", "-.. . .-.   -- --- .--. ..."), writtenLines);
+    }
 }
