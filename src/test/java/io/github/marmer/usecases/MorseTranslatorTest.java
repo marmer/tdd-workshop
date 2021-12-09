@@ -18,16 +18,13 @@ class MorseTranslatorTest {
 
     private MorseTranslator underTest;
     private List<String> writtenLines;
-    private String input;
 
     @BeforeEach
     void setUp() {
         writtenLines = new ArrayList<>();
         Printer printerMock = writtenLines::add;
-        input = null;
         underTest = new MorseTranslator(
             printerMock,
-            () -> input,
             new MorseEncoder(new ResourceMorseDictionary("/morse.dict")),
             new MorseDecoder(new ResourceMorseDictionary("/morse.dict")),
             new InputTypeDetector()
@@ -39,10 +36,9 @@ class MorseTranslatorTest {
     @SneakyThrows
     void run_SollteBeiAufrufMitEinemMorsecodeParameterTextAusgeben() {
         // Preparation
-        input = "-.. . .-.   -- --- .--. ...";
 
         // Execution
-        underTest.run();
+        underTest.translate("-.. . .-.   -- --- .--. ...");
 
         // Assertion
         assertEquals(List.of("DER MOPS"), writtenLines);
@@ -54,10 +50,9 @@ class MorseTranslatorTest {
     @SneakyThrows
     void run_SollteBeiAufrufMitEinemTextParameterMorsecodeAusgeben() {
         // Preparation
-        input = "Der Mops";
 
         // Execution
-        underTest.run();
+        underTest.translate("Der Mops");
 
         // Assertion
         assertEquals(List.of("-.. . .-.   -- --- .--. ..."), writtenLines);
@@ -68,11 +63,10 @@ class MorseTranslatorTest {
     @SneakyThrows
     void run_SollteMehrzeiligeEingabenUebersetzenKoennen() {
         // Preparation
-        input = "Der\n" +
-            "Der Mops";
 
         // Execution
-        underTest.run();
+        underTest.translate("Der\n" +
+            "Der Mops");
 
         // Assertion
         assertEquals(List.of("-.. . .-.", "-.. . .-.   -- --- .--. ..."), writtenLines);

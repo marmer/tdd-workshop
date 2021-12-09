@@ -15,7 +15,7 @@ plugins {
     `eclipse-wtp`
 }
 
-//Can be run wich gradle run --args="..."
+//Can be translate wich gradle translate --args="..."
 application {
     mainClass.set("io.github.marmer.ApplicationKt")
 }
