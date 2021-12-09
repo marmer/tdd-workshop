@@ -1,11 +1,10 @@
 package io.github.marmer.cli;
 
-import io.github.marmer.ConsolePrinter;
+import io.github.marmer.AllMightyCLIFactory;
 import io.github.marmer.InputTypeDetector;
 import io.github.marmer.InputTypeDetector.InputType;
 import io.github.marmer.MorseTranslator;
 import io.github.marmer.Printer;
-import io.github.marmer.ResourceMorseDictionary;
 
 public class MorseApp {
 
@@ -23,11 +22,12 @@ public class MorseApp {
     }
 
     public static void main(String... args) {
+        var factory = new AllMightyCLIFactory(args);
         new MorseApp(
-            new ConsolePrinter(),
-            () -> args[args.length - 1],
-            new MorseTranslator(new ResourceMorseDictionary("/morse.dict")),
-            new InputTypeDetector())
+            factory.createPrinter(),
+            factory.createInputReader(),
+            factory.createMorseTranslator(),
+            factory.createInputTypeDetector())
             .run();
     }
 
