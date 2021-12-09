@@ -1,4 +1,4 @@
-package io.github.marmer;
+package io.github.marmer.domain;
 
 public class InputTypeDetector {
 

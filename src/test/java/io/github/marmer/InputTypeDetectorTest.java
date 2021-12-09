@@ -2,7 +2,8 @@ package io.github.marmer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.marmer.InputTypeDetector.InputType;
+import io.github.marmer.domain.InputTypeDetector;
+import io.github.marmer.domain.InputTypeDetector.InputType;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

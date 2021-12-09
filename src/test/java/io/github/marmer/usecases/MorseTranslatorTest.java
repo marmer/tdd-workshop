@@ -1,11 +1,12 @@
-package io.github.marmer.cli;
+package io.github.marmer.usecases;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.marmer.InputTypeDetector;
-import io.github.marmer.MorseTranslator;
-import io.github.marmer.Printer;
 import io.github.marmer.ResourceMorseDictionary;
+import io.github.marmer.domain.InputTypeDetector;
+import io.github.marmer.domain.MorseDecoder;
+import io.github.marmer.domain.MorseEncoder;
+import io.github.marmer.domain.Printer;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.SneakyThrows;
@@ -13,9 +14,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class MorseAppTest {
+class MorseTranslatorTest {
 
-    private MorseApp underTest;
+    private MorseTranslator underTest;
     private List<String> writtenLines;
     private String input;
 
@@ -24,10 +25,11 @@ class MorseAppTest {
         writtenLines = new ArrayList<>();
         Printer printerMock = writtenLines::add;
         input = null;
-        underTest = new MorseApp(
+        underTest = new MorseTranslator(
             printerMock,
             () -> input,
-            new MorseTranslator(new ResourceMorseDictionary("/morse.dict")),
+            new MorseEncoder(new ResourceMorseDictionary("/morse.dict")),
+            new MorseDecoder(new ResourceMorseDictionary("/morse.dict")),
             new InputTypeDetector()
         );
     }

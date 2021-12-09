@@ -1,4 +1,4 @@
-package io.github.marmer.cli;
+package io.github.marmer.domain;
 
 @FunctionalInterface
 public interface InputReader {

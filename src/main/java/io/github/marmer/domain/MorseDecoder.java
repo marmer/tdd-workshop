@@ -1,29 +1,23 @@
-package io.github.marmer;
+package io.github.marmer.domain;
 
 import static java.util.stream.Collectors.joining;
 
+import io.github.marmer.MorseDictionary;
 import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
 
-public class MorseTranslator {
+public class MorseDecoder {
 
     public static final String MORSE_WORD_SEPERATOR = "   ";
     public static final String TEXT_WORD_SEPARATOR = " ";
     public static final String MORSE_SYMBOL_SEPERATOR = TEXT_WORD_SEPARATOR;
     private final MorseDictionary morseSymbolDictionary;
 
-    public MorseTranslator(MorseDictionary morseSymbolDictionary) {
+    public MorseDecoder(MorseDictionary morseSymbolDictionary) {
         this.morseSymbolDictionary = morseSymbolDictionary;
     }
 
-    public String textToMorse(String text) {
-        return text.chars()
-            .mapToObj(Character::toString)
-            .map(morseSymbolDictionary::getMorseBySymbol)
-            .collect(joining(TEXT_WORD_SEPARATOR));
-    }
-
-    public String morseToText(String morse) {
+    public String decode(String morse) {
         return Stream.of(wordsOf(morse))
             .map(this::morseWordToWord)
             .collect(joining(MORSE_SYMBOL_SEPERATOR));
