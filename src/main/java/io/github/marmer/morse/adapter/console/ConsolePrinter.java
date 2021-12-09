@@ -1,6 +1,6 @@
-package io.github.marmer.adapter.console;
+package io.github.marmer.morse.adapter.console;
 
-import io.github.marmer.domain.Printer;
+import io.github.marmer.morse.domain.Printer;
 
 public class ConsolePrinter implements Printer {
 

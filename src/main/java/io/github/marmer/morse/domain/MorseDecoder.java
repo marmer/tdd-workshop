@@ -1,8 +1,7 @@
-package io.github.marmer.domain;
+package io.github.marmer.morse.domain;
 
 import static java.util.stream.Collectors.joining;
 
-import io.github.marmer.MorseDictionary;
 import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,4 +1,4 @@
-package io.github.marmer;
+package io.github.marmer.morse.domain;
 
 public interface MorseDictionary {
 

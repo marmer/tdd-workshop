@@ -1,5 +1,6 @@
-package io.github.marmer;
+package io.github.marmer.morse;
 
+import io.github.marmer.morse.domain.MorseDictionary;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Map;

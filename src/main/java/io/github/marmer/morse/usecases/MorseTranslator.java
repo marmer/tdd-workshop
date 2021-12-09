@@ -1,10 +1,11 @@
-package io.github.marmer.usecases;
+package io.github.marmer.morse.usecases;
 
-import io.github.marmer.domain.InputTypeDetector;
-import io.github.marmer.domain.InputTypeDetector.InputType;
-import io.github.marmer.domain.MorseDecoder;
-import io.github.marmer.domain.MorseEncoder;
-import io.github.marmer.domain.Printer;
+import io.github.marmer.morse.domain.InputTypeDetector;
+import io.github.marmer.morse.domain.InputTypeDetector.InputType;
+import io.github.marmer.morse.domain.MorseDecoder;
+import io.github.marmer.morse.domain.MorseEncoder;
+import io.github.marmer.morse.domain.Printer;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MorseTranslator {
@@ -24,15 +25,16 @@ public class MorseTranslator {
 
 
     public void translate(String textToTranslate) {
-        Stream.of(textToTranslate.split("[\r\n]+"))
-            .forEach(this::translateLine);
+        printer.print(Stream.of(textToTranslate.split("[\r\n]+"))
+            .map(this::translateLine)
+            .collect(Collectors.joining("\n", "", "")));
     }
 
-    private void translateLine(String lineToTranslate) {
+    private String translateLine(String lineToTranslate) {
         if (inputTypeDetector.getTypeOf(lineToTranslate) == InputType.MORSE) {
-            printer.print(morseDecoder.decode(lineToTranslate));
+            return morseDecoder.decode(lineToTranslate);
         } else {
-            printer.print(morseEncoder.encode(lineToTranslate));
+            return morseEncoder.encode(lineToTranslate);
         }
     }
 }

@@ -1,14 +1,12 @@
-package io.github.marmer.usecases;
+package io.github.marmer.morse.usecases;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.marmer.ResourceMorseDictionary;
-import io.github.marmer.domain.InputTypeDetector;
-import io.github.marmer.domain.MorseDecoder;
-import io.github.marmer.domain.MorseEncoder;
-import io.github.marmer.domain.Printer;
-import java.util.ArrayList;
-import java.util.List;
+import io.github.marmer.morse.ResourceMorseDictionary;
+import io.github.marmer.morse.domain.InputTypeDetector;
+import io.github.marmer.morse.domain.MorseDecoder;
+import io.github.marmer.morse.domain.MorseEncoder;
+import io.github.marmer.morse.domain.Printer;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -17,12 +15,12 @@ import org.junit.jupiter.api.Test;
 class MorseTranslatorTest {
 
     private MorseTranslator underTest;
-    private List<String> writtenLines;
+    private String writtenLines;
 
     @BeforeEach
     void setUp() {
-        writtenLines = new ArrayList<>();
-        Printer printerMock = writtenLines::add;
+        writtenLines = null;
+        Printer printerMock = it -> writtenLines = it;
         underTest = new MorseTranslator(
             printerMock,
             new MorseEncoder(new ResourceMorseDictionary("/morse.dict")),
@@ -41,7 +39,7 @@ class MorseTranslatorTest {
         underTest.translate("-.. . .-.   -- --- .--. ...");
 
         // Assertion
-        assertEquals(List.of("DER MOPS"), writtenLines);
+        assertEquals(("DER MOPS"), writtenLines);
     }
 
 
@@ -55,7 +53,7 @@ class MorseTranslatorTest {
         underTest.translate("Der Mops");
 
         // Assertion
-        assertEquals(List.of("-.. . .-.   -- --- .--. ..."), writtenLines);
+        assertEquals(("-.. . .-.   -- --- .--. ..."), writtenLines);
     }
 
     @Test
@@ -69,6 +67,6 @@ class MorseTranslatorTest {
             "Der Mops");
 
         // Assertion
-        assertEquals(List.of("-.. . .-.", "-.. . .-.   -- --- .--. ..."), writtenLines);
+        assertEquals(("-.. . .-.\n-.. . .-.   -- --- .--. ..."), writtenLines);
     }
 }

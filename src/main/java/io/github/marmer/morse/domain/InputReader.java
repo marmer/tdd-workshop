@@ -1,4 +1,4 @@
-package io.github.marmer.domain;
+package io.github.marmer.morse.domain;
 
 @FunctionalInterface
 public interface InputReader {

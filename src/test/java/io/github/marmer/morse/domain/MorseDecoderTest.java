@@ -1,8 +1,8 @@
-package io.github.marmer.domain;
+package io.github.marmer.morse.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.marmer.ResourceMorseDictionary;
+import io.github.marmer.morse.ResourceMorseDictionary;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.DisplayName;
