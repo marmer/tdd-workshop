@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 public class InputFileReader {
 
     @SneakyThrows
-    public String read(Path file) {
+    public String read(final Path file) {
         return Files.readString(file);
     }
 }

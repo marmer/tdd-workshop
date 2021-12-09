@@ -15,7 +15,7 @@ public class ResourceMorseDictionary implements MorseDictionary {
     private final Map<String, String> symbolByMorse;
 
     @SneakyThrows
-    public ResourceMorseDictionary(String resourceFilePath) {
+    public ResourceMorseDictionary(final String resourceFilePath) {
         try (final var reader = new BufferedReader(
             new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(resourceFilePath))))) {
             morseBySymbol = reader.lines()
@@ -31,12 +31,13 @@ public class ResourceMorseDictionary implements MorseDictionary {
         morseBySymbol.put(" ", " ");
     }
 
-    public String getMorseBySymbol(String symbol) {
+    @Override
+    public String getMorseBySymbol(final String symbol) {
         return morseBySymbol.getOrDefault(symbol.toUpperCase(), "..--..");
     }
 
     @Override
-    public String getSymbolByMorse(String morse) {
+    public String getSymbolByMorse(final String morse) {
         return symbolByMorse.getOrDefault(morse, "?");
     }
 }

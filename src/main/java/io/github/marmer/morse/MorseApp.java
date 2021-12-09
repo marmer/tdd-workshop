@@ -10,19 +10,19 @@ public class MorseApp {
     private final MorseTranslatorFactory morseTranslatorFactory;
     private final InputFileReader inputFileReaderMock;
 
-    public MorseApp(CLIProcessor cliProcessor,
-        MorseTranslatorFactory morseTranslatorFactory,
-        InputFileReader inputFileReaderMock) {
+    public MorseApp(final CLIProcessor cliProcessor,
+        final MorseTranslatorFactory morseTranslatorFactory,
+        final InputFileReader inputFileReaderMock) {
         this.cliProcessor = cliProcessor;
         this.morseTranslatorFactory = morseTranslatorFactory;
         this.inputFileReaderMock = inputFileReaderMock;
     }
 
-    public static void main(String... args) {
+    public static void main(final String... args) {
         new MorseAppFactory().create().run(args);
     }
 
-    public void run(String... args) {
+    public void run(final String... args) {
         final MorseTranslator morseTranslator = morseTranslatorFactory.create(args);
 
         cliProcessor.getInFile(args)

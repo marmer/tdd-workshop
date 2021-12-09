@@ -23,7 +23,7 @@ public class MorseTranslator {
         this.inputTypeDetector = inputTypeDetector;
     }
 
-
+ 
     public void translate(String textToTranslate) {
         printer.print(Stream.of(textToTranslate.split("[\r\n]+"))
             .map(this::translateLine)

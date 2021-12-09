@@ -18,12 +18,13 @@ class MorseEncoderTest {
     @CsvFileSource(delimiter = ' ',
         resources = "/morse.dict"
     )
-    void encode_EinfacherBuchstbaeSollteZuMorseUebersetztWerdenKoennen(String input, String expectedOutput) {
+    void encode_EinfacherBuchstbaeSollteZuMorseUebersetztWerdenKoennen(final String input,
+        final String expectedOutput) {
         // Preparation
-        var underTest = newMorseTranslator();
+        final var underTest = newMorseTranslator();
 
         // Execution
-        var result = underTest.encode(input);
+        final var result = underTest.encode(input);
 
         // Assertion
         assertEquals(expectedOutput, result);
@@ -37,13 +38,13 @@ class MorseEncoderTest {
             "Mehrere Wortet:;Der Mops;-.. . .-.   -- --- .--. ...",
             "Unbekannte Zeichen:;A*B#C;.- ..--.. -... ..--.. -.-.",
         })
-    void encode_KannAuchBuchstabenkombinationenZuMorseUebersetzen(String info, String input,
-        String expectedOutput) {
+    void encode_KannAuchBuchstabenkombinationenZuMorseUebersetzen(final String info, final String input,
+        final String expectedOutput) {
         // Preparation
-        var underTest = newMorseTranslator();
+        final var underTest = newMorseTranslator();
 
         // Execution
-        var result = underTest.encode(input);
+        final var result = underTest.encode(input);
 
         // Assertion
         assertEquals(expectedOutput, result);

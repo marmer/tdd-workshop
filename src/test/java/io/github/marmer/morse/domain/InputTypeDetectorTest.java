@@ -15,10 +15,10 @@ class InputTypeDetectorTest {
     @SneakyThrows
     void getTypeOf_ShouldBeAbleToRecognizeText() {
         // Preparation
-        var underTest = new InputTypeDetector();
+        final var underTest = new InputTypeDetector();
 
         // Execution
-        var result = underTest.getTypeOf("Der Mops");
+        final var result = underTest.getTypeOf("Der Mops");
 
         // Assertion
         Assertions.assertEquals(InputType.TEXT, result);
@@ -29,10 +29,10 @@ class InputTypeDetectorTest {
     @SneakyThrows
     void getTypeOf_ShouldBeAbleToRecognizeMorseCodeText() {
         // Preparation
-        var underTest = new InputTypeDetector();
+        final var underTest = new InputTypeDetector();
 
         // Execution
-        var result = underTest.getTypeOf("-.. . .-.   -- --- .--. ...");
+        final var result = underTest.getTypeOf("-.. . .-.   -- --- .--. ...");
 
         // Assertion
         assertEquals(InputType.MORSE, result);

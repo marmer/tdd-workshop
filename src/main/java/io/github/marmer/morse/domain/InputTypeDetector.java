@@ -2,7 +2,7 @@ package io.github.marmer.morse.domain;
 
 public class InputTypeDetector {
 
-    public InputType getTypeOf(String inputString) {
+    public InputType getTypeOf(final String inputString) {
         return inputString
             .replace(".", "")
             .replace("-", "")

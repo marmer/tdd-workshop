@@ -24,12 +24,12 @@ class MorseAppIT {
     @Test
     @DisplayName("Übersetzung mit Eingabedatei und Ausgabedatei sollte funktionieren")
     @SneakyThrows
-    void run_UebersetzungMitEingabedateiUndAusgabedateiSollteFunktionieren(@TempDir Path tempDir) {
+    void run_UebersetzungMitEingabedateiUndAusgabedateiSollteFunktionieren(@TempDir final Path tempDir) {
         // Preparation
-        var inputFilePath = tempDir.resolve("inputFilePath");
+        final var inputFilePath = tempDir.resolve("inputFilePath");
         writeString(inputFilePath, "Der Mops\n-- --- .--. ...   -.. . .-.");
 
-        var outputFilePath = tempDir.resolve("outputFilePath");
+        final var outputFilePath = tempDir.resolve("outputFilePath");
 
         // Execution
         underTest.run("-i=" + inputFilePath, "-o=" + outputFilePath);

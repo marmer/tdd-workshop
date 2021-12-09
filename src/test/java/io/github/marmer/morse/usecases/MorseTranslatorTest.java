@@ -20,7 +20,7 @@ class MorseTranslatorTest {
     @BeforeEach
     void setUp() {
         writtenLines = null;
-        Printer printerMock = it -> writtenLines = it;
+        final Printer printerMock = it -> writtenLines = it;
         underTest = new MorseTranslator(
             printerMock,
             new MorseEncoder(new ResourceMorseDictionary("/morse.dict")),

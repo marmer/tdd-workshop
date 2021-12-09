@@ -28,7 +28,8 @@ class MorseAppTest {
         printerMock = mock(Printer.class);
         printerFactory = spy(new PrinterFactory(cliProcessor));
         inputFileReaderMock = mock(InputFileReader.class);
-        underTest = new MorseApp(cliProcessor, new MorseTranslatorFactory(printerFactory), inputFileReaderMock);
+        underTest = new MorseApp(cliProcessor, new MorseTranslatorFactory(printerFactory),
+            inputFileReaderMock);
     }
 
     @Test

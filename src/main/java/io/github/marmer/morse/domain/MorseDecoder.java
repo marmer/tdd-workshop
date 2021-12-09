@@ -12,23 +12,23 @@ public class MorseDecoder {
     public static final String MORSE_SYMBOL_SEPERATOR = TEXT_WORD_SEPARATOR;
     private final MorseDictionary morseSymbolDictionary;
 
-    public MorseDecoder(MorseDictionary morseSymbolDictionary) {
+    public MorseDecoder(final MorseDictionary morseSymbolDictionary) {
         this.morseSymbolDictionary = morseSymbolDictionary;
     }
 
-    public String decode(String morse) {
+    public String decode(final String morse) {
         return Stream.of(wordsOf(morse))
             .map(this::morseWordToWord)
             .collect(joining(MORSE_SYMBOL_SEPERATOR));
     }
 
     @NotNull
-    private String[] wordsOf(String morse) {
+    private String[] wordsOf(final String morse) {
         return morse.split(MORSE_WORD_SEPERATOR);
     }
 
     @NotNull
-    private String morseWordToWord(String word) {
+    private String morseWordToWord(final String word) {
         return Stream.of(word.split(MORSE_SYMBOL_SEPERATOR))
             .map(morseSymbolDictionary::getSymbolByMorse)
             .collect(joining(""));

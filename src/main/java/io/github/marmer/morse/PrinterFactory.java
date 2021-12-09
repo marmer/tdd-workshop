@@ -9,11 +9,11 @@ public class PrinterFactory {
 
     private final CLIProcessor cliProcessor;
 
-    public PrinterFactory(CLIProcessor cliProcessor) {
+    public PrinterFactory(final CLIProcessor cliProcessor) {
         this.cliProcessor = cliProcessor;
     }
 
-    public Printer create(String[] args) {
+    public Printer create(final String[] args) {
         return cliProcessor.getOutFile(args)
             .<Printer>map(FilePrinter::new)
             .orElse(new ConsolePrinter());

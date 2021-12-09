@@ -11,12 +11,11 @@ public class MorseTranslatorFactory {
     private final PrinterFactory printerFactory;
     private final MorseDictionary dict = new ResourceMorseDictionary("/morse.dict");
 
-    public MorseTranslatorFactory(PrinterFactory printerFactory) {
-
+    public MorseTranslatorFactory(final PrinterFactory printerFactory) {
         this.printerFactory = printerFactory;
     }
 
-    public MorseTranslator create(String[] args) {
+    public MorseTranslator create(final String[] args) {
         return new MorseTranslator(
             printerFactory.create(args),
             new MorseEncoder(dict),
