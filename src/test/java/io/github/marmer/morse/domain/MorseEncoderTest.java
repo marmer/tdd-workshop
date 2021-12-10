@@ -1,7 +1,8 @@
-package io.github.marmer;
+package io.github.marmer.morse.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import io.github.marmer.morse.adapter.fs.ResourceMorseDictionary;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.DisplayName;
@@ -88,6 +89,6 @@ class MorseEncoderTest {
 
     @NotNull
     private MorseEncoder newMorseDictionary() {
-        return new MorseEncoder(new InMemoryMorseDictionary());
+        return new MorseEncoder(new ResourceMorseDictionary("/morse.dict"));
     }
 }
