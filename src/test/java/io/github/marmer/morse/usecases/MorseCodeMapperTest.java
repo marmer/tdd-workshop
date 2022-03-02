@@ -89,4 +89,58 @@ public class MorseCodeMapperTest {
         // Assertion
         assertEquals("-.. . .-.   .... ..- -. -.. .-.-.-", result);
     }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/morse.dict", delimiterString = " ")
+    @DisplayName("Sollte einzelnen Buchstbaen von Morse nach Lesbar übersetzen")
+    @SneakyThrows
+    void decode_SollteEinzelnenBuchstbaenVonMorseNachLesbarUebersetzen(final String expectedOutcome,
+        final String toDecode) {
+        // Preparation
+
+        // Execution
+        final var result = underTest.decode(toDecode);
+
+        // Assertion
+        assertEquals(expectedOutcome, result);
+    }
+
+    @Test
+    @DisplayName("Sollte unbekannte Zeichen in Fragezeichen übersetzen")
+    @SneakyThrows
+    void decode_SollteUnbekannteZeichenInFragezeichenUebersetzen() {
+        // Preparation
+
+        // Execution
+        final var result = underTest.decode(".-.-.-.-.-.-.--");
+
+        // Assertion
+        assertEquals("?", result);
+    }
+
+    @Test
+    @DisplayName("Sollte Morse Wort in Wort übersetzen können")
+    @SneakyThrows
+    void decode_SollteMorseWortInWortUebersetzenKoennen() {
+        // Preparation
+
+        // Execution
+        final var result = underTest.decode(".... ..- -. -..");
+
+        // Assertion
+        assertEquals("HUND", result);
+    }
+
+    @Test
+    @DisplayName("Sollte mehrere Morse Wörter übersetzen können")
+    @SneakyThrows
+    void decode_SollteMehrereMorseWoerterUebersetzenKoennen() {
+        // Preparation
+
+        // Execution
+        final var result = underTest.decode("-.. . .-.   .... ..- -. -..");
+
+        // Assertion
+        assertEquals("DER HUND", result);
+    }
 }

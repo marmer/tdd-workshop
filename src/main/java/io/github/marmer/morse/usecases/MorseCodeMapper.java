@@ -3,6 +3,7 @@ package io.github.marmer.morse.usecases;
 import static java.util.Map.entry;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
@@ -11,6 +12,7 @@ public class MorseCodeMapper {
 
     public static final String CLEARTEXT_WORD_SEPARATOR = " ";
     public static final String MORSE_WORD_SEPARATOR = "   ";
+    public static final String MORSE_SYMBOL_SEPARATOR = " ";
     private final Map<String, String> symbolToMorseDict = Map.ofEntries(
         entry("A", ".-"),
         entry("B", "-..."),
@@ -67,6 +69,15 @@ public class MorseCodeMapper {
         entry("@", ".--.-.")
     );
 
+    private final Map<String, String> morseToSymbolDict = transpose(symbolToMorseDict);
+
+    @NotNull
+    private Map<String, String> transpose(final Map<String, String> symbolToMorseDict) {
+        return symbolToMorseDict.entrySet().stream().collect(
+            Collectors.toMap(Entry::getValue,
+                Entry::getKey));
+    }
+
     public String encode(final String clearTextString) {
         return toEncodedWordStream(clearTextString)
             .collect(Collectors.joining(MORSE_WORD_SEPARATOR));
@@ -104,5 +115,32 @@ public class MorseCodeMapper {
 
     private String toMorseSymbol(final String symbol) {
         return symbolToMorseDict.getOrDefault(symbol.toUpperCase(), symbolToMorseDict.get("?"));
+    }
+
+    public String decode(final String morsecode) {
+        return toMorseWordsStream(morsecode)
+            .map(this::fromMorseWord)
+            .collect(Collectors.joining(" "));
+    }
+
+    @NotNull
+    private String fromMorseWord(final String morseWord) {
+        return toMorseWordStream(morseWord)
+            .map(this::fromMorse)
+            .collect(Collectors.joining(""));
+    }
+
+    @NotNull
+    private Stream<String> toMorseWordStream(final String morseWord) {
+        return Stream.of(morseWord.split(MORSE_SYMBOL_SEPARATOR));
+    }
+
+    @NotNull
+    private Stream<String> toMorseWordsStream(final String morsecode) {
+        return Stream.of(morsecode.split(MORSE_WORD_SEPARATOR));
+    }
+
+    private String fromMorse(final String symbol) {
+        return morseToSymbolDict.getOrDefault(symbol, "?");
     }
 }
