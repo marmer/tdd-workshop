@@ -3,6 +3,7 @@ package io.github.marmer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
@@ -69,6 +70,11 @@ public class Morse {
         }
     };
 
+    private final Map<String, String> morseToTextDict = textToMorseDict
+        .entrySet()
+        .stream()
+        .collect(Collectors.toMap(Entry::getValue, Entry::getKey));
+
 
     public String toMorse(final String inputText) {
         return joinMorseWords(
@@ -102,5 +108,27 @@ public class Morse {
     private static Stream<String> toSymbolStream(final String inputText) {
         return inputText.chars()
             .mapToObj(Character::toString);
+    }
+
+    public String fromMorse(final String eingabe) {
+        return Arrays.stream(eingabe.split(WORD_DELIMITER))
+            .map(this::toTextWord)
+            .collect(Collectors.joining(" "));
+    }
+
+    @NotNull
+    private String toTextWord(final String word) {
+        return toMorseSymbol(word)
+            .map(this::morseToSymbol)
+            .collect(Collectors.joining());
+    }
+
+    @NotNull
+    private static Stream<String> toMorseSymbol(final String eingabe) {
+        return Arrays.stream(eingabe.split(SYMBOL_DELIMITER));
+    }
+
+    private String morseToSymbol(final String key) {
+        return morseToTextDict.getOrDefault(key, "?");
     }
 }
