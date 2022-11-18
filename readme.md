@@ -1,9 +1,32 @@
 # TDD-Workshop
 
-Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen. Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
+Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der
+Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen.
+Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
 
-Im Masterbranch befindet sich die globale Konfiguration. Die tatsächlichen Show-Cases befinden sich in den entsprechend
-benannten anderen Branches
+Im Folgenden die Aufgaben. Unter [Anforderungen](#Anforderungen) stehen die Anforderungen zum Bauen des Repos
+
+## Aufgaben Morse Kata:
+
+### Aufgabe1
+
+![Aufgabe1](Morse1.png)
+
+### Aufgabe2
+
+![Aufgabe2](Morse2.png)
+
+### Aufgabe3
+
+![Aufgabe3](Morse3.png)
+
+### Aufgabe4
+
+![Aufgabe4](Morse4.png)
+
+### Aufgabe5
+
+![Aufgabe5](Morse5.png)
 
 ## Anforderungen
 
