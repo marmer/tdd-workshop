@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class MorseTest {
+class MorseTranslatorTest {
 
     private static Object[][] textToMorseTestData() {
         return new Object[][]{
@@ -33,11 +33,11 @@ class MorseTest {
 
     @ParameterizedTest
     @MethodSource("textToMorseTestData")
-    @DisplayName("Sollte Text nach Morse übersetzen können")
+    @DisplayName("Sollte Text nach MorseTranslator übersetzen können")
     @SneakyThrows
     void toMorse_SollteTextNachMorseUebersetzenKoennen(final String eingabe, final String erwarteteAusgabe) {
         // Preparation
-        final var underTest = new Morse();
+        final var underTest = new MorseTranslator();
 
         // Execution
         final var result = underTest.toMorse(eingabe);
@@ -48,11 +48,11 @@ class MorseTest {
 
     @ParameterizedTest
     @MethodSource("morseToTextTestData")
-    @DisplayName("Sollte Morse nach Text übersetzen können")
+    @DisplayName("Sollte MorseTranslator nach Text übersetzen können")
     @SneakyThrows
     void toMorse_SollteMorseNachTextUebersetzenKoennen(final String eingabe, final String erwarteteAusgabe) {
         // Preparation
-        final var underTest = new Morse();
+        final var underTest = new MorseTranslator();
 
         // Execution
         final var result = underTest.fromMorse(eingabe);

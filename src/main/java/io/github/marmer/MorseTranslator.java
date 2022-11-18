@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.jetbrains.annotations.NotNull;
 
-public class Morse {
+public class MorseTranslator {
 
     public static final String SYMBOL_DELIMITER = " ";
     public static final String WORD_DELIMITER = "   ";
