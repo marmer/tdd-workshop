@@ -4,31 +4,120 @@ Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE d
 Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen.
 Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
 
-Im Folgenden die Aufgaben. Unter [Anforderungen](#Anforderungen) stehen die Anforderungen zum Bauen des Repos
+Im Folgenden die Aufgaben. Unter [System-Anforderungen](#System-Anforderungen) stehen die Anforderungen zum Bauen des
+Repos
 
 ## Aufgaben Morse Kata:
 
-### Aufgabe1
+Ziel der Kata ist es, über alle Aufgaben hinweg eine Anwendung zu entwickeln, mit der Morsecodes in Text und wieder
+zurück übersetzt werden können. Aus didaktischen Gründen ist die Kata in mehrere Aufgaben unterteilt, welche
+nacheinander bearbeitet werden sollen, jedoch ohne sich die darauf folgenden Aufgaben anzuschauen. Die Aufgabe kann mit
+beliebigen Sprachen und Programmierparadigmen testgetrieben gelöst werden.
 
-![Aufgabe1](Morse1.png)
+### Aufgabe1 - Morse Encoding - Gruppenübung
 
-### Aufgabe2
+#### Takeaways
 
-![Aufgabe2](Morse2.png)
+* Babysteps
+* Pris "zuvieler" Tests
+* Paradigmen und Sprachen egal
 
-### Aufgabe3
+#### Aufgabenstellung:
 
-![Aufgabe3](Morse3.png)
+* Gegeben: **Zeichenkette** wird übersetzt in **Morse-String**
+    * Grundannahme: Niemand übergibt Zeichenketten, die nicht mindestens ein Wort mit der Länge von zwei Zeichen
+      beinhalten, da die Übertragung anderenfalls nutzlos wäre
+* Fertiges Dictionary: siehe [/src/main/resources/morse.dict](/src/main/resources/morse.dict)
+* Unbekannte **Zeichen** werden zum **"Fragezeichen-Morsezeichen"** übersetzt
+* Ein Morsecode baut sich wie folgt auf:
+    * Ein "Zeichen" wird repräsentiert durch Punkte und Striche
+    * Zwischen Buchstaben gibt es ein Leerzeichen (kleine Pause)
+    * Zwischen Worten gibt es drei Leerzeichen (lange Pause)
+    * Bsp.: "Der Mops" = "-.. . .-. -- --- .--. ..."
 
-### Aufgabe4
+### Aufgabe2 - Morse Decoding - Einzel-/Kleingruppenübung
 
-![Aufgabe4](Morse4.png)
+#### Takeaways
 
-### Aufgabe5
+* Babysteps
+* Pris "zuvieler" Tests
+* Preis von Copy Paste bei Tests
+* Paradigmen und Sprachen egal
 
-![Aufgabe5](Morse5.png)
+#### Aufgabenstellung:
 
-## Anforderungen
+* Gegeben: **Morse-String** wird übersetzt in **Zeichenkette**
+    * Grundannahme: Niemand übergibt Zeichenketten, die nicht mindestens ein Wort mit der Länge von zwei Zeichen
+      beinhalten, da die Übertragung anderenfalls nutzlos wäre
+* Fertiges Dictionary: siehe [/src/main/resources/morse.dict](/src/main/resources/morse.dict)
+* Unbekannte **Morsezeichen** werden zum **"Fragezeichen"** übersetzt
+* Ein Morsecode baut sich wie folgt auf:
+    * Ein "Zeichen" wird repräsentiert durch Punkte und Striche
+    * Zwischen Buchstaben gibt es ein Leerzeichen (kleine Pause)
+    * Zwischen Worten gibt es drei Leerzeichen (lange Pause)
+    * Bsp.: "-.. . .-. -- --- .--. ..." - "Der Mops"
+
+### Aufgabe3 - CLI mit Konsolenausgabe - Gruppenübung
+
+#### Takeaways
+
+* Mocking
+* Humble Object Pattern
+* Shellscript-Test (Optional)
+
+#### Aufgabenstellung:
+
+* Domain wird in CLI-Anwendung umgesetzt
+* Die Anwendung hat genau **einen** Parameter und erkennt selbstständig ob...
+    * ...es sich um eine Reihe von Morsezeichen handelt
+    * ...es sich um eine Reihe "normaler" Zeichenketten handelt
+* Das Ergebnis der Übersetzung wird auf der Konsole ausgegeben
+
+### Aufgabe4 - CLI mit Dateiausgabe - Einzel-/Kleingruppenübung
+
+#### Takeaways
+
+* Refactoring
+* Umgang mit Abhängigkeiten zwischen Source-Code-Artefakten
+* Umgang mit unklaren Anforderungen (frühes Hinterfragen)
+* Three Amigos Principle
+
+#### Aufgabenstellung:
+
+* Domain wird in CLI-Anwendung umgesetzt
+* **Der letzte Parameter enthält die zu übersetzende Zeichenkette** und erkennt ob...
+    * ...es sich um eine Reihe von Morsezeichen handelt
+    * ...es sich um eine Reihe "normaler" Zeichenketten handelt
+* Das Ergebnis der Übersetzung wird **per default** auf der Konsole ausgegeben
+* **Es ist nun möglich mit den Schaltern -i bzw. -o ein Input- oder Outputfile anzugeben**
+    * **"morse.jar [-o=\<outFile>][-i=\<inFile>|\<MorseString>]"**
+    * **Jedes File kann mehrere zu übersetzende Zeilen beinhalten**
+    * **Es existiert nur entweder das inFile doer der MorseString**
+
+### Aufgabe5 - Signalverarbeitung - Einzel-/Kleingruppenübung
+
+#### Takeaways
+
+* Refactoring
+* Umgang mit Abhängigkeiten zwischen Source-Code-Artefakten
+
+#### Aufgabenstellung
+
+* Es kann eine Repräsentation von unterschiedlich lang angelegten "elektrischen Signalen", welche in Form von "Nullen" (
+  kein Signal liegt an) und Einsen (Signal liegt an) zur Übersetzung übergeben werden
+    * Hinweis 1: Elektrisch über Morse zu Zeichenkette
+    * Hinweis 2: Es sind nur Signale mit sauberer Abtastung und gleichmäßigen Längen übergeben
+* Es sind unterschiedliche Timings möglich (Hinweis: Fante mit Timing1 an)
+
+|                   Signaltyp | Timing **Faktor** | Beispiel Timing = 1      | Beispiel Timing = 3                     |
+|----------------------------:|:-----------------:|:-------------------------|:----------------------------------------|
+|       Pause zwischen Worten |         7         | 0000000 <br/>*(Länge 7\*1=7)* | 000000000000000000000 <br/>*(Länge 7\*3=21)* |
+|   Pause zwischen Buchstaben |         3         | 000     <br/>*(Länge 3\*1=3)* | 000000000             <br/>*(Länge 3\*3=9)*  |
+| Pause zwischen Morsezeichen |         1         | 0       <br/>*(Länge 1\*1=1)* | 000                   <br/>*(Länge 1\*3=3)*  |
+|                      Strich |         3         | 111     <br/>*(Länge 3\*1=3)* | 111111111             <br/>*(Länge 3\*3=9)*  |
+|                       Punkt |         1         | 1       <br/>*(Länge 1\*1=1)* | 111                   <br/>*(Länge 1\*3=3)*  |
+
+## System-Anforderungen
 
 ### JDK (JVM Sprachen)
 
