@@ -20,7 +20,7 @@
       <h2>TDD - Test Driven Development</h2>
       <h3>(or how to have a good night after Coding)</h3>
       <p>by MarMer</p>
-      <aside class="notes">
+      <aside aria-label="speaker notes" class="notes">
         <ul>
           <li>Importent Parts first</li>
           <ul>
@@ -42,7 +42,7 @@
 
       <p>by the colleague of an ex-colleague</p>
 
-      <aside class="notes">
+      <aside aria-label="speaker notes" class="notes">
         Time for the Quality Assurance story
       </aside>
     </section>
@@ -55,7 +55,7 @@
         <li>Critics</li>
         <li>Exercises</li>
       </ul>
-      <aside class="notes">
+      <aside aria-label="speaker notes" class="notes">
         <ul>
           <li>Breaks whenever they are needed!. Tell me</li>
           <li>The big one for lunch starts between 12 and 12:30</li>
@@ -65,16 +65,15 @@
     <section data-auto-animate>
       <section data-auto-animate>
         <h2>Costs</h2>
-        <p>
-          <img data-src="http://ambysoft.com/artwork/comparingTechniques.jpg"
-               alt="costs per length of Feedback Cycle"
-               width="60%"></img>
-        </p>
+        <img data-src="http://ambysoft.com/artwork/comparingTechniques.jpg"
+             alt="costs per length of Feedback Cycle"
+             width="60%"></img>
         <small>
           <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
-            Why Agile Software Development Techniques Work: Improved Feedback</a></small>
-        <aside class="notes">
-          Planing Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing
+            Why Agile Software Development Techniques Work: Improved Feedback</a>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
+          The costs of change depend on the length of the feedback cycle.
         </aside>
       </section>
       <!-- todo Developer point of view https://livebook.manning.com/book/unit-testing/chapter-1/41 -->
@@ -82,284 +81,53 @@
         <!-- TODO linear -->
         <!-- TODO no doubled diagram config as far as useful -->
         <h2>Costs</h2>
-        <p>
-          <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
-          <script type="module">
-            import {gradientChartColor} from "./js/charts/colors.js";
-
-            let context = document.getElementById('costsOfFixingVsPreventingBugsChartLogarithmic');
-
-            new Chart(context, {
-              type: 'line',
-              data: {
-                labels: [
-                  'Unit Testing/Test-Driven Development',
-                  "Full Build",
-                  "Integration Testing",
-                  "System Testing"],
-                datasets: [{
-                  label: "Requirements/Architectural Design",
-                  data: [5, 50, 500, 5000],
-                  borderWidth: 1,
-                  tension: 0.25,
-                  borderColor: gradientChartColor(0, 0.3, 0.8, 1),
-                  backgroundColor: gradientChartColor(0, 0.3, 0.8, 0.2),
-                  fill: true
-                }
-                ],
-              },
-              options: {
-                responsive: true,
-                plugins: {
-                  legend: {
-                    display: false,
-                  },
-                  title: {
-                    display: true,
-                    text: 'Costs by Software Testing Phase where Bugs are found',
-                    color: "#FFFFFF",
-                  }
-                },
-                scales: {
-                  x: {
-                    display: true,
-                    ticks: {
-
-                      display: true,
-                      color: "#FFFFFF"
-                    },
-                    title: {
-                      display: true,
-                      text: '- Repair stage -',
-                      color: "#AAAAAA",
-                    },
-                  },
-                  y: {
-                    min: 0,
-                    display: true,
-                    type: "logarithmic",
-                    ticks: {
-                      display: true,
-                      color: "#FFFFFF",
-                    },
-                    title: {
-                      display: true,
-                      text: '- Estimated Cost per Bug in USD -',
-                      color: "#AAAAAA"
-                    },
-                  }
-                }
-              }
-            })
-            ;
-          </script>
-        </p>
+        <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
         <small>
           <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
-            Cost of fixing vs. preventing Bugs (at google)</a></small>
-        <aside class="notes">
+            Cost of fixing vs. preventing Bugs (at google)</a>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
           Costs to fix bugs at google acording to the article
         </aside>
       </section>
       <section data-auto-animate>
         <h2>Costs</h2>
-        <p>
-          <canvas id="relativeCostsToRepairDefectsWhenFoundChart"></canvas>
-          <script type="module">
-            import {gradientChartColor} from "./js/charts/colors.js";
-
-            let context = document.getElementById('relativeCostsToRepairDefectsWhenFoundChart');
-
-            new Chart(context, {
-              type: 'line',
-              data: {
-                labels: ['Analysis/Architectural Design',
-                  'Coding/Unit Test',
-                  'Integration and Component',
-                  'Beta Test Programms',
-                  'Post product Release'],
-                datasets: [{
-                  label: "Requirements/Architectural Design",
-                  data: [1, 5, 10, 15, 30],
-                  borderWidth: 1,
-                  tension: 0.25,
-                  borderColor: gradientChartColor(0.033, 0.166, 0.5, 1),
-                  backgroundColor: gradientChartColor(0.033, 0.166, 0.5, 0.2),
-                  fill: true
-                }
-                ],
-              },
-              options: {
-                responsive: true,
-                plugins: {
-                  legend: {
-                    display: false,
-                  },
-                  title: {
-                    display: true,
-                    text: 'Relative Cost to Repair Defects When Found at Different Stages of Software Development',
-                    color: "#FFFFFF",
-                  },
-                  subtitle: {
-                    display: true,
-                    text: "X is a normalized unit of cost and can be expressed terms of person-hours, dollars, etc.",
-                    color: "#DDDDDD"
-                  }
-                },
-                scales: {
-                  x: {
-                    display: true,
-                    ticks: {
-                      display: true,
-                      color: "#FFFFFF"
-                    },
-                    title: {
-                      display: true,
-                      text: '- Repair stage -',
-                      color: "#AAAAAA",
-                    },
-                  },
-                  y: {
-                    display: true,
-                    type: "linear",
-                    ticks: {
-                      display: true,
-                      color: "#FFFFFF",
-                      callback: (value) => value + "x"
-                    },
-                    title: {
-                      display: true,
-                      text: '- normalized unit of costs -',
-                      color: "#AAAAAA"
-                    },
-                  }
-                }
-              }
-            })
-            ;
-          </script>
-        </p>
+        <canvas id="relativeCostsToRepairDefectsWhenFoundChart"></canvas>
         <small>
           <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
             Planing
             Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
-            94 </a></small>
-        <aside class="notes">
+            94 </a>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
           Planing Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing
+
+          NIST is the "National institute of standards and technology - U.S. department of commerce
         </aside>
       </section>
       <section data-auto-animate>
         <h2>Costs</h2>
-        <p>
-          <canvas id="costsOverTimeChartLogarithmic"></canvas>
-          <script type="module">
-            import {gradientChartColor} from "./js/charts/colors.js";
-
-            let context = document.getElementById('costsOverTimeChartLogarithmic');
-
-            new Chart(context, {
-              type: 'line',
-              data: {
-                labels: ['Analysis/Architectural Design',
-                  'Coding/Unit Test',
-                  'Integration and Component',
-                  'Beta Test Programms',
-                  'Post product Release'],
-                datasets: [{
-                  label: "Requirements/Architectural Design",
-                  data: [1, 5, 10, 15, 30],
-                  borderWidth: 1,
-                  tension: 0.25,
-                  // borderColor: gradientChartColor(0, 0.25, 1),
-                  borderColor: "rgba(0, 255, 0, 1)",
-                  backgroundColor: gradientChartColor(0.033, 0.166, 0.5, 0.1),
-                  fill: true
-                },
-                  {
-                    label: "Coding/Unit Test",
-                    data: [null, 1, 10, 20, 30],
-                    borderWidth: 1,
-                    tension: 0.25,
-                    // borderColor: gradientChartColor(0, 0.25, 1),
-                    borderColor: "rgba(255, 255, 0, 1)",
-                    backgroundColor: gradientChartColor(0, 0.033, 0.166, 0.1),
-                    fill: true
-                  },
-                  {
-                    label: "Integration and Component",
-                    data: [null, null, 1, 10, 20],
-                    borderWidth: 1,
-                    tension: 0.25,
-                    // borderColor: gradientChartColor(0, 0.25, 1),
-                    borderColor: "rgba(255, 0, 0, 1)",
-                    backgroundColor: gradientChartColor(0, 0, 0.033, 0.1),
-                    fill: true
-                  }],
-              },
-              options: {
-                responsive: true,
-                plugins: {
-                  legend: {
-                    display: 'true',
-                    labels: {
-                      color: "#AAAAAA"
-                    }
-                  },
-                  title: {
-                    display: true,
-                    text: 'Estimates of Relative Cost Factors of Correcting Errors as a Function of\n'
-                        + 'Where Errors Are Introduced and Found (Example Only)',
-                    color: "#FFFFFF",
-                  },
-                  subtitle: {
-                    display: true,
-                    text: "X is a normalized unit of cost and can be expressed terms of person-hours, dollars, etc.",
-                    color: "#DDDDDD"
-                  }
-
-                },
-                scales: {
-                  x: {
-                    display: true,
-                    ticks: {
-                      display: true,
-                      color: "#FFFFFF"
-                    },
-                    title: {
-                      display: true,
-                      text: '- Repair stage -',
-                      color: "#AAAAAA",
-                    },
-                  },
-                  y: {
-                    display: true,
-                    type: "linear",
-                    ticks: {
-                      display: true,
-                      color: "#FFFFFF",
-                      callback: (value) => value + "x"
-                    },
-                    title: {
-                      display: true,
-                      text: '- normalized unit of costs -',
-                      color: "#AAAAAA"
-                    }
-                  }
-                }
-              }
-            })
-            ;
-          </script>
-        </p>
+        <canvas id="costsOverTimeChartLogarithmic"></canvas>
         <small>
           <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
             Planing
             Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
-            94 </a></small>
+            94 </a>
+        </small>
       </section>
-      <aside class="notes">
-        It depends, where errors are introduced as you can see here
-      </aside>
+      <section data-auto-animate>
+        <h2>Costs</h2>
+        <img data-src="https://drek4537l1klr.cloudfront.net/khorikov/Figures/01fig02_alt.jpg"
+             alt="costs per length of Feedback Cycle"
+             width="60%"></img>
+        <small>
+          <a href="https://livebook.manning.com/book/unit-testing/chapter-1/41">
+            Manning Publications (2020) - Unit Testing Principles, Practices and Patterns</a>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
+          Costs from a view point of a developer
+        </aside>
+      </section>
     </section>
 
 
@@ -453,5 +221,6 @@
     ]
   });
 </script>
+<script type="module" src="js/charts/costCharts.js"></script>
 </body>
 </html>
