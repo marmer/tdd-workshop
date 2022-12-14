@@ -35,6 +35,7 @@
         </ul>
       </aside>
     </section>
+
     <section data-auto-animate>
       <q>We never have the time and the budget to do things right. But obviously we have the time and budget to do
         it often.
@@ -46,6 +47,7 @@
         Time for the Quality Assurance story
       </aside>
     </section>
+
     <section data-auto-animate>
       <h2>Agenda</h2>
       <ul>
@@ -62,7 +64,15 @@
         </ul>
       </aside>
     </section>
+
     <section data-auto-animate>
+      <section data-auto-animate>
+        <h2>Costs</h2>
+        <img
+            data-src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1370550610339-XG0S89DNZOK5GGXQI2GH/asap2.jpg?format=1500w"
+            alt="Geek and Poke - Don't ask your Boss"
+            height="550"></img>
+      </section>
       <section data-auto-animate>
         <h2>Costs</h2>
         <img data-src="http://ambysoft.com/artwork/comparingTechniques.jpg"
@@ -130,45 +140,75 @@
       </section>
     </section>
 
+    <section data-auto-animate>
+      <section data-auto-animate>
+        <h2>Good vs. evil tests</h2>
+        <img
+            data-src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
+            alt="Geek and Poke - DDT"
+            height="550"></img>
+        <aside aria-label="speaker notes" class="notes">
 
-    <!-- Playground -->
+        </aside>
+      </section>
+      <section data-auto-animate>
+        <h2>Good vs. evil tests</h2>
+        <h3>TDD</h3>
+        <ul>
+          <li>Focus tool</li>
+          <li>Double entry bookkeeping</li>
+          <li>Development process</li>
+          <ul>
+            <li>evolutionary</li>
+            <li>arbitrarily (like science)</li>
+          </ul>
+        </ul>
+        <aside aria-label="speaker notes" class="notes">
+
+        </aside>
+      </section>
+      <section data-auto-animate>
+        <h2>Good vs. evil tests</h2>
+        <h3>DDT</h3>
+        <pre>
+          <code data-line-numbers="" class="language-java">
+            public void testFindAll(){
+              final List &lt;Role&gt; list = repo.findAll()
+
+              Assert.assertNotNull(list);
+
+              for (final Role role : list) {
+                System.out.println(role);
+              }
+            }
+          </code>
+        </pre>
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What does the test Do?</li>
+            <li>What is the test intended for?</li>
+            <li>Why does it even exist?</li>
+          </ul>
+        </aside>
+      </section>
+      <!-- todo go on here! -->
+    </section>
 
     <section data-auto-animate>
       <section data-auto-animate>
-        <pre>
-        <code data-line-numbers="2">
-          package my.dog
+        <h2>Theory</h2>
 
-          public class Dog{
-            public void bark();
-          }
-        </code>
-      </pre>
-      </section>
-      <section data-auto-animate>
-        <pre>
-        <code data-line-numbers="2,4">
-          package my.dog
+        <aside aria-label="speaker notes" class="notes">
 
-          public class Dog{
-            public void bark();
-          }
-        </code>
-      </pre>
-      </section>
-      <section data-auto-animate>
-        <pre>
-        <code data-line-numbers="4-6">
-          package my.dog
-
-          public class Dog{
-            public void bark();
-          }
-        </code>
-      </pre>
+        </aside>
       </section>
     </section>
 
+
+    <!-- todo Nice Test Definitions: https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html -->
+
+
+    <!-- Playground -->
     <section data-auto-animate>
       <h2>Plant UML Section</h2>
       <pre>
