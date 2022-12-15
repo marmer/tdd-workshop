@@ -14,8 +14,8 @@ new Chart(
           data: [5, 50, 500, 5000],
           borderWidth: 1,
           tension: 0.25,
-          borderColor: gradientChartColor(0, 0.3, 0.8, 1),
-          backgroundColor: gradientChartColor(0, 0.3, 0.8, 0.2),
+          borderColor: gradientChartColor(0, 0.4, 0.9, 1),
+          backgroundColor: gradientChartColor(0, 0.4, 0.9, 0.2),
           fill: true
         }
         ],
@@ -49,6 +49,70 @@ new Chart(
             min: 0,
             display: true,
             type: "logarithmic",
+            offset: true,
+            ticks: {
+              display: true,
+              color: "#FFFFFF",
+            },
+            title: {
+              display: true,
+              text: '- Estimated Cost per Bug in USD -',
+              color: "#AAAAAA"
+            },
+          }
+        }
+      }
+    })
+
+new Chart(
+    document.getElementById('costsOfFixingVsPreventingBugsChartLinear'), {
+      type: 'line',
+      data: {
+        labels: [
+          'Unit Testing/Test-Driven Development',
+          "Full Build",
+          "Integration Testing",
+          "System Testing"],
+        datasets: [{
+          label: "Requirements/Architectural Design",
+          data: [5, 50, 500, 5000],
+          borderWidth: 1,
+          tension: 0.25,
+          borderColor: gradientChartColor(0.001, 0.01, 0.2, 1),
+          backgroundColor: gradientChartColor(0.001, 0.01, 0.1, 0.2),
+          fill: true
+        }
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            display: true,
+            text: 'Costs by Software Testing Phase where Bugs are found',
+            color: "#FFFFFF",
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            ticks: {
+              display: true,
+              color: "#FFFFFF"
+            },
+            title: {
+              display: true,
+              text: '- Repair stage -',
+              color: "#AAAAAA",
+            },
+          },
+          y: {
+            min: 0,
+            display: true,
+            type: "linear",
             ticks: {
               display: true,
               color: "#FFFFFF",

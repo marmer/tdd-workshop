@@ -17,20 +17,22 @@
 <div class="reveal">
   <div class="slides">
     <section data-auto-animate>
-      <h2>TDD - Test Driven Development</h2>
-      <h3>(or how to have a good night after Coding)</h3>
-      <p>by MarMer</p>
+      <h3>TDD - Test Driven Development</h3>
+      <h4>(or how to have a good night after Coding) </h4>
+      <small>by MarMer</small>
       <aside aria-label="speaker notes" class="notes">
         <ul>
-          <li>Importent Parts first</li>
-          <ul>
-            <li>All of you, please turn on your cameras (a face is enough). It helps me...</li>
+          <li>Importent Parts first
             <ul>
-              <li>... to understand you better</li>
-              <li>... to enter into you</li> <!-- auf jemanden eingehen -->
-              <li>... not to feel like talking with a wall</li>
+              <li>All of you, please turn on your cameras (a face is enough). It helps me...
+                <ul>
+                  <li>... to understand you better</li>
+                  <li>... to enter into you</li> <!-- auf jemanden eingehen -->
+                  <li>... not to feel like talking with a wall</li>
+                </ul>
+              </li>
             </ul>
-          </ul>
+          </li>
           <li>Who am I?</li>
         </ul>
       </aside>
@@ -49,17 +51,23 @@
     </section>
 
     <section data-auto-animate>
-      <h2>Agenda</h2>
+      <h3>Agenda</h3>
       <ul>
         <li>Motivation</li>
-        <li>Good vs. evil tests</li>
+        <li>Tests</li>
         <li>Theory</li>
         <li>Critics</li>
         <li>Exercises</li>
       </ul>
       <aside aria-label="speaker notes" class="notes">
         <ul>
-          <li>Breaks whenever they are needed!. Tell me</li>
+          <li>Motivation</li>
+          <li>Tests(in General)</li>
+          <li>Theory</li>
+          <li>Critics</li>
+          <li>Exercises</li>
+
+          <li>Breaks whenever they are needed. Just ask if you want/need one</li>
           <li>The big one for lunch starts between 12 and 12:30</li>
         </ul>
       </aside>
@@ -67,17 +75,21 @@
 
     <section data-auto-animate>
       <section data-auto-animate>
-        <h2>Costs</h2>
+        <h3>Costs</h3>
         <img
-            data-src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1370550610339-XG0S89DNZOK5GGXQI2GH/asap2.jpg?format=1500w"
+            src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1370550610339-XG0S89DNZOK5GGXQI2GH/asap2.jpg?format=1500w"
             alt="Geek and Poke - Don't ask your Boss"
-            height="550"></img>
+            class="r-stretch"></img>
+        <aside aria-label="speaker notes" class="notes">
+          In the following we are talking about the costs to <strong>fix</strong> bugs. <em>Hundekuchen</em>
+        </aside>
       </section>
+
       <section data-auto-animate>
-        <h2>Costs</h2>
-        <img data-src="http://ambysoft.com/artwork/comparingTechniques.jpg"
+        <h3>Costs</h3>
+        <img src="http://ambysoft.com/artwork/comparingTechniques.jpg"
              alt="costs per length of Feedback Cycle"
-             width="60%"></img>
+             class="r-stretch"></img>
         <small>
           <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
             Why Agile Software Development Techniques Work: Improved Feedback</a>
@@ -86,22 +98,39 @@
           The costs of change depend on the length of the feedback cycle.
         </aside>
       </section>
-      <!-- todo Developer point of view https://livebook.manning.com/book/unit-testing/chapter-1/41 -->
+
       <section data-auto-animate>
-        <!-- TODO linear -->
-        <!-- TODO no doubled diagram config as far as useful -->
-        <h2>Costs</h2>
+        <h3>Costs</h3>
         <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
         <small>
           <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
             Cost of fixing vs. preventing Bugs (at google)</a>
         </small>
         <aside aria-label="speaker notes" class="notes">
-          Costs to fix bugs at google acording to the article
+          <ul>
+            <li>Costs to fix bugs at google acording to the article</li>
+            <li>mind the <strong>logarithmic</strong> scale</li>
+          </ul>
         </aside>
       </section>
+
       <section data-auto-animate>
-        <h2>Costs</h2>
+        <h3>Costs</h3>
+        <canvas id="costsOfFixingVsPreventingBugsChartLinear"></canvas>
+        <small>
+          <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
+            Cost of fixing vs. preventing Bugs (at google)</a>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
+          <ul>
+            <li>Costs to fix bugs at google acording to the article</li>
+            <li>mind the <strong>logarithmic</strong> scale</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Costs</h3>
         <canvas id="relativeCostsToRepairDefectsWhenFoundChart"></canvas>
         <small>
           <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
@@ -115,8 +144,9 @@
           NIST is the "National institute of standards and technology - U.S. department of commerce
         </aside>
       </section>
+
       <section data-auto-animate>
-        <h2>Costs</h2>
+        <h3>Costs</h3>
         <canvas id="costsOverTimeChartLogarithmic"></canvas>
         <small>
           <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
@@ -125,11 +155,12 @@
             94 </a>
         </small>
       </section>
+
       <section data-auto-animate>
-        <h2>Costs</h2>
-        <img data-src="https://drek4537l1klr.cloudfront.net/khorikov/Figures/01fig02_alt.jpg"
+        <h3>Costs</h3>
+        <img src="https://drek4537l1klr.cloudfront.net/khorikov/Figures/01fig02_alt.jpg"
              alt="costs per length of Feedback Cycle"
-             width="60%"></img>
+             class="r-stretch"></img>
         <small>
           <a href="https://livebook.manning.com/book/unit-testing/chapter-1/41">
             Manning Publications (2020) - Unit Testing Principles, Practices and Patterns</a>
@@ -142,36 +173,37 @@
 
     <section data-auto-animate>
       <section data-auto-animate>
-        <h2>Good vs. evil tests</h2>
+        <h3>Good vs. evil tests</h3>
         <img
-            data-src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
+            src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
             alt="Geek and Poke - DDT"
-            height="550"></img>
+            class="r-stretch"></img>
         <aside aria-label="speaker notes" class="notes">
 
         </aside>
       </section>
+
       <section data-auto-animate>
-        <h2>Good vs. evil tests</h2>
-        <h3>TDD</h3>
+        <h3>Quality - TDD</h3>
         <ul>
           <li>Focus tool</li>
           <li>Double entry bookkeeping</li>
-          <li>Development process</li>
-          <ul>
-            <li>evolutionary</li>
-            <li>arbitrarily (like science)</li>
-          </ul>
+          <li>Development process
+            <ul>
+              <li>evolutionary</li>
+              <li>arbitrarily (like science)</li>
+            </ul>
+          </li>
         </ul>
         <aside aria-label="speaker notes" class="notes">
 
         </aside>
       </section>
+
       <section data-auto-animate>
-        <h2>Good vs. evil tests</h2>
-        <h3>DDT</h3>
+        <h3>Quality - DDT (test after)</h3>
         <pre>
-          <code data-line-numbers="" class="language-java">
+          <code data-line-numbers="|1|2|4|6-8" data-ln-start-from="1" class="language-java" data-trim data-noescape>
             public void testFindAll(){
               final List &lt;Role&gt; list = repo.findAll()
 
@@ -183,6 +215,7 @@
             }
           </code>
         </pre>
+
         <aside aria-label=" speaker notes" class="notes ">
           <ul>
             <li>What does the test Do?</li>
@@ -191,12 +224,359 @@
           </ul>
         </aside>
       </section>
-      <!-- todo go on here! -->
+
+      <section data-auto-animate>
+        <h3>Quality - symptoms of DDT</h3>
+        <ul>
+          <li>Verify what the code does instead of what the code was intended to do</li>
+          <li>They often...
+            <ul>
+              <li>miss professional and technical use cases*</li>
+              <li>are less clean, readable and maintainable</li>
+              <li>have an impropper scope**</li>
+            </ul>
+          </li>
+        </ul>
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>Verify what the code does instead of what the code was intended to do</li>
+            <li>They often...
+              <ul>
+                <li>miss professional and technical use cases
+                  <ul>
+                    <li>mutation tests can help here a little</li>
+                  </ul>
+                </li>
+                <li>are less clean, readable and maintainable</li>
+                <li>have an impropper scope
+                  <ul>
+                    <li>this can lead to the fragile test problem</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of bad tests</h3>
+        <pre>
+          <code data-line-numbers="|3,6,9|2|10-12|13" data-ln-start-from="1" class="language-java" data-trim
+                data-noescape>
+            @Test
+            void testThisClassWorksFine throws Exception{
+              // Arrange
+              final var job = FancyJob();
+
+              // Act
+              job.register();
+
+              // Assert
+              assertEquals(2021, job.getExecutionYear());
+              assertEquals(5, job.getExecutionMonth());
+              assertEquals(31, job.getExecutionDay());
+              assertEquals("1337,42", job.getCalculationResult());
+            }
+          </code>
+        </pre>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What is bad here?</li>
+            <li>
+              <ul>
+                <li>Unterschiedliche Testfälle in einer Methode</li>
+                <li>
+                  <ul>
+                    <li>Welche?</li>
+                    <li>Wieviele?</li>
+                  </ul>
+                </li>
+                <li>Tells the method name anything about the intention?</li>
+              </ul>
+            </li>
+            <li>And what is good here?</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of bad tests</h3>
+        <pre>
+          <code data-line-numbers="|2|5-7,10-12" data-ln-start-from="1" class="language-java" data-trim data-noescape>
+            @Test
+            void testShouldRecalculateByExecutionMonth
+              throws Exception{
+              // Arrange
+              RecalculationBatchJob.class
+                .getField("executionDate")
+                .set(job,"2020-29-05");
+
+              // Act
+              RecalculationBatchJob.class
+                .getMethod("register")
+                .invoke(job);
+            }
+          </code>
+        </pre>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What is bad here?</li>
+            <li>
+              <ul>
+                <li>Internal details are testet here by reflection instead of the api (hard to refactor)</li>
+              </ul>
+            </li>
+            <li>And what is good here?
+              <ul>
+                <li>Intention of the test is encoded in the method name</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of bad tests</h3>
+        <pre>
+          <code data-line-numbers="|12|8" data-ln-start-from="1" class="language-java" data-trim data-noescape>
+            @Test
+            void testShouldRecalculateAllCostsByBaseCosts
+              throws Exception{
+              // Arrange
+              var job = new RecalculationBatchJob();
+
+              // Act
+              job.register();
+
+              // Assert
+              assertEquals(
+                getBaseCostsFrom("c:\\users\\documents\\accounts.json"),
+                job.getCalculatedCosts());
+            }
+          </code>
+        </pre>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What is bad here?
+              <ul>
+                <li>"Works on my machine"-Problem</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of bad tests</h3>
+        <div class="r-hstack">
+          <div>
+            <h4>Test Setup</h4>
+            <img
+                src="img/BigTestSetup.png"
+                alt="Big Test Setup"
+                width="80%"></img>
+          </div>
+          <div>
+            <h4>Test Method</h4>
+            <img
+                src="img/BigTestMethod.png"
+                alt="Big Test Method"
+                width="80%"></img>
+          </div>
+        </div>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What is bad here? (except for the Kind of mocking and verification)
+              <ul>
+                <li>Excessive test- or system setup</li>
+                <li>All tests are dependent on the excessive setup</li>
+                <li>setup is widely distributed among within the class</li>
+              </ul>
+            </li>
+            <li>how can we avoid this?</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of bad tests</h3>
+        <div class="r-hstack">
+          <div>
+            <ul>
+              <li>This are all builds of the main branch</li>
+              <li>The Failing test is always se same</li>
+            </ul>
+          </div>
+          <div class="r-hstack">
+            <img
+                src="img/FlickeryBamboo.png"
+                alt="Big Test Setup"
+                style="margin-right: 20px; margin-left: 20px"
+                width="80"></img>
+            <img
+                src="img/FlickeryJenkins.png"
+                alt="Big Test Method"
+                width="80"></img>
+          </div>
+        </div>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>What is bad here? (It's always the same test which causes the red builds</li>
+            <li>... it happens without code changes at the test or the related production code</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Quality - Signs of good tests</h3>
+        <div class="r-hstack">
+          <div>
+            <ul>
+              <li>communicate intention clearly</li>
+              <li>give expressive feedback</li>
+              <li>run reliably</li>
+              <li>easy to maintain</li>
+              <li>easy to understand</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside aria-label=" speaker notes" class="notes ">
+          <ul>
+            <li>communicate intention clearly
+              <ul>
+                <li>Tests are used to communicate</li>
+                <li>they should explain expected behavior</li>
+                <li>The usage of the right and if possible domain specific is important</li>
+                <li>Not use to technical terms if they are not needed and can be avoided</li>
+              </ul>
+            </li>
+            <li>give expressive feedback
+              <ul>
+                <li>Should show what is wrong</li>
+                <li>if possible also where is something wrong</li>
+              </ul>
+            </li>
+            <li>run reliably
+              <ul>
+                <li>Should only be green if everything is fine</li>
+                <li>Should not flicker (otherwise they waste of time and brain cells)</li>
+              </ul>
+            </li>
+            <li>easy to maintain and understand
+              <ul>
+                <li>the business case</li>
+                <li>the mandatory technical details</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
     </section>
 
     <section data-auto-animate>
       <section data-auto-animate>
-        <h2>Theory</h2>
+        <h3>types of tests (simplified)</h3>
+        <p>
+        <ul>
+          <li>Acceptance</li>
+        </ul>
+        </p>
+        <p>
+        <ul>
+          <li>UI</li>
+          <li>Integrati<strong><em>ve</em></strong>*</li>
+          <li>Unittests**
+            <ul>
+              <li>Sociable</li>
+              <li>Solitary/Micro-test</li>
+            </ul>
+          </li>
+        </ul>
+        </p>
+
+        <aside aria-label="speaker notes" class="notes">
+          <!--todo: Seperate slides for each type?-->
+          <ul>
+            <li>Acceptance
+              <ul>
+                <li>Business perspective on what the code/system should do</li>
+                <li>can (and maybe should) settle everywhere</li>
+              </ul>
+            </li>
+            <li>UI
+              <ul>
+                <li>as the name suggests it</li>
+                <li>Should be silly because harder to test and more fragile</li>
+              </ul>
+            </li>
+            <li>
+              Integrative
+              <ul>
+                <li>Make sure System or Sub-assemblies can be integrated</li>
+                <li>And yes ... integrative, not integration</li>
+                <li>Any kind of test with overhead for external dependencies
+                  <ul>
+                    <li>Integration</li>
+                    <li>Systems</li>
+                    <li>End-To-End</li>
+                    <li>...</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Unittests
+              <ul>
+                <li>Programmers perspective on what the code should do</li>
+                <li>types
+                  <ul>
+                    <li>Solitary/Micro
+                      <ul>
+                        <li>(Mocks Mocks Mocks)</li>
+                        <li>Avoid them!</li>
+                        <li>Hard coupling to production code</li>
+                        <li>Harder/impossible refactoring of production code</li>
+                        <li>very fast</li>
+                      </ul>
+                    </li>
+                    <li>Sociable
+                      <ul>
+                        <li>Unit-Tests as they should be</li>
+                        <li>no Mocks (or very few if there are good reasons)</li>
+                        <li>easy refactorings</li>
+                        <li>very fast as well</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <p>
+            <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent Beck</a></small>
+          </p>
+          <p>
+            <small><a
+                href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
+          </p>
+        </aside>
+      </section>
+    </section>
+
+    <!-- TODO Here we are -->
+
+    <section data-auto-animate>
+      <section data-auto-animate>
+        <h3>Theory</h3>
 
         <aside aria-label="speaker notes" class="notes">
 
@@ -204,13 +584,9 @@
       </section>
     </section>
 
-
-    <!-- todo Nice Test Definitions: https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html -->
-
-
     <!-- Playground -->
     <section data-auto-animate>
-      <h2>Plant UML Section</h2>
+      <h3>Plant UML Section</h3>
       <pre>
         <code class="language-plantuml">
           @startuml
@@ -242,18 +618,7 @@
     history: true,
     mouseWheel: false,
     transition: 'fade',
-    copycode: {
-      plaintextonly: true,
-      copy: "Copy",
-      copied: "Copied!",
-      timeout: 1000,
-      copybg: "orange",
-      copiedbg: "green",
-      copycolor: "black",
-      copiedcolor: "white",
-      csspath: "",
-      clipboardjspath: ""
-    },
+    navigationMode: "default",
     plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealZoom],
     dependencies: [
       {src: "plugin/countdown/countdown.js"},
