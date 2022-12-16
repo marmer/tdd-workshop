@@ -484,43 +484,84 @@
     <section data-auto-animate>
       <section data-auto-animate>
         <h3>types of tests (simplified)</h3>
-        <p>
         <ul>
-          <li>Acceptance</li>
-        </ul>
-        </p>
-        <p>
-        <ul>
-          <li>UI</li>
-          <li>Integrati<strong><em>ve</em></strong>*</li>
+          <li class="fragment fade-out strike"><p>Acceptance</p></li>
+          <li class="fragment fade-out strike"><span>UI</span></li>
+          <li class="fragment semi-fade-out">Integrati<u>ve</u>*</li>
           <li>Unittests**
             <ul>
-              <li>Sociable</li>
-              <li>Solitary/Micro-test</li>
+              <li class="fragment fade-in-then-semi-out">Solitary/Micro-test*</li>
+              <li class="fragment fade-in">Sociable</li>
             </ul>
           </li>
         </ul>
+
+        <p>
+          <small><a
+              href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob (2017) -
+            TestDefinitions</a></small>
+        </p>
+        <p>
+          <small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) - Unittests by Martin
+            Fowler</a></small>
         </p>
 
         <aside aria-label="speaker notes" class="notes">
-          <!--todo: Seperate slides for each type?-->
           <ul>
             <li>Acceptance
               <ul>
                 <li>Business perspective on what the code/system should do</li>
                 <li>can (and maybe should) settle everywhere</li>
+                <li>We won't cover them in detail here</li>
               </ul>
             </li>
             <li>UI
               <ul>
                 <li>as the name suggests it</li>
-                <li>Should be silly because harder to test and more fragile</li>
+                <li>Tests should be silly because they are harder to test and more fragile</li>
+                <li>We won't cover them here</li>
               </ul>
             </li>
+          </ul>
+
+          <p>
+            <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent Beck</a></small>
+          </p>
+          <p>
+            <small><a
+                href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
+          </p>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>types of tests (simplified)</h3>
+        <ul>
+          <li style="opacity: 0.5">Integrati<u>ve</u>*</li>
+          <li>Unittests**
+            <ul>
+              <li style="opacity: 0.5">Solitary/Micro-test*</li>
+              <li>Sociable</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>
+          <small><a
+              href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob (2017) -
+            TestDefinitions</a></small>
+        </p>
+        <p>
+          <small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) - Unittests by Martin
+            Fowler</a></small>
+        </p>
+
+        <aside aria-label="speaker notes" class="notes">
+          <ul>
             <li>
               Integrative
               <ul>
-                <li>Make sure System or Sub-assemblies can be integrated</li>
+                <li>They make sure system or sub-assemblies can be integrated</li>
                 <li>And yes ... integrative, not integration</li>
                 <li>Any kind of test with overhead for external dependencies
                   <ul>
@@ -530,6 +571,7 @@
                     <li>...</li>
                   </ul>
                 </li>
+                <li>We'll talk a little about them</li>
               </ul>
             </li>
             <li>Unittests
@@ -540,7 +582,7 @@
                     <li>Solitary/Micro
                       <ul>
                         <li>(Mocks Mocks Mocks)</li>
-                        <li>Avoid them!</li>
+                        <li><em>Avoid them!</em></li>
                         <li>Hard coupling to production code</li>
                         <li>Harder/impossible refactoring of production code</li>
                         <li>very fast</li>
@@ -552,6 +594,7 @@
                         <li>no Mocks (or very few if there are good reasons)</li>
                         <li>easy refactorings</li>
                         <li>very fast as well</li>
+                        <li><em>We'll focus on them</em></li>
                       </ul>
                     </li>
                   </ul>
@@ -570,33 +613,204 @@
           </p>
         </aside>
       </section>
-    </section>
 
-    <!-- TODO Here we are -->
-
-    <section data-auto-animate>
       <section data-auto-animate>
-        <h3>Theory</h3>
+        <h3>Test-pyramid</h3>
+        <img src="https://miro.medium.com/max/1400/1*B5m_7E1isP8fGgyScc4klQ.gif" class="r-stretch">
+        </img>
+        <aside aria-label="speaker notes" class="notes">
+
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>100% Branch-Coverage with Unittests</h3>
+        <pre>
+        <code class="language-plantuml">
+          @startuml
+          skinparam handwritten true
+          skinparam monochrome reverted
+          skinparam backgroundColor transparent
+
+          skinparam node{
+            backgroundColor&lt;&lt;A&gt;&gt; LightGray
+            backgroundColor&lt;&lt;B&gt;&gt; DarkGray
+            backgroundColor&lt;&lt;C&gt;&gt; Gray
+          }
+
+          node A1 as "1"&lt;&lt;A&gt;&gt;
+          node A2 as "2"&lt;&lt;A&gt;&gt;
+          node A3 as "3"&lt;&lt;A&gt;&gt;
+
+          node B1 as "1"&lt;&lt;B&gt;&gt;
+          node B2 as "2"&lt;&lt;B&gt;&gt;
+          node B3 as "3"&lt;&lt;B&gt;&gt;
+
+          node C1 as "1"&lt;&lt;C&gt;&gt;
+          node C2 as "2"&lt;&lt;C&gt;&gt;
+          node C3 as "3"&lt;&lt;C&gt;&gt;
+
+          interface A as " "
+          interface B as " "
+          interface C as " "
+
+          A -[bold,#LightGray]-> A1
+          A -[bold,#LightGray]-> A2
+          A -[bold,#LightGray]-> A3
+
+          B -[bold,#darkGray]-> B1
+          B -[bold,#darkGray]-> B2
+          B -[bold,#darkGray]-> B3
+
+          C -[bold,#Gray]-> C1
+          C -[bold,#Gray]-> C2
+          C -[bold,#Gray]-> C3
+          @enduml
+        </code>
+      </pre>
+        <p>9 Tests</p>
 
         <aside aria-label="speaker notes" class="notes">
 
         </aside>
       </section>
+
+      <section data-auto-animate>
+        <h3>100% Branch-Coverage with Integrative Tests</h3>
+        <pre>
+        <code class="language-plantuml">
+         @startuml
+          skinparam handwritten true
+          skinparam monochrome reverted
+          skinparam backgroundColor transparent
+
+          skinparam node{
+            backgroundColor&lt;&lt;A&gt;&gt; LightGray
+            backgroundColor&lt;&lt;B&gt;&gt; DarkGray
+            backgroundColor&lt;&lt;C&gt;&gt; Gray
+          }
+
+          node A1 as "1"&lt;&lt;A&gt;&gt;
+          node A2 as "2"&lt;&lt;A&gt;&gt;
+          node A3 as "3"&lt;&lt;A&gt;&gt;
+
+          node B1.1 as "1" &lt;&lt;B&gt;&gt;
+          node B2.1 as "2" &lt;&lt;B&gt;&gt;
+          node B3.1 as "3" &lt;&lt;B&gt;&gt;
+
+          node B1.2 as "1" &lt;&lt;B&gt;&gt;
+          node B2.2 as "2" &lt;&lt;B&gt;&gt;
+          node B3.2 as "3" &lt;&lt;B&gt;&gt;
+
+          node B1.3 as "1" &lt;&lt;B&gt;&gt;
+          node B2.3 as "2" &lt;&lt;B&gt;&gt;
+          node B3.3 as "3" &lt;&lt;B&gt;&gt;
+
+          node C1.1.1 as "1" &lt;&lt;C&gt;&gt;
+          node C2.1.1 as "2" &lt;&lt;C&gt;&gt;
+          node C3.1.1 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.1.2 as "1" &lt;&lt;C&gt;&gt;
+          node C2.1.2 as "2" &lt;&lt;C&gt;&gt;
+          node C3.1.2 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.1.3 as "1" &lt;&lt;C&gt;&gt;
+          node C2.1.3 as "2" &lt;&lt;C&gt;&gt;
+          node C3.1.3 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.2.1 as "1" &lt;&lt;C&gt;&gt;
+          node C2.2.1 as "2" &lt;&lt;C&gt;&gt;
+          node C3.2.1 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.2.2 as "1" &lt;&lt;C&gt;&gt;
+          node C2.2.2 as "2" &lt;&lt;C&gt;&gt;
+          node C3.2.2 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.2.3 as "1" &lt;&lt;C&gt;&gt;
+          node C2.2.3 as "2" &lt;&lt;C&gt;&gt;
+          node C3.2.3 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.3.1 as "1" &lt;&lt;C&gt;&gt;
+          node C2.3.1 as "2" &lt;&lt;C&gt;&gt;
+          node C3.3.1 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.3.2 as "1" &lt;&lt;C&gt;&gt;
+          node C2.3.2 as "2" &lt;&lt;C&gt;&gt;
+          node C3.3.2 as "3" &lt;&lt;C&gt;&gt;
+
+          node C1.3.3 as "1" &lt;&lt;C&gt;&gt;
+          node C2.3.3 as "2" &lt;&lt;C&gt;&gt;
+          node C3.3.3 as "3" &lt;&lt;C&gt;&gt;
+
+          interface A as " "
+
+          A -[bold,#white]-> A1
+          A -[bold,#white]-> A2
+          A -[bold,#white]-> A3
+
+          A1 -[bold,#white]-> B1.1
+          A1 -[bold,#white]-> B2.1
+          A1 -[bold,#white]-> B3.1
+
+          A2 -[bold,#white]-> B1.2
+          A2 -[bold,#white]-> B2.2
+          A2 -[bold,#white]-> B3.2
+
+          A3 -[bold,#white]-> B1.3
+          A3 -[bold,#white]-> B2.3
+          A3 -[bold,#white]-> B3.3
+
+          B1.1 -[bold,#white]-> C1.1.1
+          B1.1 -[bold,#white]-> C2.1.1
+          B1.1 -[bold,#white]-> C3.1.1
+
+          B2.1 -[bold,#white]-> C1.1.2
+          B2.1 -[bold,#white]-> C2.1.2
+          B2.1 -[bold,#white]-> C3.1.2
+
+          B3.1 -[bold,#white]-> C1.1.3
+          B3.1 -[bold,#white]-> C2.1.3
+          B3.1 -[bold,#white]-> C3.1.3
+
+          B1.2 -[bold,#white]-> C1.2.1
+          B1.2 -[bold,#white]-> C2.2.1
+          B1.2 -[bold,#white]-> C3.2.1
+
+          B2.2 -[bold,#white]-> C1.2.2
+          B2.2 -[bold,#white]-> C2.2.2
+          B2.2 -[bold,#white]-> C3.2.2
+
+          B3.2 -[bold,#white]-> C1.2.3
+          B3.2 -[bold,#white]-> C2.2.3
+          B3.2 -[bold,#white]-> C3.2.3
+
+          B1.3 -[bold,#white]-> C1.3.1
+          B1.3 -[bold,#white]-> C2.3.1
+          B1.3 -[bold,#white]-> C3.3.1
+
+          B2.3 -[bold,#white]-> C1.3.2
+          B2.3 -[bold,#white]-> C2.3.2
+          B2.3 -[bold,#white]-> C3.3.2
+
+          B3.3 -[bold,#white]-> C1.3.3
+          B3.3 -[bold,#white]-> C2.3.3
+          B3.3 -[bold,#white]-> C3.3.3
+
+          @enduml
+        </code>
+      </pre>
+        <p>27 Tests</p>
+
+        <aside aria-label="speaker notes" class="notes">
+
+        </aside>
+      </section>
+
     </section>
 
     <!-- Playground -->
     <section data-auto-animate>
-      <h3>Plant UML Section</h3>
-      <pre>
-        <code class="language-plantuml">
-          @startuml
-          Alice -> Bob: Authentication Request
-          Bob --> Alice: Authentication Response
-          Alice -> Bob: Another authentication Request
-          Bob --> Alice: Another authentication Response
-          @enduml
-        </code>
-      </pre>
+      <h3>Showcase</h3>
     </section>
   </div>
 </div>
