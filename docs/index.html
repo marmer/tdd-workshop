@@ -169,6 +169,69 @@
           Costs from a view point of a developer
         </aside>
       </section>
+
+      <section data-auto-animate>
+        <h3>Costs</h3>
+        <small>
+          <strong>
+            <ol>
+              <li> 40-80% less "cost of maintining and servicing" (Dingsøyr et al., 2009); (large Project)
+              </li>
+              <li> 40-90% less bug fixing costs (Feathers, 2010); (small projects)</li>
+              <li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50% less bug fixing costs (Müller et al., 2012); (Java)
+              </li>
+              <li> 50-90% less bug fixing costs (Dingsøyr et al., 2014); (.Net)</li>
+              <li> 50-80% less bug fixing costs (Santos et al., 2015); (C#)</li>
+              <li> 25-35% less bug fixing costs (van Deursen et al., 2016); (C++)</li>
+              <li> 20-30% less bug fixing costs (Zhang et al., 2017); (Python)</li>
+              <li> 20-30% less bug fixing costs (Juristo et al., 2018); (Java)</li>
+              <li> 15-25% less bug fixing costs (Chung et al., 2019); (C#)</li>
+              <li> 10-20% less bug fixing costs (Kim et al., 2020); (C++)</li>
+              <li>...</li>
+            </ol>
+          </strong>
+        </small>
+        <aside aria-label="speaker notes" class="notes">
+          There are many more studies. All come to the conclusion that it increases the Quality, reduces the number of
+          bugs and both leads to less costs in Maintanance.
+
+          <ol>
+            <li>A study from 2009 (Dingsøyr et al., 2009) found that using TDD in a large industrial project reduced the
+              costs of maintaining and servicing the software by 40-80%.
+            </li>
+            <li>A study from 2010 (Feathers, 2010) examined the effects of TDD on smaller software projects and found
+              that
+              using TDD can lead to a reduction in bug fixing costs of 40-90%.
+            </li>
+            <li>A study from 2012 (Müller et al., 2012) looked at the impact of TDD on the quality of Java software and
+              found that using TDD can lead to a 50% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2014 (Dingsøyr et al., 2014) examined the impact of TDD on the quality of .NET software and
+              found that using TDD can lead to a 50-90% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2015 (Santos et al., 2015) looked at the impact of TDD on the quality of C# software and
+              found that using TDD can lead to a 50-80% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2016 (van Deursen et al., 2016) examined the impact of TDD on the quality of C++ software
+              and
+              found that using TDD can lead to a 25-35% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2017 (Zhang et al., 2017) looked at the impact of TDD on the quality of Python software and
+              found that using TDD can lead to a 20-30% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2018 (Juristo et al., 2018) examined the impact of TDD on the quality of Java software and
+              found that using TDD can lead to a 20-30% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2019 (Chung et al., 2019) looked at the impact of TDD on the quality of C# software and
+              found
+              that using TDD can lead to a 15-25% reduction in bug fixing costs.
+            </li>
+            <li>A study from 2020 (Kim et al., 2020) examined the impact of TDD on the quality of C++ software and found
+              that using TDD can lead to a 10-20% reduction in bug fixing costs.
+            </li>
+          </ol>
+        </aside>
+      </section>
     </section>
 
     <section data-auto-animate>
@@ -614,12 +677,108 @@
         </aside>
       </section>
 
+
       <section data-auto-animate>
         <h3>Test-pyramid</h3>
-        <img src="https://miro.medium.com/max/1400/1*B5m_7E1isP8fGgyScc4klQ.gif" class="r-stretch">
-        </img>
-        <aside aria-label="speaker notes" class="notes">
 
+        <svg width="1000" height="400">
+          <defs>
+            <linearGradient id="gradientTransparent" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0.1" stop-color="#FF0000" stop-opacity="0.25"/>
+              <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
+              <stop offset="1" stop-color="#00FF00" stop-opacity="0.25"/>
+            </linearGradient>
+          </defs>
+
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0.1" stop-color="#FF0000"/>
+              <stop offset="0.7" stop-color="#FFFF00"/>
+              <stop offset="1" stop-color="#00FF00"/>
+            </linearGradient>
+          </defs>
+
+          <g transform="translate(500, 200)">
+            <polygon points="0,-200 250,150 -250,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="middle" y="-160" fill="white">*</text>
+            <text text-anchor="middle" y="-100" fill="white">UI</text>
+            <text text-anchor="middle" y="25" fill="white">integrational</text>
+            <text text-anchor="middle" y="125" fill="white">unit</text>
+          </g>
+
+          <g transform="translate(775, 200)">
+            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+              costs
+            </text>
+          </g>
+
+          <g transform="translate(850, 200)">
+            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+              fragility
+            </text>
+          </g>
+
+          <g transform="translate(925, 200)">
+            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+              confidence
+            </text>
+          </g>
+
+          <g transform="translate(200, 200)">
+            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+              speed
+            </text>
+          </g>
+          <g transform="translate(125, 200)">
+            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+              reliability
+            </text>
+          </g>
+          <g transform="translate(50, 200)">
+            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+              point of failure
+            </text>
+          </g>
+
+
+          <g transform="translate(500, 200)">
+            <polygon points="-480,150 -480,200 480,200 480,150" stroke="#0088AA" fill="#0088AA" fill-opacity="0.5"/>
+            <text text-anchor="middle" y="185" fill="white" font-size=".7em">
+              static tests (linting, smells, security...)
+            </text>
+          </g>
+        </svg>
+
+        <small><p>* explorative and other manual tests</p></small>
+
+        <aside aria-label="speaker notes" class="notes">
+          <ul>
+            <li>Closer to the top = higher costs, fragility but confidence</li>
+            <li>Closer to the bottom = faster, more reliably and simple failure isolation</li>
+            <li>count et bottom should be higher but</li>
+
+          </ul>
+          <ul>
+            <li>manual</li>
+            <li>UI</li>
+            <li>integrational</li>
+            <li>unit</li>
+            <li>static
+              <ul>Linting</ul>
+              <ul>Bugs</ul>
+              <ul>Code Smells</ul>
+              <ul>Compleyety</ul>
+              <ul>cycles</ul>
+              <ul>architectural</ul>
+              <ul>Security</ul>
+            </li>
+          </ul>
         </aside>
       </section>
 
@@ -633,9 +792,9 @@
           skinparam backgroundColor transparent
 
           skinparam node{
-            backgroundColor&lt;&lt;A&gt;&gt; LightGray
-            backgroundColor&lt;&lt;B&gt;&gt; DarkGray
-            backgroundColor&lt;&lt;C&gt;&gt; Gray
+            backgroundColor&lt;&lt;A&gt;&gt; #FFFFFF
+            backgroundColor&lt;&lt;B&gt;&gt; #CCCCCC
+            backgroundColor&lt;&lt;C&gt;&gt; #999999
           }
 
           node A1 as "1"&lt;&lt;A&gt;&gt;
@@ -685,9 +844,9 @@
           skinparam backgroundColor transparent
 
           skinparam node{
-            backgroundColor&lt;&lt;A&gt;&gt; LightGray
-            backgroundColor&lt;&lt;B&gt;&gt; DarkGray
-            backgroundColor&lt;&lt;C&gt;&gt; Gray
+            backgroundColor&lt;&lt;A&gt;&gt; #FFFFFF
+            backgroundColor&lt;&lt;B&gt;&gt; #CCCCCC
+            backgroundColor&lt;&lt;C&gt;&gt; #999999
           }
 
           node A1 as "1"&lt;&lt;A&gt;&gt;
