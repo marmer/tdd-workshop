@@ -996,60 +996,7 @@
     </section>
     <section data-auto-animate>
       <section data-auto-animate>
-        <h3>TDD</h3>
-
-        <svg width="640" height="400">
-          <path d="M 337 50 L 337 40 A 120 30 400 0 1 390 50 Z" fill="red"
-                fill-opacity="1"/>
-          <path transform="translate(180 280) rotate(120 328 -2)" d="M 337 50 L 337 40 A 120 30 400 0 1 390 50 Z"
-                fill="green"
-                fill-opacity="1"/>
-
-          <path transform="translate(-153 295) rotate(240 328 -2)" d="M 337 50 L 337 40 A 120 30 400 0 1 390 50 Z"
-                fill="blue"
-                fill-opacity="1"/>
-
-          <g transform="rotate(60 320 200)">
-            <path fill="red"
-                  fill-opacity="0.5"
-                  d="M320,180L190.0961894323342,105.00000000000001A150,150,0,0,1,449.9038105676658,105.00000000000001Z"
-                  stroke-width="1"/>
-            <path fill="green"
-                  fill-opacity="0.5"
-                  d="M320,180L449.9038105676658,105.00000000000001A150,150,0,0,1,320,330Z"
-                  stroke-width="1"/>
-            <path fill="blue"
-                  fill-opacity="0.5"
-                  d="M320,180L320,330A150,150,0,0,1,190.0961894323342,104.99999999999999Z"
-                  stroke-width="1"/>
-          </g>
-
-          <text text-anchor="start" x="350" y="90" font-size=".5em" fill="#FFFFFF">Red:
-            <tspan x="350" font-size=".75em" dy="1.5em">- create test</tspan>
-            <tspan x="350" font-size=".75em" dy="1em">- verify red</tspan>
-            <tspan x="350" font-size=".75em" dy="1em">- verify message</tspan>
-          </text>
-
-          <text text-anchor="middle" x="340" y="230" font-size="20" fill="#FFFFFF">Green:
-            <tspan x="340" font-size=".75em" dy="1.5em">- min required prod-code</tspan>
-          </text>
-          <text text-anchor="end" x="335" y="90" font-size="20" fill="#FFFFFF">Refactor:
-            <tspan x="335" font-size=".75em" dy="1.5em">- remove dublets</tspan>
-            <tspan x="335" font-size=".75em" dy="1em">- don't add logic</tspan>
-            <tspan x="335" font-size=".75em" dy="1em">- improve identifier,</tspan>
-            <tspan x="335" font-size=".75em" dy="1em">structure, readability</tspan>
-            <tspan x="335" font-size=".75em" dy="1em">- only one side at once</tspan>
-            <tspan x="335" font-size=".75em" dy="1em">(prod- or test code)</tspan>
-          </text>
-        </svg>
-
-        <aside aria-label="speaker notes" class="notes">
-
-        </aside>
-
-      </section>
-      <section data-auto-animate>
-        <h3>TDD</h3>
+        <h3>TDD - Theory</h3>
 
         <svg width="400" height="400">
           <g transform="translate(-170 0) scale(1.15 1.15)" opacity="0.6">
@@ -1111,6 +1058,85 @@
               </ul>
             </li>
 
+          </ul>
+        </aside>
+
+      </section>
+
+      <section data-auto-animate>
+        <h3>TDD - rules</h3>
+        <ul>
+          <li>focus on one detail aka. one test at a time</li>
+          <li>New test shows what's missing</li>
+          <li>no prod change without a test*</li>
+        </ul>
+        <p><small>* We talk about exceptions later</small></p>
+        <aside aria-label="speaker notes" class="notes">
+          <ul>
+            <li>one test at a time
+              <ul>
+                <li>helps to focus on details</li>
+                <li>less distraction = less mistakes</li>
+              </ul>
+            </li>
+            <li>New test shows what's missing
+              <ul>
+                <li>It's a little like with science
+                  <ul>
+                    <li>Your prod code is a hypothesis</li>
+                    <li>A new test is a try to disprove it</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>no prod change without a test
+              <ul>
+                <li>waste of time</li>
+                <li>potential errors</li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+
+      </section>
+      <section data-auto-animate>
+        <h3>TDD - guideline</h3>
+        <ul>
+          <li>create executable specification</li>
+          <li>Make tests less specific than prod code</li>
+          <li>Don't dig for the gold (simple tests first)</li>
+          <li>Talk with the business first</li>
+        </ul>
+        <aside aria-label="speaker notes" class="notes">
+          <ul>
+            <li>create executable specification
+              <ul>
+                <li>let the test tell the reader what the test expects the prod code to do...</li>
+                <li>instead of how</li>
+                <li>make your code as readable as possible (structure, identifiers, abstraction)</li>
+              </ul>
+            </li>
+            <li>Make tests less specific than prod code
+              <ul>
+                <li>otherwise refactorings get much harder</li>
+                <li>and you come to the fragile test problem</li>
+              </ul>
+            </li>
+            <li>Don't dig for the gold (simple tests first)
+              <ul>
+                <li>Simplest parts of your business-cases first
+                  <ul>helps to get a better picture and to start</ul>
+                </li>
+                <li>try to avoid to begin with exceptional cases
+                  <ul>
+                    <li>...but don't forget them</li>
+                    <li>...(maybe write some todos if you think of some)</li>
+                    <li>otherwise you may waste time on later problems</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Talk with the business first</li>
           </ul>
         </aside>
 
