@@ -1,6 +1,10 @@
 # TDD-Workshop
 
-Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen. Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
+You'll find the [slides here](https://marmer.github.io/tdd-workshop)
+
+Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der
+Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen.
+Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
 
 Im Masterbranch befindet sich die globale Konfiguration. Die tatsächlichen Show-Cases befinden sich in den entsprechend
 benannten anderen Branches
