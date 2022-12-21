@@ -1,6 +1,74 @@
 import {gradientChartColor} from "./colors.js";
 
 new Chart(
+    document.getElementById('romanNumeralsKataChart'), {
+      type: 'bar',
+      data: {
+        labels: [
+          1, 2, 3],
+        datasets: [{
+          label: "Requirements/Architectural Design",
+          data: [26.3, 25.2, 24.9],
+          borderWidth: 1,
+          tension: 0.25,
+          borderColor: gradientChartColor(0, 0.4, 0.9, 1),
+          backgroundColor: "olive",
+          fill: true
+        }, {
+          label: "Requirements/Architectural Design",
+          data: [29.5, 28.3, 27.9],
+          borderWidth: 1,
+          tension: 0.25,
+          borderColor: gradientChartColor(0, 0.4, 0.9, 1),
+          backgroundColor: "grey",
+          fill: true
+        }],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            display: true,
+            text: 'Kata: roman numerals - experiment by Jason Gorman',
+            color: "#FFFFFF",
+          }
+        },
+        scales: {
+          x: {
+            display: true,
+            ticks: {
+              display: true,
+              color: "#FFFFFF"
+            },
+            title: {
+              display: true,
+              text: '- Iteration -',
+              color: "#AAAAAA",
+            },
+          },
+          y: {
+            min: 23,
+            display: true,
+            type: "linear",
+            offset: true,
+            ticks: {
+              display: true,
+              color: "#FFFFFF",
+            },
+            title: {
+              display: true,
+              text: '- Completition time (min) -',
+              color: "#AAAAAA"
+            },
+          }
+        }
+      }
+    })
+
+new Chart(
     document.getElementById('costsOfFixingVsPreventingBugsChartLogarithmic'), {
       type: 'line',
       data: {
