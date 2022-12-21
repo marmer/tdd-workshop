@@ -1,5 +1,7 @@
 # TDD-Workshop
 
+You'll find the [slides here](https://marmer.github.io/tdd-workshop)
+
 Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der
 Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen.
 Im Fall eines Fokus auf Javascript oder Typescript mit npm oder yarn.
@@ -109,8 +111,8 @@ beliebigen Sprachen und Programmierparadigmen testgetrieben gelöst werden.
     * Hinweis 2: Es sind nur Signale mit sauberer Abtastung und gleichmäßigen Längen übergeben
 * Es sind unterschiedliche Timings möglich (Hinweis: Fante mit Timing1 an)
 
-|                   Signaltyp | Timing **Faktor** | Beispiel Timing = 1      | Beispiel Timing = 3                     |
-|----------------------------:|:-----------------:|:-------------------------|:----------------------------------------|
+|                   Signaltyp | Timing **Faktor** | Beispiel Timing = 1           | Beispiel Timing = 3                          |
+|----------------------------:|:-----------------:|:------------------------------|:---------------------------------------------|
 |       Pause zwischen Worten |         7         | 0000000 <br/>*(Länge 7\*1=7)* | 000000000000000000000 <br/>*(Länge 7\*3=21)* |
 |   Pause zwischen Buchstaben |         3         | 000     <br/>*(Länge 3\*1=3)* | 000000000             <br/>*(Länge 3\*3=9)*  |
 | Pause zwischen Morsezeichen |         1         | 0       <br/>*(Länge 1\*1=1)* | 000                   <br/>*(Länge 1\*3=3)*  |
