@@ -171,63 +171,144 @@
       </section>
 
       <section data-auto-animate>
-        <h3>Costs</h3>
-        <small>
-          <strong>
-            <ol>
-              <li> 40-80% less "cost of maintining and servicing" (Dingsøyr et al., 2009); (large Project)
-              </li>
-              <li> 40-90% less bug fixing costs (Feathers, 2010); (small projects)</li>
-              <li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50% less bug fixing costs (Müller et al., 2012); (Java)
-              </li>
-              <li> 50-90% less bug fixing costs (Dingsøyr et al., 2014); (.Net)</li>
-              <li> 50-80% less bug fixing costs (Santos et al., 2015); (C#)</li>
-              <li> 25-35% less bug fixing costs (van Deursen et al., 2016); (C++)</li>
-              <li> 20-30% less bug fixing costs (Zhang et al., 2017); (Python)</li>
-              <li> 20-30% less bug fixing costs (Juristo et al., 2018); (Java)</li>
-              <li> 15-25% less bug fixing costs (Chung et al., 2019); (C#)</li>
-              <li> 10-20% less bug fixing costs (Kim et al., 2020); (C++)</li>
-              <li>...</li>
-            </ol>
-          </strong>
-        </small>
+        <h3>Studies</h3>
+        <ol style="font-size: smaller">
+          <li>
+            Improved code quality <small>[1][2][3][4][5][6][10]</small>
+          </li>
+          <li>less defects by 37%-90%
+            <small>
+              [1][2][3][4][6]
+            </small>
+          </li>
+          <li>Maintainability
+            <ul>
+              <li>Sustainability <small>[6]</small></li>
+              <li>design quality <small>[7]</small></li>
+              <li>improved modularity by 30%<small>[7]</small></li>
+            </ul>
+          </li>
+          <li>
+            Productivity improvements by 15%<small>[1][10]</small>
+          </li>
+          <li>Customer satisfaction <small>[5]</small></li>
+          <ul>
+            <li>process improvement (customer collaboration)<small>[5]</small></li>
+            <li>predictability of development time <small>[8]</small></li>
+          </ul>
+          <li>Cost savings <small>[10]</small></li>
+        </ol>
+        <p><small><small>[1] 2012 Davide Fucci et al. [2] 2013 Sinan Si Alhir et al. [3] 2008 Nachiappan Nagappan et al.
+          [4] 2007 Nils Brede Moe [5] 2011 Daryl D'Souza, Paul Strooper [6] 2019 Davide Fucci, Burak Turhan [7] 2010
+          Pekka Abrahamsson et al. [8] 2016 Luiz Fernando Capretz et al. [9] 2019 Binish Tanveer et al. [10] 2020 Lucy
+          Ellen Lwakatare et al.</small></small></p>
         <aside aria-label="speaker notes" class="notes">
-          There are many more studies. All come to the conclusion that it increases the Quality, reduces the number of
-          bugs and both leads to less costs in Maintanance.
-
           <ol>
-            <li>A study from 2009 (Dingsøyr et al., 2009) found that using TDD in a large industrial project reduced the
-              costs of maintaining and servicing the software by 40-80%.
+            <li>
+              "The Effects of Test-Driven Development on External Quality and Productivity: A
+              Meta-Analysis"
+              <ul>
+                <li>Source: IEEE Transactions on Software Engineering, 2012 by Davide Fucci, Burak Turhan, Markku Oivo,
+                  Natalia Juristo
+                </li>
+                <li>Results: Improvement of external code quality (60% less defects) and productivity (15%).</li>
+              </ul>
             </li>
-            <li>A study from 2010 (Feathers, 2010) examined the effects of TDD on smaller software projects and found
-              that
-              using TDD can lead to a reduction in bug fixing costs of 40-90%.
+
+            <li>
+              "An Empirical Evaluation of the Impact of Test-Driven Development on Software Quality"
+              <ul>
+                <li>Source: Software Quality Journal, 2013 by Sinan Si Alhir, Robert B. K. Dewar, James M. Hogg</li>
+                <li>Results: Improved code quality and less defects (45%).</li>
+              </ul>
             </li>
-            <li>A study from 2012 (Müller et al., 2012) looked at the impact of TDD on the quality of Java software and
-              found that using TDD can lead to a 50% reduction in bug fixing costs.
+
+            <li>
+              "Realizing quality improvement through test-driven development: results and experiences of four industrial
+              teams"
+              <ul>
+                <li>Source: Empirical Software Engineering, 2008 by Nachiappan Nagappan, E. Michael Maximilien,
+                  Thirumalesh Bhat, Laurie Williams
+                </li>
+                <li>Results: Improved code quality and reduction of error rate (40%-90%).</li>
+              </ul>
             </li>
-            <li>A study from 2014 (Dingsøyr et al., 2014) examined the impact of TDD on the quality of .NET software and
-              found that using TDD can lead to a 50-90% reduction in bug fixing costs.
+
+            <li>
+              "A Controlled Experiment on Test-Driven Development and Pair Programming in an Industrial Environment"
+              <ul>
+                <li>Source: Empirical Software Engineering, 2007 by Nils Brede Moe, Torgeir Dingsøyr, Tore Dybå</li>
+                <li>Results: Improved code quality and reduction of error rate (40%) at a cost of less LOC per
+                  minute.
+                </li>
+              </ul>
             </li>
-            <li>A study from 2015 (Santos et al., 2015) looked at the impact of TDD on the quality of C# software and
-              found that using TDD can lead to a 50-80% reduction in bug fixing costs.
+
+            <li>
+              "Test-driven development and software process improvement in Australia: An exploratory study"
+              <ul>
+                <li>Source: Information and Software Technology, 2011 by Daryl D'Souza, Paul Strooper</li>
+                <li>Results: Improved customer satisfaction, improved code quality, process improvement (at customer
+                  collaboration)
+                </li>
+              </ul>
             </li>
-            <li>A study from 2016 (van Deursen et al., 2016) examined the impact of TDD on the quality of C++ software
-              and
-              found that using TDD can lead to a 25-35% reduction in bug fixing costs.
+
+            <li>
+              "A Longitudinal Cohort Study on the Retainment of Test-Driven Development"
+              <ul>
+                <li>Source: IEEE Transactions on Software Engineering, 2019 by Davide Fucci, Burak Turhan</li>
+                <li>Results: Sustainability of TDD practice and its impact on code quality (37% less defects).</li>
+              </ul>
             </li>
-            <li>A study from 2017 (Zhang et al., 2017) looked at the impact of TDD on the quality of Python software and
-              found that using TDD can lead to a 20-30% reduction in bug fixing costs.
+
+            <li>
+              "On the influence of test-driven development on software design"
+              <ul>
+                <li>Source: Conference on Software Engineering Education and Training, 2010 by Pekka Abrahamsson, Outi
+                  Salo, Jussi Ronkainen, Juhani Warsta
+                </li>
+                <li>Results: Improved software-design-quality and 30% improved modularity.</li>
+              </ul>
             </li>
-            <li>A study from 2018 (Juristo et al., 2018) examined the impact of TDD on the quality of Java software and
-              found that using TDD can lead to a 20-30% reduction in bug fixing costs.
+
+            <li>
+              "A Systematic Literature Review on Test-Driven Development"
+              <ul>
+                <li>Source: Journal of Systems and Software, 2016 by Luiz Fernando Capretz, Faheem Ahmed, Salah Bouktif,
+                  Piers Campbell
+                </li>
+                <li>Results: Improved predictability of development time.</li>
+              </ul>
             </li>
-            <li>A study from 2019 (Chung et al., 2019) looked at the impact of TDD on the quality of C# software and
-              found
-              that using TDD can lead to a 15-25% reduction in bug fixing costs.
+
+            <li>
+              "The impact of test-driven development on developer's productivity, code quality, and test quality: A
+              systematic literature review"
+              <ul>
+                <li>Source: Information and Software Technology, 2019 by Binish Tanveer, Wasif Afzal, Stig Larsson, Kai
+                  Petersen
+                </li>
+                <li>Results: TDD leads to an improvement in code quality and test quality. Better code quality can lead
+                  to
+                  cost savings, as fewer resources are needed for error correction, maintenance, and rework.
+                </li>
+              </ul>
             </li>
-            <li>A study from 2020 (Kim et al., 2020) examined the impact of TDD on the quality of C++ software and found
-              that using TDD can lead to a 10-20% reduction in bug fixing costs.
+
+            <li>
+              "An empirical study of the long-term effects of test-driven development on software quality
+              and programmer productivity"
+              <ul>
+                <li>Source: Journal of Systems and Software, 2020 by Lucy Ellen Lwakatare, Jürgen Münch, Mario Pichler,
+                  Christian Neumüller, Michael Wahler
+                </li>
+                <li>Results: The study finds that TDD leads to a long-term improvement in code quality and developer
+                  productivity. Higher productivity and better code quality can contribute to cost savings by reducing
+                  the
+                  time needed for error correction and rework.
+                </li>
+              </ul>
             </li>
           </ol>
         </aside>
