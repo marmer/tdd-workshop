@@ -18,8 +18,7 @@
 <div class="reveal">
     <a href="https://www.novatec-gmbh.de/" title="Novatec">
         <img width="205" height="48" src="https://www.novatec-gmbh.de/wp-content/uploads/2023/06/logo_colored.svg"
-             alt="Novatec" class="is-logo-image entered lazyloaded" style="padding-left: 25px"
-             >
+             alt="Novatec" class="is-logo-image entered lazyloaded" style="padding-left: 25px"             >
     </a>
   <div class="slides">
     <section data-auto-animate>
@@ -1388,58 +1387,60 @@
         <h4>CLI - Signal</h4>
         <small>
           <ul>
-            <li>In the real world, morse codes are represented by the length of electrical signals. Either there is no
+            <li>In the real world, morse codes are represented by the <em>length of electrical signals</em>. Either there is no
               signal (0) or a signal (1)
             </li>
-            <li>Add the ability to translate those signals represented by "0" and "1" to the application
-            <li>depending on the sender the timing (length is different) is different
+            <li>Add the ability to <em>translate those signals</em> represented by "0" and "1" to the application
+            <li>depending on the sender the timing (<em>length of a signal in time</em>) is different
               <ul>
-                <li>Hint1: we assume the timing is constant</li>
-                <li>Hint2: you could translate from electrical to morse to plain-text</li>
+                <li>Hint1: we <em>assume</em> the <em>timing is constant</em></li>
+                <li>Hint2: you could translate from <em>electrical to morse to plain-text</em></li>
               </ul>
             </li>
           </ul>
 
-          <table>
-            <thead>
-            <th>signal type</th>
-            <th>timing factor</th>
-            <th>example with timing = 1</th>
-            <th>example with timing = 3</th>
-            </thead>
-            <tbody>
-            <tr>
-              <td>pause between words</td>
-              <td>7</td>
-              <td>0000000</td>
-              <td>000000000000000000000</td>
-            </tr>
-            <tr>
-              <td>pause between symbols</td>
-              <td>3</td>
-              <td>000</td>
-              <td>000000000</td>
-            </tr>
-            <tr>
-              <td>pause between dots/dashes</td>
-              <td>1</td>
-              <td>0</td>
-              <td>000</td>
-            </tr>
-            <tr>
-              <td>dashes</td>
-              <td>3</td>
-              <td>111</td>
-              <td>111111111</td>
-            </tr>
-            <tr>
-              <td>dot</td>
-              <td>1</td>
-              <td>1</td>
-              <td>111</td>
-            </tr>
-            </tbody>
-          </table>
+          <small>
+            <table>
+              <thead>
+              <th>signal type</th>
+              <th>timing factor</th>
+              <th>example with timing = 1</th>
+              <th>example with timing = 3</th>
+              </thead>
+              <tbody>
+              <tr>
+                <td>pause between words</td>
+                <td>7</td>
+                <td>0000000</td>
+                <td>000000000000000000000</td>
+              </tr>
+              <tr>
+                <td>pause between symbols</td>
+                <td>3</td>
+                <td>000</td>
+                <td>000000000</td>
+              </tr>
+              <tr>
+                <td>pause between dots/dashes</td>
+                <td>1</td>
+                <td>0</td>
+                <td>000</td>
+              </tr>
+              <tr>
+                <td>dashes</td>
+                <td>3</td>
+                <td>111</td>
+                <td>111111111</td>
+              </tr>
+              <tr>
+                <td>dot</td>
+                <td>1</td>
+                <td>1</td>
+                <td>111</td>
+              </tr>
+              </tbody>
+            </table>
+          </small>
         </small>
 
 
