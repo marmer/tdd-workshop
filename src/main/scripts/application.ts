@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import {helloWorld} from "./helloWorld";
+import {processCli} from "./application/morseCliProcessor";
+import  "./configuration/cliOutputWriterFactory";
+import outputWriterFactory from "./configuration/cliOutputWriterFactory";
 
-helloWorld(process.argv.slice(2))
+processCli({args: process.argv.slice(2), outputWriterFactory})
