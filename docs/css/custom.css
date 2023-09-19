@@ -1,0 +1,9 @@
+h1, h2, h3, h4, h5, small {
+    font-family: Roboto,sans-serif !important;
+}
+
+.gradient-text, q, h1, h2, h3, em {
+    background: -webkit-linear-gradient(360deg,#1FAF98,#36BCEE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
