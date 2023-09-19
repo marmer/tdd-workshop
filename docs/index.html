@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,17 +8,23 @@
 
   <link rel="stylesheet" href="dist/reset.css">
   <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/league.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <div class="reveal">
+    <a href="https://www.novatec-gmbh.de/" title="Novatec">
+        <img width="205" height="48" src="https://www.novatec-gmbh.de/wp-content/uploads/2023/06/logo_colored.svg"
+             alt="Novatec" class="is-logo-image entered lazyloaded" style="padding-left: 25px"
+             >
+    </a>
   <div class="slides">
     <section data-auto-animate>
       <h3>TDD - Test Driven Development</h3>
-      <h4>(or how to have a good night after Coding) </h4>
+      <h4>(Or how to have good night sleep after coding sessions)</h4>
       <small><small>by MarMer</small></small>
       <aside aria-label="speaker notes" class="notes">
         <ul>
@@ -81,21 +87,7 @@
             alt="Geek and Poke - Don't ask your Boss"
             class="r-stretch"></img>
         <aside aria-label="speaker notes" class="notes">
-          In the following we are talking about the costs to <strong>fix</strong> bugs. <em>Hundekuchen</em>
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <img src="http://ambysoft.com/artwork/comparingTechniques.jpg"
-             alt="costs per length of Feedback Cycle"
-             class="r-stretch"></img>
-        <small><small>
-          <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
-            Why Agile Software Development Techniques Work: Improved Feedback</a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          The costs of change depend on the length of the feedback cycle.
+          In the following we are talking about the costs to <strong>fix</strong> bugs.
         </aside>
       </section>
 
@@ -104,11 +96,11 @@
         <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
         <small><small>
           <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
-            Cost of fixing vs. preventing Bugs (at google)</a>
+            Cost of fixing vs. preventing Bugs (at Google)</a>
         </small></small>
         <aside aria-label="speaker notes" class="notes">
           <ul>
-            <li>Costs to fix bugs at google acording to the article</li>
+            <li>Costs to fix bugs at Google, according to the article</li>
             <li>mind the <strong>logarithmic</strong> scale</li>
           </ul>
         </aside>
@@ -119,13 +111,28 @@
         <canvas id="costsOfFixingVsPreventingBugsChartLinear"></canvas>
         <small><small>
           <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
-            Cost of fixing vs. preventing Bugs (at google)</a>
+            Cost of fixing vs. preventing Bugs (at Google)</a>
         </small></small>
         <aside aria-label="speaker notes" class="notes">
           <ul>
-            <li>Costs to fix bugs at google acording to the article</li>
-            <li>mind the <strong>logarithmic</strong> scale</li>
+            <li>Costs to fix bugs at Google, according to the article</li>
+            <li>now with a linear scale</li>
+            <li>this is also known as the <strong>rule of ten</strong></li>
           </ul>
+        </aside>
+      </section>
+
+      <section data-auto-animate>
+        <h3>Costs</h3>
+        <img src="https://ambysoft.com/wp-content/uploads/2023/03/comparingTechniques.jpg"
+             alt="costs per length of Feedback Cycle"
+             class="r-stretch"></img>
+        <small><small>
+          <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
+            Why Agile Software Development Techniques Work: Improved Feedback</a>
+        </small></small>
+        <aside aria-label="speaker notes" class="notes">
+          The costs of change depend on the length of the feedback cycle.
         </aside>
       </section>
 
@@ -141,7 +148,7 @@
         <aside aria-label="speaker notes" class="notes">
           Planing Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing
 
-          NIST is the "National institute of standards and technology - U.S. department of commerce
+          NIST is the "National institute of standards and technology — U.S. department of commerce
         </aside>
       </section>
 
@@ -173,26 +180,30 @@
       <section data-auto-animate>
         <h3>Expected outcomes:</h3>
         <ol style="font-size: smaller">
-          <li>Improved code quality*</li>
-          <li>less defects in production</li>
-          <li>Maintainability
+          <li><em>Cost</em> savings</li>
+          <li><em>less defects</em> in production</li>
+          <li>improved <em>Maintainability/Quality</em>*
             <ul>
               <li>Sustainability</li>
               <li>design quality</li>
               <li>improved modularity</li>
             </ul>
           </li>
-          <li>Customer satisfaction </li>
+          <li><em>Customer</em> satisfaction </li>
           <ul>
-            <li>process improvement (customer collaboration)</li>
-            <li>predictability of development time</li>
+            <li>process improvement (customer <em>collaboration</em>)</li>
+            <li><em>predictability</em> of development time</li>
           </ul>
-          <li>Cost savings</li>
         </ol>
-        <p>* mostly if you don't go blind</p>
+        <p><small><small>* if you don't go blind</small></small></p>
         <aside aria-label="speaker notes" class="notes">
         </aside>
       </section>
+      <aside aria-label="speaker notes" class="notes">
+        Expected outcomes of smaller feedback cycles
+
+        Better reputation of course
+      </aside>
     </section>
 
     <section data-auto-animate>
@@ -202,23 +213,6 @@
             src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
             alt="Geek and Poke - DDT"
             class="r-stretch"></img>
-        <aside aria-label="speaker notes" class="notes">
-
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Quality - TDD</h3>
-        <ul>
-          <li>Focus tool</li>
-          <li>Double entry bookkeeping</li>
-          <li>Development process
-            <ul>
-              <li>evolutionary</li>
-              <li>arbitrarily (like science)</li>
-            </ul>
-          </li>
-        </ul>
         <aside aria-label="speaker notes" class="notes">
 
         </aside>
@@ -250,14 +244,14 @@
       </section>
 
       <section data-auto-animate>
-        <h3>Quality - symptoms of DDT</h3>
+        <h3>Quality — symptoms of DDT</h3>
         <ul>
           <li>Verify what the code does instead of what the code was intended to do</li>
           <li>They often...
             <ul>
               <li>miss professional and technical use cases*</li>
               <li>are less clean, readable and maintainable</li>
-              <li>have an impropper scope**</li>
+              <li>have an improper scope**</li>
             </ul>
           </li>
         </ul>
@@ -274,7 +268,7 @@
                 <li>are less clean, readable and maintainable</li>
                 <li>have an impropper scope
                   <ul>
-                    <li>this can lead to the fragile test problem</li>
+                    <li>this can lead to the "fragile test problem"</li>
                   </ul>
                 </li>
               </ul>
@@ -310,11 +304,11 @@
             <li>What is bad here?</li>
             <li>
               <ul>
-                <li>Unterschiedliche Testfälle in einer Methode</li>
+                <li>Different test casese in one method</li>
                 <li>
                   <ul>
-                    <li>Welche?</li>
-                    <li>Wieviele?</li>
+                    <li>Which ones?</li>
+                    <li>How many?</li>
                   </ul>
                 </li>
                 <li>Tells the method name anything about the intention?</li>
@@ -355,7 +349,7 @@
             </li>
             <li>And what is good here?
               <ul>
-                <li>Intention of the test is encoded in the method name</li>
+                <li>The Intention of the test is encoded in the method name</li>
               </ul>
             </li>
           </ul>
@@ -415,7 +409,7 @@
 
         <aside aria-label=" speaker notes" class="notes ">
           <ul>
-            <li>What is bad here? (except for the Kind of mocking and verification)
+            <li>What is bad here? (Except for the Kind of mocking and verification)
               <ul>
                 <li>Excessive test- or system setup</li>
                 <li>All tests are dependent on the excessive setup</li>
@@ -432,8 +426,8 @@
         <div class="r-hstack">
           <div>
             <ul>
-              <li>This are all builds of the main branch</li>
-              <li>The Failing test is always se same</li>
+              <li>These are all builds of the main branch</li>
+              <li>The Failing test is always the same</li>
             </ul>
           </div>
           <div class="r-hstack">
@@ -451,7 +445,7 @@
 
         <aside aria-label=" speaker notes" class="notes ">
           <ul>
-            <li>What is bad here? (It's always the same test which causes the red builds</li>
+            <li>What is bad here? (It's always the same test that causes the red builds</li>
             <li>... it happens without code changes at the test or the related production code</li>
           </ul>
         </aside>
@@ -462,11 +456,10 @@
         <div class="r-hstack">
           <div>
             <ul>
-              <li>communicate intention clearly</li>
-              <li>give expressive feedback</li>
-              <li>run reliably</li>
-              <li>easy to maintain</li>
-              <li>easy to understand</li>
+              <li><em>communicate</em> intention clearly</li>
+              <li>give <em>expressive</em> feedback</li>
+              <li>run <em>reliably</em> and <em>fast</em></li>
+              <li>easy to <em>maintain</em> and <em>understand</em></li>
             </ul>
           </div>
         </div>
@@ -477,7 +470,7 @@
               <ul>
                 <li>Tests are used to communicate</li>
                 <li>they should explain expected behavior</li>
-                <li>The usage of the right and if possible domain specific is important</li>
+                <li>The usage of the right and if possible, domain specific is important</li>
                 <li>Not use to technical terms if they are not needed and can be avoided</li>
               </ul>
             </li>
@@ -511,7 +504,7 @@
         <ul>
           <li class="fragment fade-out strike"><p>Acceptance</p></li>
           <li class="fragment fade-out strike"><span>UI</span></li>
-          <li class="fragment semi-fade-out">Integrati<u>ve</u>*</li>
+          <li class="fragment semi-fade-out">Integrati<em>ve</em>*</li>
           <li>Unittests**
             <ul>
               <li class="fragment fade-in-then-semi-out">Solitary/Micro-test*</li>
@@ -583,7 +576,7 @@
             <li>
               Integrative
               <ul>
-                <li>They make sure system or sub-assemblies can be integrated</li>
+                <li>They make sure system or subassemblies can be integrated</li>
                 <li>And yes ... integrative, not integration</li>
                 <li>Any kind of test with overhead for external dependencies
                   <ul>
@@ -732,7 +725,7 @@
               <ul>Linting</ul>
               <ul>Bugs</ul>
               <ul>Code Smells</ul>
-              <ul>Compleyety</ul>
+              <ul>Complexity</ul>
               <ul>cycles</ul>
               <ul>architectural</ul>
               <ul>Security</ul>
@@ -926,8 +919,8 @@
 
       <section data-auto-animate>
         <h3>Showcase</h3>
-        <p>Integration vs. Unit</p>
-        <p>Code-Coverage vs. Test Coverage</p>
+        <p>Integrational vs. Unit</p>
+        <p><em>Code</em>-Coverage vs. <em>Test</em>-Coverage</p>
         <p><br/></p>
         <p><small>Branch "IntegrationUnitShowcase"</small></p>
       </section>
@@ -936,13 +929,31 @@
     <section data-auto-animate>
       <section data-auto-animate>
         <h3>TDD</h3>
-        <img src="img/UserfrientlyRequirements.png" class="r-stretch"
+        <img src="img/UserfrientlyRequirements.png" class="r-stretch" alt="userfriently Requirements Image"
              aria-label="User Friendly comic - we need requirements"></img>
         <aside aria-label="speaker notes" class="notes">
-          Sounds familar?
+          Sounds familiar?
         </aside>
 
       </section>
+
+      <section data-auto-animate>
+        <h3>Quality - TDD</h3>
+        <ul>
+          <li><em>Focus</em> tool</li>
+          <li>Double entry <em>bookkeeping</em></li>
+          <li>Development process
+            <ul>
+              <li><em>evolutionary</em></li>
+              <li>arbitrarily (science-like)</li>
+            </ul>
+          </li>
+        </ul>
+        <aside aria-label="speaker notes" class="notes">
+
+        </aside>
+      </section>
+
       <section data-auto-animate>
         <h3>TDD - Theory</h3>
 
@@ -1005,7 +1016,6 @@
                 <li>Do a higher level refactoring</li>
               </ul>
             </li>
-
           </ul>
         </aside>
 
@@ -1014,9 +1024,9 @@
       <section data-auto-animate>
         <h3>TDD - rules</h3>
         <ul>
-          <li>focus on one detail aka. one test at a time</li>
-          <li>New test shows what's missing</li>
-          <li>no prod change without a test*</li>
+          <li>focus on <em>one</em> detail aka. one test at a time</li>
+          <li>New test shows what's <em>missing</em></li>
+          <li><em>no</em> prod change without a test*</li>
         </ul>
         <p><small>* We talk about exceptions later</small></p>
         <aside aria-label="speaker notes" class="notes">
@@ -1050,10 +1060,10 @@
       <section data-auto-animate>
         <h3>TDD - guideline</h3>
         <ul>
-          <li>create executable specification</li>
-          <li>Make tests less specific than prod code</li>
-          <li>Don't dig for the gold (simple tests first)</li>
-          <li>Talk with the business first</li>
+          <li>create executable <em>specification</em></li>
+          <li>Make tests <em>less specific</em> than prod code</li>
+          <li>Don't dig for the gold (<em>simple tests first</em>)</li>
+          <li><em>Talk</em> with the <em>business</em> first</li>
         </ul>
         <aside aria-label="speaker notes" class="notes">
           <ul>
@@ -1066,7 +1076,7 @@
             </li>
             <li>Make tests less specific than prod code
               <ul>
-                <li>otherwise refactorings get much harder</li>
+                <li>otherwise, refactorings get much harder</li>
                 <li>and you come to the fragile test problem</li>
               </ul>
             </li>
@@ -1075,11 +1085,11 @@
                 <li>Simplest parts of your business-cases first
                   <ul>helps to get a better picture and to start</ul>
                 </li>
-                <li>try to avoid to begin with exceptional cases
+                <li>try to avoid beginning with exceptional cases
                   <ul>
                     <li>...but don't forget them</li>
                     <li>...(maybe write some todos if you think of some)</li>
-                    <li>otherwise you may waste time on later problems</li>
+                    <li>otherwise, you may waste time on later problems</li>
                   </ul>
                 </li>
               </ul>
@@ -1097,16 +1107,17 @@
           <ul>
             <li>advantages
               <ul>
-                <li>Details relevant when you reach them</li>
-                <li>Early Big picture</li>
+                <li>Details relevant <em>late</em></li>
+                <li>Early <em>Big picture</em></li>
               </ul>
             </li>
             <li>drawbacks
               <ul>
-                <li>(personal experience) later fine tuning of higher level tests required often</li>
+                <li>later <em>fine-tuning</em> of higher level <em>tests</em> is often required*</li>
               </ul>
             </li>
           </ul>
+          <small><small>* personal experiance</small></small>
         </div>
 
 
@@ -1122,14 +1133,14 @@
           <ul>
             <li>advantages
               <ul>
-                <li>you can start with known details early</li>
+                <li>you can <em>start with</em> known <em>details</em> early</li>
               </ul>
             </li>
             <li>drawbacks
               <ul>
-                <li>implementation of higher levels are forced to fit lower level details</li>
-                <li>late big picture can lead to wasted time in details</li>
-                <li>unnecessary details are implemented quite often</li>
+                <li>implementation of <em>higher levels</em> is often <em>forced to fit</em> lower level details</li>
+                <li>late big picture can lead to <em>wasted time</em> in details</li>
+                <li><em>unnecessary details</em> are implemented quite often</li>
               </ul>
             </li>
           </ul>
@@ -1145,21 +1156,21 @@
       <section data-auto-animate>
         <h3>TDD - critics</h3>
         <ul>
-          <li>practice and discipline is required
+          <li><em>practice</em> and <em>discipline</em> is required
             <ul>
-              <li>-> Takes about 3-4 month</li>
-              <li>-> You can speed it up with some code katas</li>
+              <li>-> Takes about 3-4 months for <em>full speed</em></li>
+              <li>-> You can speed it up with some <em>code katas</em></li>
             </ul>
           </li>
-          <li>Small changes lead to lots of red tests
+          <li>Small changes lead to lots of <em>red tests</em>
             <ul>
-              <li>-> they do to much or are coupled too tight</li>
-              <li>-> in general, red tests are good. They protect you from accidental damage</li>
+              <li>-> they do too much or are <em>coupled too tight</em></li>
+              <li>-> In general, <em>red tests</em> are good. They <em>protect you</em> from accidental damage</li>
             </ul>
           </li>
-          <li>To expencive/slow
+          <li>To <em>expensive/slow</em>
             <ul>
-              <li>-> remember the studies</li>
+              <li>-> remember the <em>studies</em></li>
             </ul>
           </li>
         </ul>
@@ -1181,7 +1192,7 @@
                     <li>or are to specific tightly coupled</li>
                   </ul>
                 </li>
-                <li>-> in general, red tests are good. They protect you from accidental damage</li>
+                <li>-> In general, red tests are good. They protect you from accidental damage</li>
               </ul>
             </li>
             <li>To expencive/slow
@@ -1192,7 +1203,7 @@
             <li>In Addition
               <ul>
                 <li>No Test First means you cannot really act agile</li>
-                <li>..you cannot rely on the test suite</li>
+                <li>...you cannot rely on the test suite</li>
                 <li>You get testable code "for free"</li>
                 <li>...it's impossible to create hard testable or untestable code</li>
                 <li>(the prod code) will be decoupled for free</li>
@@ -1211,8 +1222,8 @@
           <ul>
             <li>Experiment by Jason Gorman</li>
             <li>six days</li>
-            <li>at the end of each day he run a set of function tests</li>
-            <li>TDD at the first, third and fifth day with TDD</li>
+            <li>at the end of each day he runs a set of function tests</li>
+            <li>TDD on the first, third and fifth day with TDD</li>
             <li>other days without tdd</li>
           </ul>
         </aside>
@@ -1253,14 +1264,14 @@
         <h4>Domain - Sender</h4>
         <small>
           <ul>
-            <li>Given: a <u>message-string</u> has to be translated into a <u>morse-string</u>
+            <li>Given: a <em>message-string</em> has to be translated into a <em>morse-string</em>
               <ul>
                 <li>Basic assumption: No one will pass messages with a length smaller than two characters</li>
               </ul>
             </li>
             <li>(incomplete) Dictionary: see branch "morse" <a
                 href="/src/main/resources/morse.dict">/src/main/resources</a></li>
-            <li>Unknown <u>Symbols</u> are translated into <u>the question-mark-morse-code (..--..)</u></li>
+            <li>Unknown <em>Symbols</em> are translated into <em>the question-mark-morse-code (..--..)</em></li>
             <li>A Morse code is structured as follows:
               <ul>
                 <li>A Symbol is represented by dots and dashes</li>
@@ -1287,14 +1298,14 @@
         <h4>Domain - Reciver</h4>
         <small>
           <ul>
-            <li>Given: a <u>morse-string</u> has to be translated into a <u>message-string</u>
+            <li>Given: a <em>morse-string</em> has to be translated into a <em>message-string</em>
               <ul>
                 <li>Basic assumption: No one will pass messages with a length smaller than two characters</li>
               </ul>
             </li>
             <li>(incomplete) Dictionary: see branch "morse" <a
                 href="/src/main/resources/morse.dict">/src/main/resources</a></li>
-            <li>Unknown <u>morse-symbols</u> are translated into <u>a question-mark (?)</u></li>
+            <li>Unknown <em>morse-symbols</em> are translated into <em>a question-mark (?)</em></li>
             <li>A Morse code is structured as follows:
               <ul>
                 <li>A Symbol is represented by dots and dashes</li>
@@ -1320,7 +1331,7 @@
         <small>
           <ul>
             <li>Implement the domain within a CLI application</li>
-            <li>The application has exactly <u>one</u> parameter which is the input string to translate</li>
+            <li>The application has exactly <em>one</em> parameter which is the input string to translate</li>
             <li>it automatically recognizes the input either as...
               <ul>
                 <li>...morse-message</li>
@@ -1346,22 +1357,21 @@
         <small>
           <ul>
             <li>Implement the domain within a CLI application</li>
-            <li>Tha last parameter is for the input string to translate</li>
+            <li>The <em>last</em> parameter is for the input string to translate</li>
             <li>it automatically recognizes the input either as...
               <ul>
                 <li>...morse-message</li>
                 <li>...plain-text-message</li>
               </ul>
             </li>
-            <li>The result of the translation has <u>per default</u> to be printed at the console</li>
+            <li>The result of the translation has <em>per default</em> to be printed at the console</li>
             <li>
-              <u>It shall be possible to pass input files or output files with -i and/or -o
+              <em>It shall be possible to pass input files or output files with -i and/or -o</em>
                 <ul>
-                  <li>example call: "morse.jar [-o=&lt;outFile&gt;][-i=&lt;inFile&gt;|&lt;inputString&gt;]"</li>
-                  <li>Each file can have multiple line to translate</li>
-                  <li>You can only pass either an inFile or an input-string</li>
+                  <li><em>example call: "morse.jar [-o=&lt;outFile&gt;][-i=&lt;inFile&gt;|&lt;inputString&gt;]"</em></li>
+                  <li><em>Each file can have multiple lines to translate</em></li>
+                  <li><em>You can only pass either an inFile or an input-string</em></li>
                 </ul>
-              </u>
             </li>
           </ul>
         </small>
@@ -1378,10 +1388,10 @@
         <h4>CLI - Signal</h4>
         <small>
           <ul>
-            <li>In the real world morse codes are represented by the length of electrical signals. Either there is no
+            <li>In the real world, morse codes are represented by the length of electrical signals. Either there is no
               signal (0) or a signal (1)
             </li>
-            <li>Add the ability to translate thoose signals represented by "0" and "1" to the application
+            <li>Add the ability to translate those signals represented by "0" and "1" to the application
             <li>depending on the sender the timing (length is different) is different
               <ul>
                 <li>Hint1: we assume the timing is constant</li>
