@@ -640,12 +640,27 @@
               <stop offset="1" stop-color="#00FF00" stop-opacity="0.25"/>
             </linearGradient>
           </defs>
+          <defs>
+            <linearGradient id="gradientTransparentRotate" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0.1" stop-color="#00FF00" stop-opacity="0.25"/>
+              <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
+              <stop offset="1" stop-color="#FF0000" stop-opacity="0.25"/>
+            </linearGradient>
+          </defs>
 
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0.1" stop-color="#FF0000"/>
               <stop offset="0.7" stop-color="#FFFF00"/>
               <stop offset="1" stop-color="#00FF00"/>
+            </linearGradient>
+          </defs>
+
+          <defs>
+            <linearGradient id="gradientRotate" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0.1" stop-color="#00FF00"/>
+              <stop offset="0.7" stop-color="#FFFF00"/>
+              <stop offset="1" stop-color="#FF0000"/>
             </linearGradient>
           </defs>
 
@@ -672,7 +687,7 @@
           </g>
 
           <g transform="translate(925, 200)">
-            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
+            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradientRotate)" fill="url(#gradientTransparentRotate)"/>
             <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
               confidence
             </text>
