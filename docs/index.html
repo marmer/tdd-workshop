@@ -254,6 +254,8 @@
             </ul>
           </li>
         </ul>
+        <small><small>* mutation tests can help here</small></small>
+        <small><small>** leads to fragile test problem</small></small>
         <aside aria-label=" speaker notes" class="notes ">
           <ul>
             <li>Verify what the code does instead of what the code was intended to do</li>
@@ -381,6 +383,7 @@
             <li>What is bad here?
               <ul>
                 <li>"Works on my machine"-Problem</li>
+                <li>Where are the "calculated costs" coming from?</li>
               </ul>
             </li>
           </ul>
@@ -469,8 +472,10 @@
               <ul>
                 <li>Tests are used to communicate</li>
                 <li>they should explain expected behavior</li>
-                <li>The usage of the right and if possible, domain specific is important</li>
-                <li>Not use to technical terms if they are not needed and can be avoided</li>
+                <ul>
+                  <li>in terms of business processes and domain</li>
+                  <li>avoid technical terms as far as possible</li>
+                </ul>
               </ul>
             </li>
             <li>give expressive feedback
@@ -485,12 +490,7 @@
                 <li>Should not flicker (otherwise they waste of time and brain cells)</li>
               </ul>
             </li>
-            <li>easy to maintain and understand
-              <ul>
-                <li>the business case</li>
-                <li>the mandatory technical details</li>
-              </ul>
-            </li>
+            <li>easy to maintain and understand</li>
           </ul>
         </aside>
       </section>
@@ -632,7 +632,7 @@
       <section data-auto-animate>
         <h3>Test-pyramid</h3>
 
-        <svg width="1000" height="400">
+        <svg width="1000" height="400" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradientTransparent" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0.1" stop-color="#FF0000" stop-opacity="0.25"/>
@@ -727,7 +727,7 @@
           <ul>
             <li>Closer to the top = higher costs, fragility but confidence</li>
             <li>Closer to the bottom = faster, more reliably and simple failure isolation</li>
-            <li>count et bottom should be higher but</li>
+            <li>count at bottom should be higher but</li>
 
           </ul>
           <ul>
