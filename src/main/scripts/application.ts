@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import {helloWorld} from "./helloWorld";
+import {morse} from "./morse";
 
-helloWorld(process.argv.slice(2))
+morse(process.argv.slice(2))
