@@ -1,6 +1,6 @@
 # TDD-Workshop
 
-You'll find the [slides here](https://marmer.github.io/tdd-workshop)
+You'll find the [slides here](https://tdd-workshop.marmer.online/)
 
 Vor der Durchführung des Workshops bitte einmal auschecken, in die eigene IDE der Wahl importieren und bauen. Sollte der
 Fokus des Workshops auf Java oder Kotlin liegen, das Projekt einmal mit Maven oder Gradle bauen und die Tests ausführen.
