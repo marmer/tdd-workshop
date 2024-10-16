@@ -1,235 +1,237 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>reveal.js</title>
+    <title>reveal.js</title>
 
-  <link rel="stylesheet" href="dist/reset.css">
-  <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
 
-  <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css">
-  <link rel="stylesheet" href="css/custom.css">
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <div class="reveal">
-  <a href="https://www.novatec-gmbh.de/" title="Novatec">
-    <img width="205" height="48" src="https://www.novatec-gmbh.de/wp-content/uploads/2023/06/logo_colored.svg"
-         alt="Novatec" class="is-logo-image entered lazyloaded" style="padding-left: 25px"             >
-  </a>
-  <div class="slides">
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.1">
-      <h3>TDD - Test Driven Development</h3>
-      <h4>(Or how to have good night sleep after coding sessions)</h4>
-      <small><small>by MarMer</small></small>
-      <aside aria-label="speaker notes" class="notes">
-        <ul>
-          <li>Importent Parts first
-            <ul>
-              <li>All of you, please turn on your cameras (a face is enough). It helps me...
+    <a href="https://www.novatec-gmbh.de/" title="Novatec">
+        <img width="205" height="48" src="https://www.novatec-gmbh.de/wp-content/uploads/2023/06/logo_colored.svg"
+             alt="Novatec" class="is-logo-image entered lazyloaded" style="padding-left: 25px">
+    </a>
+    <div class="slides">
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.1">
+            <h3>TDD - Test Driven Development</h3>
+            <h4>(Or how to have good night sleep after coding sessions)</h4>
+            <small><small>by MarMer</small></small>
+            <aside aria-label="speaker notes" class="notes">
                 <ul>
-                  <li>... to understand you better</li>
-                  <li>... to enter into you</li> <!-- auf jemanden eingehen -->
-                  <li>... not to feel like talking with a wall</li>
+                    <li>Importent Parts first
+                        <ul>
+                            <li>All of you, please turn on your cameras (a face is enough). It helps me...
+                                <ul>
+                                    <li>... to understand you better</li>
+                                    <li>... to enter into you</li> <!-- auf jemanden eingehen -->
+                                    <li>... not to feel like talking with a wall</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Who am I?</li>
                 </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Who am I?</li>
-        </ul>
-      </aside>
-    </section>
+            </aside>
+        </section>
 
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <q>We never have the time and the budget to do things right. But obviously we have the time and budget to do
-        it often.
-      </q>
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <q>We never have the time and the budget to do things right. But obviously we have the time and budget to do
+                it often.
+            </q>
 
-      <p>by the colleague of an ex-colleague</p>
+            <p>by the colleague of an ex-colleague</p>
 
-      <aside aria-label="speaker notes" class="notes">
-        Time for the Quality Assurance story
-      </aside>
-    </section>
+            <aside aria-label="speaker notes" class="notes">
+                Time for the Quality Assurance story
+            </aside>
+        </section>
 
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <h3>Agenda</h3>
-      <ul>
-        <li>Motivation</li>
-        <li>Tests</li>
-        <li>Theory</li>
-        <li>Critics</li>
-        <li>Exercises</li>
-      </ul>
-      <aside aria-label="speaker notes" class="notes">
-        <ul>
-          <li>Motivation</li>
-          <li>Tests(in General)</li>
-          <li>Theory</li>
-          <li>Critics</li>
-          <li>Exercises</li>
-
-          <li>Breaks whenever they are needed. Just ask if you want/need one</li>
-          <li>The big one for lunch starts between 12 and 12:30</li>
-        </ul>
-      </aside>
-    </section>
-
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <img
-                src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1370550610339-XG0S89DNZOK5GGXQI2GH/asap2.jpg?format=1500w"
-                alt="Geek and Poke - Don't ask your Boss"
-                class="r-stretch"></img>
-        <aside aria-label="speaker notes" class="notes">
-          In the following we are talking about the costs to <strong>fix</strong> bugs.
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
-        <small><small>
-          <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
-            Cost of fixing vs. preventing Bugs (at Google)</a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Costs to fix bugs at Google, according to the article</li>
-            <li>mind the <strong>logarithmic</strong> scale</li>
-          </ul>
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <canvas id="costsOfFixingVsPreventingBugsChartLinear"></canvas>
-        <small><small>
-          <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
-            Cost of fixing vs. preventing Bugs (at Google)</a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Costs to fix bugs at Google, according to the article</li>
-            <li>now with a linear scale</li>
-            <li>this is also known as the <strong>rule of ten</strong></li>
-          </ul>
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <img src="https://ambysoft.com/wp-content/uploads/2023/03/comparingTechniques.jpg"
-             alt="costs per length of Feedback Cycle"
-             class="r-stretch"></img>
-        <small><small>
-          <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
-            Why Agile Software Development Techniques Work: Improved Feedback</a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          The costs of change depend on the length of the feedback cycle.
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <canvas id="relativeCostsToRepairDefectsWhenFoundChart"></canvas>
-        <small><small>
-          <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
-            Planing
-            Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
-            94 </a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          Planing Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing
-
-          NIST is the "National institute of standards and technology — U.S. department of commerce
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <canvas id="costsOverTimeChartLogarithmic"></canvas>
-        <small><small>
-          <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST (2002) -
-            Planing
-            Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
-            94 </a>
-        </small></small>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Costs</h3>
-        <img src="https://drek4537l1klr.cloudfront.net/khorikov/Figures/01fig02_alt.jpg"
-             alt="costs per length of Feedback Cycle"
-             class="r-stretch"></img>
-        <small><small>
-          <a href="https://livebook.manning.com/book/unit-testing/chapter-1/41">
-            Manning Publications (2020) - Unit Testing Principles, Practices and Patterns</a>
-        </small></small>
-        <aside aria-label="speaker notes" class="notes">
-          Costs from a view point of a developer
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>Expected outcomes:</h3>
-        <ol style="font-size: smaller">
-          <li><em>Cost</em> savings</li>
-          <li><em>less defects</em> in production</li>
-          <li>improved <em>Maintainability/Quality</em>*
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <h3>Agenda</h3>
             <ul>
-              <li>Sustainability</li>
-              <li>design quality</li>
-              <li>improved modularity</li>
+                <li>Motivation</li>
+                <li>Tests</li>
+                <li>Theory</li>
+                <li>Critics</li>
+                <li>Exercises</li>
             </ul>
-          </li>
-          <li><em>Customer</em> satisfaction </li>
-          <ul>
-            <li>process improvement (customer <em>collaboration</em>)</li>
-            <li><em>predictability</em> of development time</li>
-          </ul>
-        </ol>
-        <p><small><small>* if you don't go blind</small></small></p>
-        <aside aria-label="speaker notes" class="notes">
-        </aside>
-      </section>
-      <aside aria-label="speaker notes" class="notes">
-        Expected outcomes of smaller feedback cycles
+            <aside aria-label="speaker notes" class="notes">
+                <ul>
+                    <li>Motivation</li>
+                    <li>Tests(in General)</li>
+                    <li>Theory</li>
+                    <li>Critics</li>
+                    <li>Exercises</li>
 
-        Better reputation of course
-      </aside>
-    </section>
+                    <li>Breaks whenever they are needed. Just ask if you want/need one</li>
+                    <li>The big one for lunch starts between 12 and 12:30</li>
+                </ul>
+            </aside>
+        </section>
 
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <section data-auto-animate>
-        <h3>Good vs. evil tests</h3>
-        <img
-                src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
-                alt="Geek and Poke - DDT"
-                class="r-stretch"></img>
-        <aside aria-label="speaker notes" class="notes">
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <img
+                        src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1370550610339-XG0S89DNZOK5GGXQI2GH/asap2.jpg?format=1500w"
+                        alt="Geek and Poke - Don't ask your Boss"
+                        class="r-stretch"></img>
+                <aside aria-label="speaker notes" class="notes">
+                    In the following we are talking about the costs to <strong>fix</strong> bugs.
+                </aside>
+            </section>
 
-        </aside>
-      </section>
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <canvas id="costsOfFixingVsPreventingBugsChartLogarithmic"></canvas>
+                <small><small>
+                    <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
+                        Cost of fixing vs. preventing Bugs (at Google)</a>
+                </small></small>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Costs to fix bugs at Google, according to the article</li>
+                        <li>mind the <strong>logarithmic</strong> scale</li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - DDT (test after)</h3>
-        <pre>
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <canvas id="costsOfFixingVsPreventingBugsChartLinear"></canvas>
+                <small><small>
+                    <a href="https://www.coderskitchen.com/cost-of-fixing-vs-preventing-bugs/">Coders Kitchen (2021) -
+                        Cost of fixing vs. preventing Bugs (at Google)</a>
+                </small></small>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Costs to fix bugs at Google, according to the article</li>
+                        <li>now with a linear scale</li>
+                        <li>this is also known as the <strong>rule of ten</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <img src="https://ambysoft.com/wp-content/uploads/2023/03/comparingTechniques.jpg"
+                     alt="costs per length of Feedback Cycle"
+                     class="r-stretch"></img>
+                <small><small>
+                    <a href="https://www.ambysoft.com/essays/whyAgileWorksFeedback.html">
+                        Why Agile Software Development Techniques Work: Improved Feedback</a>
+                </small></small>
+                <aside aria-label="speaker notes" class="notes">
+                    The costs of change depend on the length of the feedback cycle.
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <canvas id="relativeCostsToRepairDefectsWhenFoundChart"></canvas>
+                <small><small>
+                    <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST
+                        (2002) -
+                        Planing
+                        Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
+                        94 </a>
+                </small></small>
+                <aside aria-label="speaker notes" class="notes">
+                    Planing Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing
+
+                    NIST is the "National institute of standards and technology — U.S. department of commerce
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <canvas id="costsOverTimeChartLogarithmic"></canvas>
+                <small><small>
+                    <a href="https://www.nist.gov/system/files/documents/director/planning/report02-3.pdf#page=94">NIST
+                        (2002) -
+                        Planing
+                        Report 02-3 - The Economic Impacts of Inadequate Infrastructure for Software Testing p.
+                        94 </a>
+                </small></small>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Costs</h3>
+                <img src="https://drek4537l1klr.cloudfront.net/khorikov/Figures/01fig02_alt.jpg"
+                     alt="costs per length of Feedback Cycle"
+                     class="r-stretch"></img>
+                <small><small>
+                    <a href="https://livebook.manning.com/book/unit-testing/chapter-1/41">
+                        Manning Publications (2020) - Unit Testing Principles, Practices and Patterns</a>
+                </small></small>
+                <aside aria-label="speaker notes" class="notes">
+                    Costs from a view point of a developer
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Expected outcomes:</h3>
+                <ol style="font-size: smaller">
+                    <li><em>Cost</em> savings</li>
+                    <li><em>less defects</em> in production</li>
+                    <li>improved <em>Maintainability/Quality</em>*
+                        <ul>
+                            <li>Sustainability</li>
+                            <li>design quality</li>
+                            <li>improved modularity</li>
+                        </ul>
+                    </li>
+                    <li><em>Customer</em> satisfaction</li>
+                    <ul>
+                        <li>process improvement (customer <em>collaboration</em>)</li>
+                        <li><em>predictability</em> of development time</li>
+                    </ul>
+                </ol>
+                <p><small><small>* if you don't go blind</small></small></p>
+                <aside aria-label="speaker notes" class="notes">
+                </aside>
+            </section>
+            <aside aria-label="speaker notes" class="notes">
+                Expected outcomes of smaller feedback cycles
+
+                Better reputation of course
+            </aside>
+        </section>
+
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <section data-auto-animate>
+                <h3>Good vs. evil tests</h3>
+                <img
+                        src="https://images.squarespace-cdn.com/content/v1/518f5d62e4b075248d6a3f90/1375007884089-OD2T9RAMF0FXDH6J7SZ7/tdd.jpg?format=2500w"
+                        alt="Geek and Poke - DDT"
+                        class="r-stretch"></img>
+                <aside aria-label="speaker notes" class="notes">
+
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Quality - DDT (test after)</h3>
+                <pre>
           <code data-line-numbers="|1|2|4|6-8" data-ln-start-from="1" class="language-java" data-trim data-noescape>
             public void testFindAll(){
               final List &lt;Role&gt; list = repo.findAll()
@@ -243,54 +245,54 @@
           </code>
         </pre>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What does the test Do?</li>
-            <li>What is the test intended for?</li>
-            <li>Why does it even exist?</li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What does the test Do?</li>
+                        <li>What is the test intended for?</li>
+                        <li>Why does it even exist?</li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality — symptoms of DDT</h3>
-        <ul>
-          <li>Verify what the code does instead of what the code was intended to do</li>
-          <li>They often...
-            <ul>
-              <li>miss professional and technical use cases*</li>
-              <li>are less clean, readable and maintainable</li>
-              <li>have an improper scope**</li>
-            </ul>
-          </li>
-        </ul>
-        <small><small>* mutation tests can help here</small></small>
-        <small><small>** leads to fragile test problem</small></small>
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>Verify what the code does instead of what the code was intended to do</li>
-            <li>They often...
-              <ul>
-                <li>miss professional and technical use cases
-                  <ul>
-                    <li>mutation tests can help here a little</li>
-                  </ul>
-                </li>
-                <li>are less clean, readable and maintainable</li>
-                <li>have an impropper scope
-                  <ul>
-                    <li>this can lead to the "fragile test problem"</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
+            <section data-auto-animate>
+                <h3>Quality — symptoms of DDT</h3>
+                <ul>
+                    <li>Verify what the code does instead of what the code was intended to do</li>
+                    <li>They often...
+                        <ul>
+                            <li>miss professional and technical use cases*</li>
+                            <li>are less clean, readable and maintainable</li>
+                            <li>have an improper scope**</li>
+                        </ul>
+                    </li>
+                </ul>
+                <small><small>* mutation tests can help here</small></small>
+                <small><small>** leads to fragile test problem</small></small>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>Verify what the code does instead of what the code was intended to do</li>
+                        <li>They often...
+                            <ul>
+                                <li>miss professional and technical use cases
+                                    <ul>
+                                        <li>mutation tests can help here a little</li>
+                                    </ul>
+                                </li>
+                                <li>are less clean, readable and maintainable</li>
+                                <li>have an impropper scope
+                                    <ul>
+                                        <li>this can lead to the "fragile test problem"</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of bad tests</h3>
-        <pre>
+            <section data-auto-animate>
+                <h3>Quality - Signs of bad tests</h3>
+                <pre>
           <code data-line-numbers="|3,6,9|2|10-12|13" data-ln-start-from="1" class="language-java" data-trim
                 data-noescape>
             @Test
@@ -310,29 +312,29 @@
           </code>
         </pre>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What is bad here?</li>
-            <li>
-              <ul>
-                <li>Different test casese in one method</li>
-                <li>
-                  <ul>
-                    <li>Which ones?</li>
-                    <li>How many?</li>
-                  </ul>
-                </li>
-                <li>Tells the method name anything about the intention?</li>
-              </ul>
-            </li>
-            <li>And what is good here?</li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What is bad here?</li>
+                        <li>
+                            <ul>
+                                <li>Different test casese in one method</li>
+                                <li>
+                                    <ul>
+                                        <li>Which ones?</li>
+                                        <li>How many?</li>
+                                    </ul>
+                                </li>
+                                <li>Tells the method name anything about the intention?</li>
+                            </ul>
+                        </li>
+                        <li>And what is good here?</li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of bad tests</h3>
-        <pre>
+            <section data-auto-animate>
+                <h3>Quality - Signs of bad tests</h3>
+                <pre>
           <code data-line-numbers="|2|5-7,10-12" data-ln-start-from="1" class="language-java" data-trim data-noescape>
             @Test
             void testShouldRecalculateByExecutionMonth
@@ -350,26 +352,28 @@
           </code>
         </pre>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What is bad here?</li>
-            <li>
-              <ul>
-                <li>Internal details are testet here by reflection instead of the api (hard to refactor)</li>
-              </ul>
-            </li>
-            <li>And what is good here?
-              <ul>
-                <li>The Intention of the test is encoded in the method name</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What is bad here?</li>
+                        <li>
+                            <ul>
+                                <li>Internal details are testet here by reflection instead of the api (hard to
+                                    refactor)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>And what is good here?
+                            <ul>
+                                <li>The Intention of the test is encoded in the method name</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of bad tests</h3>
-        <pre>
+            <section data-auto-animate>
+                <h3>Quality - Signs of bad tests</h3>
+                <pre>
           <code data-line-numbers="|12|8" data-ln-start-from="1" class="language-java" data-trim data-noescape>
             @Test
             void testShouldRecalculateAllCostsByBaseCosts
@@ -388,381 +392,395 @@
           </code>
         </pre>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What is bad here?
-              <ul>
-                <li>"Works on my machine"-Problem</li>
-                <li>Where are the "calculated costs" coming from?</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What is bad here?
+                            <ul>
+                                <li>"Works on my machine"-Problem</li>
+                                <li>Where are the "calculated costs" coming from?</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of bad tests</h3>
-        <div class="r-hstack">
-          <div>
-            <h4>Test Setup</h4>
-            <img
-                    src="img/BigTestSetup.png"
-                    alt="Big Test Setup"
-                    width="80%"></img>
-          </div>
-          <div>
-            <h4>Test Method</h4>
-            <img
-                    src="img/BigTestMethod.png"
-                    alt="Big Test Method"
-                    width="80%"></img>
-          </div>
-        </div>
+            <section data-auto-animate>
+                <h3>Quality - Signs of bad tests</h3>
+                <div class="r-hstack">
+                    <div>
+                        <h4>Test Setup</h4>
+                        <img
+                                src="img/BigTestSetup.png"
+                                alt="Big Test Setup"
+                                width="80%"></img>
+                    </div>
+                    <div>
+                        <h4>Test Method</h4>
+                        <img
+                                src="img/BigTestMethod.png"
+                                alt="Big Test Method"
+                                width="80%"></img>
+                    </div>
+                </div>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What is bad here? (Except for the Kind of mocking and verification)
-              <ul>
-                <li>Excessive test- or system setup</li>
-                <li>All tests are dependent on the excessive setup</li>
-                <li>setup is widely distributed among within the class</li>
-              </ul>
-            </li>
-            <li>how can we avoid this?</li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What is bad here? (Except for the Kind of mocking and verification)
+                            <ul>
+                                <li>Excessive test- or system setup</li>
+                                <li>All tests are dependent on the excessive setup</li>
+                                <li>setup is widely distributed among within the class</li>
+                            </ul>
+                        </li>
+                        <li>how can we avoid this?</li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of bad tests</h3>
-        <div class="r-hstack">
-          <div>
-            <ul>
-              <li>These are all builds of the main branch</li>
-              <li>The Failing test is always the same</li>
-            </ul>
-          </div>
-          <div class="r-hstack">
-            <img
-                    src="img/FlickeryBamboo.png"
-                    alt="Big Test Setup"
-                    style="margin-right: 20px; margin-left: 20px"
-                    width="80"></img>
-            <img
-                    src="img/FlickeryJenkins.png"
-                    alt="Big Test Method"
-                    width="80"></img>
-          </div>
-        </div>
+            <section data-auto-animate>
+                <h3>Quality - Signs of bad tests</h3>
+                <div class="r-hstack">
+                    <div>
+                        <ul>
+                            <li>These are all builds of the main branch</li>
+                            <li>The Failing test is always the same</li>
+                        </ul>
+                    </div>
+                    <div class="r-hstack">
+                        <img
+                                src="img/FlickeryBamboo.png"
+                                alt="Big Test Setup"
+                                style="margin-right: 20px; margin-left: 20px"
+                                width="80"></img>
+                        <img
+                                src="img/FlickeryJenkins.png"
+                                alt="Big Test Method"
+                                width="80"></img>
+                    </div>
+                </div>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>What is bad here? (It's always the same test that causes the red builds</li>
-            <li>... it happens without code changes at the test or the related production code</li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>What is bad here? (It's always the same test that causes the red builds</li>
+                        <li>... it happens without code changes at the test or the related production code</li>
+                    </ul>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - Signs of good tests</h3>
-        <div class="r-hstack">
-          <div>
-            <ul>
-              <li><em>communicate</em> intention clearly</li>
-              <li>give <em>expressive</em> feedback</li>
-              <li>run <em>reliably</em> and <em>fast</em></li>
-              <li>easy to <em>maintain</em> and <em>understand</em></li>
-            </ul>
-          </div>
-        </div>
+            <section data-auto-animate>
+                <h3>Quality - Signs of good tests</h3>
+                <div class="r-hstack">
+                    <div>
+                        <ul>
+                            <li><em>communicate</em> intention clearly</li>
+                            <li>give <em>expressive</em> feedback</li>
+                            <li>run <em>reliably</em> and <em>fast</em></li>
+                            <li>easy to <em>maintain</em> and <em>understand</em></li>
+                        </ul>
+                    </div>
+                </div>
 
-        <aside aria-label=" speaker notes" class="notes ">
-          <ul>
-            <li>communicate intention clearly
-              <ul>
-                <li>Tests are used to communicate</li>
-                <li>they should explain expected behavior</li>
+                <aside aria-label=" speaker notes" class="notes ">
+                    <ul>
+                        <li>communicate intention clearly
+                            <ul>
+                                <li>Tests are used to communicate</li>
+                                <li>they should explain expected behavior</li>
+                                <ul>
+                                    <li>in terms of business processes and domain</li>
+                                    <li>avoid technical terms as far as possible</li>
+                                </ul>
+                            </ul>
+                        </li>
+                        <li>give expressive feedback
+                            <ul>
+                                <li>Should show what is wrong</li>
+                                <li>if possible also where is something wrong</li>
+                            </ul>
+                        </li>
+                        <li>run reliably
+                            <ul>
+                                <li>Should only be green if everything is fine</li>
+                                <li>Should not flicker (otherwise they waste of time and brain cells)</li>
+                            </ul>
+                        </li>
+                        <li>easy to maintain and understand</li>
+                    </ul>
+                </aside>
+            </section>
+
+        </section>
+
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <section data-auto-animate>
+                <h3>types of tests (simplified)</h3>
                 <ul>
-                  <li>in terms of business processes and domain</li>
-                  <li>avoid technical terms as far as possible</li>
+                    <li class="fragment fade-out strike"><p>Acceptance</p></li>
+                    <li class="fragment fade-out strike"><span>UI</span></li>
+                    <li class="fragment semi-fade-out">Integrati<em>ve</em>*</li>
+                    <li>Unittests**
+                        <ul>
+                            <li class="fragment fade-in-then-semi-out">Solitary/Micro-test*</li>
+                            <li class="fragment fade-in">Sociable</li>
+                        </ul>
+                    </li>
                 </ul>
-              </ul>
-            </li>
-            <li>give expressive feedback
-              <ul>
-                <li>Should show what is wrong</li>
-                <li>if possible also where is something wrong</li>
-              </ul>
-            </li>
-            <li>run reliably
-              <ul>
-                <li>Should only be green if everything is fine</li>
-                <li>Should not flicker (otherwise they waste of time and brain cells)</li>
-              </ul>
-            </li>
-            <li>easy to maintain and understand</li>
-          </ul>
-        </aside>
-      </section>
 
-    </section>
+                <p>
+                    <small><small><a
+                            href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob
+                        (2017) -
+                        TestDefinitions</a></small></small>
+                    <small><small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) -
+                        Unittests by
+                        Martin
+                        Fowler</a></small></small>
+                </p>
 
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <section data-auto-animate>
-        <h3>types of tests (simplified)</h3>
-        <ul>
-          <li class="fragment fade-out strike"><p>Acceptance</p></li>
-          <li class="fragment fade-out strike"><span>UI</span></li>
-          <li class="fragment semi-fade-out">Integrati<em>ve</em>*</li>
-          <li>Unittests**
-            <ul>
-              <li class="fragment fade-in-then-semi-out">Solitary/Micro-test*</li>
-              <li class="fragment fade-in">Sociable</li>
-            </ul>
-          </li>
-        </ul>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Acceptance
+                            <ul>
+                                <li>Business perspective on what the code/system should do</li>
+                                <li>can (and maybe should) settle everywhere</li>
+                                <li>We won't cover them in detail here</li>
+                            </ul>
+                        </li>
+                        <li>UI
+                            <ul>
+                                <li>as the name suggests it</li>
+                                <li>Tests should be silly because they are harder to test and more fragile</li>
+                                <li>We won't cover them here</li>
+                            </ul>
+                        </li>
+                    </ul>
 
-        <p>
-          <small><small><a
-                  href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob (2017) -
-            TestDefinitions</a></small></small>
-          <small><small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) - Unittests by
-            Martin
-            Fowler</a></small></small>
-        </p>
+                    <p>
+                        <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent
+                            Beck</a></small>
+                    </p>
+                    <p>
+                        <small><a
+                                href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
+                    </p>
+                </aside>
+            </section>
 
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Acceptance
-              <ul>
-                <li>Business perspective on what the code/system should do</li>
-                <li>can (and maybe should) settle everywhere</li>
-                <li>We won't cover them in detail here</li>
-              </ul>
-            </li>
-            <li>UI
-              <ul>
-                <li>as the name suggests it</li>
-                <li>Tests should be silly because they are harder to test and more fragile</li>
-                <li>We won't cover them here</li>
-              </ul>
-            </li>
-          </ul>
-
-          <p>
-            <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent Beck</a></small>
-          </p>
-          <p>
-            <small><a
-                    href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
-          </p>
-        </aside>
-      </section>
-
-      <section data-auto-animate>
-        <h3>types of tests (simplified)</h3>
-        <ul>
-          <li style="opacity: 0.5">Integrati<u>ve</u>*</li>
-          <li>Unittests**
-            <ul>
-              <li style="opacity: 0.5">Solitary/Micro-test*</li>
-              <li>Sociable</li>
-            </ul>
-          </li>
-        </ul>
-
-        <p>
-          <small><small><a
-                  href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob (2017) -
-            TestDefinitions</a></small></small>
-          <small><small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) - Unittests by
-            Martin
-            Fowler</a></small></small>
-        </p>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>
-              Integrative
-              <ul>
-                <li>They make sure system or subassemblies can be integrated</li>
-                <li>And yes ... integrative, not integration</li>
-                <li>Any kind of test with overhead for external dependencies
-                  <ul>
-                    <li>Integration</li>
-                    <li>Systems</li>
-                    <li>End-To-End</li>
-                    <li>...</li>
-                  </ul>
-                </li>
-                <li>We'll talk a little about them</li>
-              </ul>
-            </li>
-            <li>Unittests
-              <ul>
-                <li>Programmers perspective on what the code should do</li>
-                <li>types
-                  <ul>
-                    <li>Solitary/Micro
-                      <ul>
-                        <li>(Mocks Mocks Mocks)</li>
-                        <li><em>Avoid them!</em></li>
-                        <li>Hard coupling to production code</li>
-                        <li>Harder/impossible refactoring of production code</li>
-                        <li>very fast</li>
-                      </ul>
+            <section data-auto-animate>
+                <h3>types of tests (simplified)</h3>
+                <ul>
+                    <li style="opacity: 0.5">Integrati<u>ve</u>*</li>
+                    <li>Unittests**
+                        <ul>
+                            <li style="opacity: 0.5">Solitary/Micro-test*</li>
+                            <li>Sociable</li>
+                        </ul>
                     </li>
-                    <li>Sociable
-                      <ul>
-                        <li>Unit-Tests as they should be</li>
-                        <li>no Mocks (or very few if there are good reasons)</li>
-                        <li>easy refactorings</li>
-                        <li>very fast as well</li>
-                        <li><em>We'll focus on them</em></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+                </ul>
 
-          </ul>
+                <p>
+                    <small><small><a
+                            href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">*UncleBob
+                        (2017) -
+                        TestDefinitions</a></small></small>
+                    <small><small> <a href="https://martinfowler.com/bliki/UnitTest.html">**Martin Fowler (2014) -
+                        Unittests by
+                        Martin
+                        Fowler</a></small></small>
+                </p>
 
-          <p>
-            <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent Beck</a></small>
-          </p>
-          <p>
-            <small><a
-                    href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
-          </p>
-        </aside>
-      </section>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>
+                            Integrative
+                            <ul>
+                                <li>They make sure system or subassemblies can be integrated</li>
+                                <li>And yes ... integrative, not integration</li>
+                                <li>Any kind of test with overhead for external dependencies
+                                    <ul>
+                                        <li>Integration</li>
+                                        <li>Systems</li>
+                                        <li>End-To-End</li>
+                                        <li>...</li>
+                                    </ul>
+                                </li>
+                                <li>We'll talk a little about them</li>
+                            </ul>
+                        </li>
+                        <li>Unittests
+                            <ul>
+                                <li>Programmers perspective on what the code should do</li>
+                                <li>types
+                                    <ul>
+                                        <li>Solitary/Micro
+                                            <ul>
+                                                <li>(Mocks Mocks Mocks)</li>
+                                                <li><em>Avoid them!</em></li>
+                                                <li>Hard coupling to production code</li>
+                                                <li>Harder/impossible refactoring of production code</li>
+                                                <li>very fast</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sociable
+                                            <ul>
+                                                <li>Unit-Tests as they should be</li>
+                                                <li>no Mocks (or very few if there are good reasons)</li>
+                                                <li>easy refactorings</li>
+                                                <li>very fast as well</li>
+                                                <li><em>We'll focus on them</em></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 
+                    </ul>
 
-      <section data-auto-animate>
-        <h3>Test-pyramid</h3>
-
-        <svg width="1000" height="400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradientTransparent" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0.1" stop-color="#FF0000" stop-opacity="0.25"/>
-              <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
-              <stop offset="1" stop-color="#00FF00" stop-opacity="0.25"/>
-            </linearGradient>
-          </defs>
-          <defs>
-            <linearGradient id="gradientTransparentRotate" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0.1" stop-color="#00FF00" stop-opacity="0.25"/>
-              <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
-              <stop offset="1" stop-color="#FF0000" stop-opacity="0.25"/>
-            </linearGradient>
-          </defs>
-
-          <defs>
-            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0.1" stop-color="#FF0000"/>
-              <stop offset="0.7" stop-color="#FFFF00"/>
-              <stop offset="1" stop-color="#00FF00"/>
-            </linearGradient>
-          </defs>
-
-          <defs>
-            <linearGradient id="gradientRotate" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0.1" stop-color="#00FF00"/>
-              <stop offset="0.7" stop-color="#FFFF00"/>
-              <stop offset="1" stop-color="#FF0000"/>
-            </linearGradient>
-          </defs>
-
-          <g transform="translate(500, 200)">
-            <polygon points="0,-200 250,150 -250,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="middle" y="-160" fill="white">*</text>
-            <text text-anchor="middle" y="-100" fill="white">UI</text>
-            <text text-anchor="middle" y="25" fill="white">integrational</text>
-            <text text-anchor="middle" y="125" fill="white">unit</text>
-          </g>
-
-          <g transform="translate(775, 200)">
-            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
-              costs
-            </text>
-          </g>
-
-          <g transform="translate(850, 200)">
-            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
-              fragility
-            </text>
-          </g>
-
-          <g transform="translate(925, 200)">
-            <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradientRotate)" fill="url(#gradientTransparentRotate)"/>
-            <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
-              confidence
-            </text>
-          </g>
-
-          <g transform="translate(200, 200)">
-            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
-              speed
-            </text>
-          </g>
-          <g transform="translate(125, 200)">
-            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
-              reliability
-            </text>
-          </g>
-          <g transform="translate(50, 200)">
-            <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)" fill="url(#gradientTransparent)"/>
-            <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
-              point of failure
-            </text>
-          </g>
+                    <p>
+                        <small> <a href="https://martinfowler.com/bliki/UnitTest.html">Unittests by Kent
+                            Beck</a></small>
+                    </p>
+                    <p>
+                        <small><a
+                                href="https://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html">TestDefinitions</a></small>
+                    </p>
+                </aside>
+            </section>
 
 
-          <g transform="translate(500, 200)">
-            <polygon points="-480,150 -480,200 480,200 480,150" stroke="#0088AA" fill="#0088AA" fill-opacity="0.5"/>
-            <text text-anchor="middle" y="185" fill="white" font-size=".7em">
-              static tests (linting, smells, security...)
-            </text>
-          </g>
-        </svg>
+            <section data-auto-animate>
+                <h3>Test-pyramid</h3>
 
-        <small><p>* explorative and other manual tests</p></small>
+                <svg width="1000" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gradientTransparent" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0.1" stop-color="#FF0000" stop-opacity="0.25"/>
+                            <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
+                            <stop offset="1" stop-color="#00FF00" stop-opacity="0.25"/>
+                        </linearGradient>
+                    </defs>
+                    <defs>
+                        <linearGradient id="gradientTransparentRotate" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0.1" stop-color="#00FF00" stop-opacity="0.25"/>
+                            <stop offset="0.7" stop-color="#FFFF00" stop-opacity="0.25"/>
+                            <stop offset="1" stop-color="#FF0000" stop-opacity="0.25"/>
+                        </linearGradient>
+                    </defs>
 
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Closer to the top = higher costs, fragility but confidence</li>
-            <li>Closer to the bottom = faster, more reliably and simple failure isolation</li>
-            <li>count at bottom should be higher but</li>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0.1" stop-color="#FF0000"/>
+                            <stop offset="0.7" stop-color="#FFFF00"/>
+                            <stop offset="1" stop-color="#00FF00"/>
+                        </linearGradient>
+                    </defs>
 
-          </ul>
-          <ul>
-            <li>manual</li>
-            <li>UI</li>
-            <li>integrational</li>
-            <li>unit</li>
-            <li>static
-              <ul>Linting</ul>
-              <ul>Bugs</ul>
-              <ul>Code Smells</ul>
-              <ul>Complexity</ul>
-              <ul>cycles</ul>
-              <ul>architectural</ul>
-              <ul>Security</ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
+                    <defs>
+                        <linearGradient id="gradientRotate" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0.1" stop-color="#00FF00"/>
+                            <stop offset="0.7" stop-color="#FFFF00"/>
+                            <stop offset="1" stop-color="#FF0000"/>
+                        </linearGradient>
+                    </defs>
 
-      <section data-auto-animate>
-        <h3>100% Branch-Coverage with Unittests</h3>
-        <pre>
+                    <g transform="translate(500, 200)">
+                        <polygon points="0,-200 250,150 -250,150" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="middle" y="-160" fill="white">*</text>
+                        <text text-anchor="middle" y="-100" fill="white">UI</text>
+                        <text text-anchor="middle" y="25" fill="white">integrational</text>
+                        <text text-anchor="middle" y="125" fill="white">unit</text>
+                    </g>
+
+                    <g transform="translate(775, 200)">
+                        <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+                            costs
+                        </text>
+                    </g>
+
+                    <g transform="translate(850, 200)">
+                        <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+                            fragility
+                        </text>
+                    </g>
+
+                    <g transform="translate(925, 200)">
+                        <polygon points="0,150 30,-200 -30,-200" stroke="url(#gradientRotate)"
+                                 fill="url(#gradientTransparentRotate)"/>
+                        <text text-anchor="end" y="10" x="185" transform="rotate(270)" fill="white" font-size=".7em">
+                            confidence
+                        </text>
+                    </g>
+
+                    <g transform="translate(200, 200)">
+                        <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+                            speed
+                        </text>
+                    </g>
+                    <g transform="translate(125, 200)">
+                        <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+                            reliability
+                        </text>
+                    </g>
+                    <g transform="translate(50, 200)">
+                        <polygon points="0,-200 30,150 -30,150" stroke="url(#gradient)"
+                                 fill="url(#gradientTransparent)"/>
+                        <text text-anchor="start" y="10" x="-125" transform="rotate(270)" fill="white" font-size=".7em">
+                            point of failure
+                        </text>
+                    </g>
+
+
+                    <g transform="translate(500, 200)">
+                        <polygon points="-480,150 -480,200 480,200 480,150" stroke="#0088AA" fill="#0088AA"
+                                 fill-opacity="0.5"/>
+                        <text text-anchor="middle" y="185" fill="white" font-size=".7em">
+                            static tests (linting, smells, security...)
+                        </text>
+                    </g>
+                </svg>
+
+                <small><p>* explorative and other manual tests</p></small>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Closer to the top = higher costs, fragility but confidence</li>
+                        <li>Closer to the bottom = faster, more reliably and simple failure isolation</li>
+                        <li>count at bottom should be higher but</li>
+
+                    </ul>
+                    <ul>
+                        <li>manual</li>
+                        <li>UI</li>
+                        <li>integrational</li>
+                        <li>unit</li>
+                        <li>static
+                            <ul>Linting</ul>
+                            <ul>Bugs</ul>
+                            <ul>Code Smells</ul>
+                            <ul>Complexity</ul>
+                            <ul>cycles</ul>
+                            <ul>architectural</ul>
+                            <ul>Security</ul>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>100% Branch-Coverage with Unittests</h3>
+                <pre>
         <code class="language-plantuml">
           @startuml
           skinparam handwritten true
@@ -805,16 +823,16 @@
           @enduml
         </code>
       </pre>
-        <p>9 Tests</p>
+                <p>9 Tests</p>
 
-        <aside aria-label="speaker notes" class="notes">
+                <aside aria-label="speaker notes" class="notes">
 
-        </aside>
-      </section>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>100% Branch-Coverage with Integrative Tests</h3>
-        <pre>
+            <section data-auto-animate>
+                <h3>100% Branch-Coverage with Integrative Tests</h3>
+                <pre>
         <code class="language-plantuml">
          @startuml
           skinparam handwritten true
@@ -936,554 +954,569 @@
           @enduml
         </code>
       </pre>
-        <p>27 Tests</p>
+                <p>27 Tests</p>
 
-        <aside aria-label="speaker notes" class="notes">
+                <aside aria-label="speaker notes" class="notes">
 
-        </aside>
-      </section>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Showcase</h3>
-        <p>Integrational vs. Unit</p>
-        <p><em>Code</em>-Coverage vs. <em>Test</em>-Coverage</p>
-        <p><br/></p>
-        <p><small>Branch "IntegrationUnitShowcase"</small></p>
-      </section>
+            <section data-auto-animate>
+                <h3>Showcase</h3>
+                <p>Integrational vs. Unit</p>
+                <p><em>Code</em>-Coverage vs. <em>Test</em>-Coverage</p>
+                <p><br/></p>
+                <p><small>Branch "IntegrationUnitShowcase"</small></p>
+            </section>
 
-    </section>
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <section data-auto-animate>
-        <h3>TDD</h3>
-        <img src="img/UserfrientlyRequirements.png" class="r-stretch" alt="userfriently Requirements Image"
-             aria-label="User Friendly comic - we need requirements"></img>
-        <aside aria-label="speaker notes" class="notes">
-          Sounds familiar?
-        </aside>
+        </section>
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <section data-auto-animate>
+                <h3>TDD</h3>
+                <img src="img/UserfrientlyRequirements.png" class="r-stretch" alt="userfriently Requirements Image"
+                     aria-label="User Friendly comic - we need requirements"></img>
+                <aside aria-label="speaker notes" class="notes">
+                    Sounds familiar?
+                </aside>
 
-      </section>
+            </section>
 
-      <section data-auto-animate>
-        <h3>Quality - TDD</h3>
-        <ul>
-          <li><em>Focus</em> tool</li>
-          <li>Double entry <em>bookkeeping</em></li>
-          <li>Development process
-            <ul>
-              <li><em>evolutionary</em></li>
-              <li>arbitrarily (science-like)</li>
-            </ul>
-          </li>
-        </ul>
-        <aside aria-label="speaker notes" class="notes">
+            <section data-auto-animate>
+                <h3>Quality - TDD</h3>
+                <ul>
+                    <li><em>Focus</em> tool</li>
+                    <li>Double entry <em>bookkeeping</em></li>
+                    <li>Development process
+                        <ul>
+                            <li><em>evolutionary</em></li>
+                            <li>arbitrarily (science-like)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <aside aria-label="speaker notes" class="notes">
 
-        </aside>
-      </section>
+                </aside>
+            </section>
 
-      <section data-auto-animate>
-        <h3>TDD - Theory</h3>
+            <section data-auto-animate>
+                <h3>TDD - Theory</h3>
 
-        <svg width="400" height="400">
-          <g transform="translate(-170 0) scale(1.15 1.15)" opacity="0.6">
-            <circle r="155" cx="320" cy="180" fill="none" stroke="#fff" stroke-width="10"/>
-            <path d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z" fill="red"
-                  fill-opacity="1"/>
+                <svg width="400" height="400">
+                    <g transform="translate(-170 0) scale(1.15 1.15)" opacity="0.6">
+                        <circle r="155" cx="320" cy="180" fill="none" stroke="#fff" stroke-width="10"/>
+                        <path d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z" fill="red"
+                              fill-opacity="1"/>
 
-            <path transform="rotate(120 320 180)" d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z" fill="green"
-                  fill-opacity="1"/>
+                        <path transform="rotate(120 320 180)" d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z"
+                              fill="green"
+                              fill-opacity="1"/>
 
-            <path transform="rotate(240 320 180)" d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z" fill="blue"
-                  fill-opacity="1"/>
-
-
-            <g transform="rotate(60 320 180)">
-              <path fill="red"
-                    d="M320,180L190.0961894323342,105.00000000000001A150,150,0,0,1,449.9038105676658,105.00000000000001Z"
-                    stroke-width="1"/>
-              <path fill="green"
-                    d="M320,180L449.9038105676658,105.00000000000001A150,150,0,0,1,320,330Z"
-                    stroke-width="1"/>
-              <path fill="blue"
-                    d="M320,180L320,330A150,150,0,0,1,190.0961894323342,104.99999999999999Z"
-                    stroke-width="1"/>
-
-            </g>
-
-            <path d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
-            <path transform="rotate(120 320 180)" d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
-            <path transform="rotate(240 320 180)" d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
-
-            <text text-anchor="start" x="330" y="80" font-size=".47em" fill="#FFFFFF">Red:
-              <tspan x="330" font-size=".75em" dy="1.5em">- create test</tspan>
-              <tspan x="330" font-size=".75em" dy="1em">- verify red</tspan>
-              <tspan x="330" font-size=".75em" dy="1em">- verify message</tspan>
-            </text>
-
-            <text text-anchor="middle" x="320" y="230" font-size=".47em" fill="#FFFFFF">Green:
-              <tspan x="320" font-size=".75em" dy="1.5em">- min required prod-code</tspan>
-            </text>
-            <text text-anchor="end" x="315" y="80" font-size=".47em" fill="#FFFFFF">Refactor:
-              <tspan x="315" font-size=".75em" dy="1.5em">- remove dublets</tspan>
-              <tspan x="315" font-size=".75em" dy="1em">- don't add logic</tspan>
-              <tspan x="315" font-size=".75em" dy="1em">- improve identifier,</tspan>
-              <tspan x="315" font-size=".75em" dy="1em">structure, readability</tspan>
-              <tspan x="315" font-size=".75em" dy="1em">- only one side at once</tspan>
-              <tspan x="315" font-size=".75em" dy="1em">(prod- or test code)</tspan>
-            </text>
-          </g>
-        </svg>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li> This works on different stages at once as well.
-              <ul>
-                <li>Write higher level test for stage red</li>
-                <li>Create all your units with tdd until the higher level test is green/li>
-                <li>Do a higher level refactoring</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-
-      </section>
-
-      <section data-auto-animate>
-        <h3>TDD - rules</h3>
-        <ul>
-          <li>focus on <em>one</em> detail aka. one test at a time</li>
-          <li>New test shows what's <em>missing</em></li>
-          <li><em>no</em> prod change without a test*</li>
-        </ul>
-        <p><small>* We talk about exceptions later</small></p>
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>one test at a time
-              <ul>
-                <li>helps to focus on details</li>
-                <li>less distraction = less mistakes</li>
-              </ul>
-            </li>
-            <li>New test shows what's missing
-              <ul>
-                <li>It's a little like with science
-                  <ul>
-                    <li>Your prod code is a hypothesis</li>
-                    <li>A new test is a try to disprove it</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>no prod change without a test
-              <ul>
-                <li>waste of time</li>
-                <li>potential errors</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-
-      </section>
-      <section data-auto-animate>
-        <h3>TDD - guideline</h3>
-        <ul>
-          <li>create executable <em>specification</em></li>
-          <li>Make tests <em>less specific</em> than prod code</li>
-          <li>Don't dig for the gold (<em>simple tests first</em>)</li>
-          <li><em>Talk</em> with the <em>business</em> first</li>
-        </ul>
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>create executable specification
-              <ul>
-                <li>let the test tell the reader what the test expects the prod code to do...</li>
-                <li>instead of how</li>
-                <li>make your code as readable as possible (structure, identifiers, abstraction)</li>
-              </ul>
-            </li>
-            <li>Make tests less specific than prod code
-              <ul>
-                <li>otherwise, refactorings get much harder</li>
-                <li>and you come to the fragile test problem</li>
-              </ul>
-            </li>
-            <li>Don't dig for the gold (simple tests first)
-              <ul>
-                <li>Simplest parts of your business-cases first
-                  <ul>helps to get a better picture and to start</ul>
-                </li>
-                <li>try to avoid beginning with exceptional cases
-                  <ul>
-                    <li>...but don't forget them</li>
-                    <li>...(maybe write some todos if you think of some)</li>
-                    <li>otherwise, you may waste time on later problems</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>Talk with the business first</li>
-          </ul>
-        </aside>
-
-      </section>
-
-      <section data-auto-animate>
-        <h3>TDD - where to start? </h3>
-        <div>
-          <h4>Top Down</h4>
-          <ul>
-            <li>advantages
-              <ul>
-                <li>Details relevant <em>late</em></li>
-                <li>Early <em>Big picture</em></li>
-              </ul>
-            </li>
-            <li>drawbacks
-              <ul>
-                <li>later <em>fine-tuning</em> of higher level <em>tests</em> is often required*</li>
-              </ul>
-            </li>
-          </ul>
-          <small><small>* personal experiance</small></small>
-        </div>
+                        <path transform="rotate(240 320 180)" d="M 320 40 L 320 30 A 120 30 400 0 1 390 48 Z"
+                              fill="blue"
+                              fill-opacity="1"/>
 
 
-        <aside aria-label="speaker notes" class="notes">
+                        <g transform="rotate(60 320 180)">
+                            <path fill="red"
+                                  d="M320,180L190.0961894323342,105.00000000000001A150,150,0,0,1,449.9038105676658,105.00000000000001Z"
+                                  stroke-width="1"/>
+                            <path fill="green"
+                                  d="M320,180L449.9038105676658,105.00000000000001A150,150,0,0,1,320,330Z"
+                                  stroke-width="1"/>
+                            <path fill="blue"
+                                  d="M320,180L320,330A150,150,0,0,1,190.0961894323342,104.99999999999999Z"
+                                  stroke-width="1"/>
 
-        </aside>
+                        </g>
 
-      </section>
-      <section data-auto-animate>
-        <h3>TDD - where to start? </h3>
-        <div>
-          <h4>bottom up</h4>
-          <ul>
-            <li>advantages
-              <ul>
-                <li>you can <em>start with</em> known <em>details</em> early</li>
-              </ul>
-            </li>
-            <li>drawbacks
-              <ul>
-                <li>implementation of <em>higher levels</em> is often <em>forced to fit</em> lower level details</li>
-                <li>late big picture can lead to <em>wasted time</em> in details</li>
-                <li><em>unnecessary details</em> are implemented quite often</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+                        <path d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
+                        <path transform="rotate(120 320 180)" d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
+                        <path transform="rotate(240 320 180)" d="m 320 180 L 320 30" stroke="#fff" stroke-width="1"/>
 
+                        <text text-anchor="start" x="330" y="80" font-size=".47em" fill="#FFFFFF">Red:
+                            <tspan x="330" font-size=".75em" dy="1.5em">- create test</tspan>
+                            <tspan x="330" font-size=".75em" dy="1em">- verify red</tspan>
+                            <tspan x="330" font-size=".75em" dy="1em">- verify message</tspan>
+                        </text>
 
-        <aside aria-label="speaker notes" class="notes">
+                        <text text-anchor="middle" x="320" y="230" font-size=".47em" fill="#FFFFFF">Green:
+                            <tspan x="320" font-size=".75em" dy="1.5em">- min required prod-code</tspan>
+                        </text>
+                        <text text-anchor="end" x="315" y="80" font-size=".47em" fill="#FFFFFF">Refactor:
+                            <tspan x="315" font-size=".75em" dy="1.5em">- remove dublets</tspan>
+                            <tspan x="315" font-size=".75em" dy="1em">- don't add logic</tspan>
+                            <tspan x="315" font-size=".75em" dy="1em">- improve identifier,</tspan>
+                            <tspan x="315" font-size=".75em" dy="1em">structure, readability</tspan>
+                            <tspan x="315" font-size=".75em" dy="1em">- only one side at once</tspan>
+                            <tspan x="315" font-size=".75em" dy="1em">(prod- or test code)</tspan>
+                        </text>
+                    </g>
+                </svg>
 
-        </aside>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li> This works on different stages at once as well.
+                            <ul>
+                                <li>Write higher level test for stage red</li>
+                                <li>Create all your units with tdd until the higher level test is green/li>
+                                <li>Do a higher level refactoring</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
 
-      </section>
+            </section>
 
-      <section data-auto-animate>
-        <h3>TDD - critics</h3>
-        <ul>
-          <li><em>practice</em> and <em>discipline</em> is required
-            <ul>
-              <li>-> Takes about 3-4 months for <em>full speed</em></li>
-              <li>-> You can speed it up with some <em>code katas</em></li>
-            </ul>
-          </li>
-          <li>Small changes lead to lots of <em>red tests</em>
-            <ul>
-              <li>-> they do too much or are <em>coupled too tight</em></li>
-              <li>-> In general, <em>red tests</em> are good. They <em>protect you</em> from accidental damage</li>
-            </ul>
-          </li>
-          <li>To <em>expensive/slow</em>
-            <ul>
-              <li>-> remember the <em>studies</em></li>
-            </ul>
-          </li>
-        </ul>
+            <section data-auto-animate>
+                <h3>TDD - rules</h3>
+                <ul>
+                    <li>focus on <em>one</em> detail aka. one test at a time</li>
+                    <li>New test shows what's <em>missing</em></li>
+                    <li><em>no</em> prod change without a test*</li>
+                </ul>
+                <p><small>* We talk about exceptions later</small></p>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>one test at a time
+                            <ul>
+                                <li>helps to focus on details</li>
+                                <li>less distraction = less mistakes</li>
+                            </ul>
+                        </li>
+                        <li>New test shows what's missing
+                            <ul>
+                                <li>It's a little like with science
+                                    <ul>
+                                        <li>Your prod code is a hypothesis</li>
+                                        <li>A new test is a try to disprove it</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>no prod change without a test
+                            <ul>
+                                <li>waste of time</li>
+                                <li>potential errors</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
 
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>practice and discipline is required
-              <ul>
-                <li>-> Takes about 3-4 month</li>
-                <li>-> You can speed it up with some code katas</li>
-                <li>-> discipline is always needed for quality</li>
-              </ul>
-            </li>
-            <li>Small changes lead to lots of red tests
-              <ul>
-                <li>-> to many can mean...
-                  <ul>
-                    <li>they do too much at once</li>
-                    <li>or are to specific tightly coupled</li>
-                  </ul>
-                </li>
-                <li>-> In general, red tests are good. They protect you from accidental damage</li>
-              </ul>
-            </li>
-            <li>To expencive/slow
-              <ul>
-                <li>-> remember the studies</li>
-              </ul>
-            </li>
-            <li>In Addition
-              <ul>
-                <li>No Test First means you cannot really act agile</li>
-                <li>...you cannot rely on the test suite</li>
-                <li>You get testable code "for free"</li>
-                <li>...it's impossible to create hard testable or untestable code</li>
-                <li>(the prod code) will be decoupled for free</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
+            </section>
+            <section data-auto-animate>
+                <h3>TDD - guideline</h3>
+                <ul>
+                    <li>create executable <em>specification</em></li>
+                    <li>Make tests <em>less specific</em> than prod code</li>
+                    <li>Don't dig for the gold (<em>simple tests first</em>)</li>
+                    <li><em>Talk</em> with the <em>business</em> first</li>
+                </ul>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>create executable specification
+                            <ul>
+                                <li>let the test tell the reader what the test expects the prod code to do...</li>
+                                <li>instead of how</li>
+                                <li>make your code as readable as possible (structure, identifiers, abstraction)</li>
+                            </ul>
+                        </li>
+                        <li>Make tests less specific than prod code
+                            <ul>
+                                <li>otherwise, refactorings get much harder</li>
+                                <li>and you come to the fragile test problem</li>
+                            </ul>
+                        </li>
+                        <li>Don't dig for the gold (simple tests first)
+                            <ul>
+                                <li>Simplest parts of your business-cases first
+                                    <ul>helps to get a better picture and to start</ul>
+                                </li>
+                                <li>try to avoid beginning with exceptional cases
+                                    <ul>
+                                        <li>...but don't forget them</li>
+                                        <li>...(maybe write some todos if you think of some)</li>
+                                        <li>otherwise, you may waste time on later problems</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Talk with the business first</li>
+                    </ul>
+                </aside>
 
-      <section data-auto-animate>
-        <h3>Faster without TDD?</h3>
-        <canvas id="romanNumeralsKataChart"></canvas>
-        <p><small><small>Robert C. Martin (2018) - Clean Architecture</small></small></p>
+            </section>
 
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Experiment by Jason Gorman</li>
-            <li>six days</li>
-            <li>at the end of each day he runs a set of function tests</li>
-            <li>TDD on the first, third and fifth day with TDD</li>
-            <li>other days without tdd</li>
-          </ul>
-        </aside>
-      </section>
-
-    </section>
-    <section data-auto-animate
-             data-background-image="./img/Circle.png"
-             data-background-opacity="0.05">
-      <section data-auto-animate>
-        <h3>Kata</h3>
-        <img
-                src="https://cdn.pixabay.com/photo/2018/08/01/14/55/silhouette-3577338_960_720.png"
-                alt="Kung Fu"
-                style="filter: drop-shadow(16px 16px 20px grey);"
-                class="r-stretch"></img>
-        <p>
-          <small><small>
-            <a href="https://pixabay.com/de/vectors/silhouette-kung-fu-wushu-shaolin-3577338/">
-              pixabay.com</a>
-          </small></small>
-        </p>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata Morse</h3>
-        <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Morsetaste.jpg/2560px-Morsetaste.jpg"
-                alt="Morse"
-                style="filter: drop-shadow(16px 16px 20px grey) invert(20%);"
-                class="r-stretch"></img>
-        <p>
-          <small><small>
-            <a href="https://en.wikipedia.org/wiki/Morse_code#/media/File:Morsetaste.jpg">
-              wikipedia.org</a>
-          </small></small>
-        </p>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata: Morse</h3>
-        <h4>Domain - Sender</h4>
-        <small>
-          <ul>
-            <li>Given: a <em>message-string</em> has to be translated into a <em>morse-string</em>
-              <ul>
-                <li>Basic assumption: No one will pass messages with a length smaller than two characters</li>
-              </ul>
-            </li>
-            <li>(incomplete) Dictionary: see branch "morse" <a
-                    href="/src/main/resources/morse.dict">/src/main/resources</a></li>
-            <li>Unknown <em>Symbols</em> are translated into <em>the question-mark-morse-code (..--..)</em></li>
-            <li>A Morse code is structured as follows:
-              <ul>
-                <li>A Symbol is represented by dots and dashes</li>
-                <li>There is a space between dots and dashes(short pause)</li>
-                <li>There are three spaces between words (long pause)</li>
-                <li>Example:
-                  "The pug" = "- .... . &nbsp; .--. ..- --."
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </small>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>Group exercise</li>
-            <li>Babysteps</li>
-            <li>Different Programming paradigms (functional, OO, imperative, ...</li>
-          </ul>
-        </aside>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata: Morse</h3>
-        <h4>Domain - Reciver</h4>
-        <small>
-          <ul>
-            <li>Given: a <em>morse-string</em> has to be translated into a <em>message-string</em>
-              <ul>
-                <li>Basic assumption: No one will pass messages with a length smaller than two characters</li>
-              </ul>
-            </li>
-            <li>(incomplete) Dictionary: see branch "morse" <a
-                    href="/src/main/resources/morse.dict">/src/main/resources</a></li>
-            <li>Unknown <em>morse-symbols</em> are translated into <em>a question-mark (?)</em></li>
-            <li>A Morse code is structured as follows:
-              <ul>
-                <li>A Symbol is represented by dots and dashes</li>
-                <li>There is a space between dots and dashes(short pause)</li>
-                <li>There are three spaces between words (long pause)</li>
-                <li>Example:
-                  "- .... . &nbsp; .--. ..- --." = "The pug"
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </small>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>individual exercise</li>
-          </ul>
-        </aside>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata: Morse</h3>
-        <h4>CLI - Console</h4>
-        <small>
-          <ul>
-            <li>Implement the domain within a CLI application</li>
-            <li>The application has exactly <em>one</em> parameter which is the input string to translate</li>
-            <li>it automatically recognizes the input either as...
-              <ul>
-                <li>...morse-message</li>
-                <li>...plain-text-message</li>
-              </ul>
-            </li>
-            <li>The result of the translation has to be printed at the console</li>
-          </ul>
-        </small>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>group exercise</li>
-            <li>mocking</li>
-            <li>humble object pattern</li>
-            <li>shellscript test</li>
-          </ul>
-        </aside>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata: Morse</h3>
-        <h4>CLI - File</h4>
-        <small>
-          <ul>
-            <li>Implement the domain within a CLI application</li>
-            <li>The <em>last</em> parameter is for the input string to translate</li>
-            <li>it automatically recognizes the input either as...
-              <ul>
-                <li>...morse-message</li>
-                <li>...plain-text-message</li>
-              </ul>
-            </li>
-            <li>The result of the translation has <em>per default</em> to be printed at the console</li>
-            <li>
-              <em>It shall be possible to pass input files or output files with -i and/or -o</em>
-              <ul>
-                <li><em>example call: "morse.jar [-o=&lt;outFile&gt;][-i=&lt;inFile&gt;|&lt;inputString&gt;]"</em></li>
-                <li><em>Each file can have multiple lines to translate</em></li>
-                <li><em>You can only pass either an inFile or an input-string</em></li>
-              </ul>
-            </li>
-          </ul>
-        </small>
-
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>individual or group exercise</li>
-            <li>refactoring</li>
-          </ul>
-        </aside>
-      </section>
-      <section data-auto-animate>
-        <h3>Kata: Morse</h3>
-        <h4>CLI - Signal</h4>
-        <small>
-          <ul>
-            <li>In the real world, morse codes are represented by the <em>length of electrical signals</em>. Either there is no
-              signal (0) or a signal (1)
-            </li>
-            <li>Add the ability to <em>translate those signals</em> represented by "0" and "1" to the application
-            <li>depending on the sender the timing (<em>length of a signal in time</em>) is different
-              <ul>
-                <li>Hint1: we <em>assume</em> the <em>timing is constant</em></li>
-                <li>Hint2: you could translate from <em>electrical to morse to plain-text</em></li>
-              </ul>
-            </li>
-          </ul>
-
-          <small>
-            <table>
-              <thead>
-              <th>signal type</th>
-              <th>timing factor</th>
-              <th>example with timing = 1</th>
-              <th>example with timing = 3</th>
-              </thead>
-              <tbody>
-              <tr>
-                <td>pause between words</td>
-                <td>7</td>
-                <td>0000000</td>
-                <td>000000000000000000000</td>
-              </tr>
-              <tr>
-                <td>pause between symbols</td>
-                <td>3</td>
-                <td>000</td>
-                <td>000000000</td>
-              </tr>
-              <tr>
-                <td>pause between dots/dashes</td>
-                <td>1</td>
-                <td>0</td>
-                <td>000</td>
-              </tr>
-              <tr>
-                <td>dashes</td>
-                <td>3</td>
-                <td>111</td>
-                <td>111111111</td>
-              </tr>
-              <tr>
-                <td>dot</td>
-                <td>1</td>
-                <td>1</td>
-                <td>111</td>
-              </tr>
-              </tbody>
-            </table>
-          </small>
-        </small>
+            <section data-auto-animate>
+                <h3>TDD - where to start? </h3>
+                <div>
+                    <h4>Top Down</h4>
+                    <ul>
+                        <li>advantages
+                            <ul>
+                                <li>Details relevant <em>late</em></li>
+                                <li>Early <em>Big picture</em></li>
+                            </ul>
+                        </li>
+                        <li>drawbacks
+                            <ul>
+                                <li>later <em>fine-tuning</em> of higher level <em>tests</em> is often required*</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <small><small>* personal experiance</small></small>
+                </div>
 
 
-        <aside aria-label="speaker notes" class="notes">
-          <ul>
-            <li>refactoring</li>
-          </ul>
-        </aside>
-      </section>
+                <aside aria-label="speaker notes" class="notes">
 
-    </section>
-  </div>
+                </aside>
+
+            </section>
+            <section data-auto-animate>
+                <h3>TDD - where to start? </h3>
+                <div>
+                    <h4>bottom up</h4>
+                    <ul>
+                        <li>advantages
+                            <ul>
+                                <li>you can <em>start with</em> known <em>details</em> early</li>
+                            </ul>
+                        </li>
+                        <li>drawbacks
+                            <ul>
+                                <li>implementation of <em>higher levels</em> is often <em>forced to fit</em> lower level
+                                    details
+                                </li>
+                                <li>late big picture can lead to <em>wasted time</em> in details</li>
+                                <li><em>unnecessary details</em> are implemented quite often</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <aside aria-label="speaker notes" class="notes">
+
+                </aside>
+
+            </section>
+
+            <section data-auto-animate>
+                <h3>TDD - critics</h3>
+                <ul>
+                    <li><em>practice</em> and <em>discipline</em> is required
+                        <ul>
+                            <li>-> Takes about 3-4 months for <em>full speed</em></li>
+                            <li>-> You can speed it up with some <em>code katas</em></li>
+                        </ul>
+                    </li>
+                    <li>Small changes lead to lots of <em>red tests</em>
+                        <ul>
+                            <li>-> they do too much or are <em>coupled too tight</em></li>
+                            <li>-> In general, <em>red tests</em> are good. They <em>protect you</em> from accidental
+                                damage
+                            </li>
+                        </ul>
+                    </li>
+                    <li>To <em>expensive/slow</em>
+                        <ul>
+                            <li>-> remember the <em>studies</em></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>practice and discipline is required
+                            <ul>
+                                <li>-> Takes about 3-4 month</li>
+                                <li>-> You can speed it up with some code katas</li>
+                                <li>-> discipline is always needed for quality</li>
+                            </ul>
+                        </li>
+                        <li>Small changes lead to lots of red tests
+                            <ul>
+                                <li>-> to many can mean...
+                                    <ul>
+                                        <li>they do too much at once</li>
+                                        <li>or are to specific tightly coupled</li>
+                                    </ul>
+                                </li>
+                                <li>-> In general, red tests are good. They protect you from accidental damage</li>
+                            </ul>
+                        </li>
+                        <li>To expencive/slow
+                            <ul>
+                                <li>-> remember the studies</li>
+                            </ul>
+                        </li>
+                        <li>In Addition
+                            <ul>
+                                <li>No Test First means you cannot really act agile</li>
+                                <li>...you cannot rely on the test suite</li>
+                                <li>You get testable code "for free"</li>
+                                <li>...it's impossible to create hard testable or untestable code</li>
+                                <li>(the prod code) will be decoupled for free</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>Faster without TDD?</h3>
+                <canvas id="romanNumeralsKataChart"></canvas>
+                <p><small><small>Robert C. Martin (2018) - Clean Architecture</small></small></p>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Experiment by Jason Gorman</li>
+                        <li>six days</li>
+                        <li>at the end of each day he runs a set of function tests</li>
+                        <li>TDD on the first, third and fifth day with TDD</li>
+                        <li>other days without tdd</li>
+                    </ul>
+                </aside>
+            </section>
+
+        </section>
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.05">
+            <section data-auto-animate>
+                <h3>Kata</h3>
+                <img
+                        src="https://cdn.pixabay.com/photo/2018/08/01/14/55/silhouette-3577338_960_720.png"
+                        alt="Kung Fu"
+                        style="filter: drop-shadow(16px 16px 20px grey);"
+                        class="r-stretch"></img>
+                <p>
+                    <small><small>
+                        <a href="https://pixabay.com/de/vectors/silhouette-kung-fu-wushu-shaolin-3577338/">
+                            pixabay.com</a>
+                    </small></small>
+                </p>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata Morse</h3>
+                <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Morsetaste.jpg/2560px-Morsetaste.jpg"
+                        alt="Morse"
+                        style="filter: drop-shadow(16px 16px 20px grey) invert(20%);"
+                        class="r-stretch"></img>
+                <p>
+                    <small><small>
+                        <a href="https://en.wikipedia.org/wiki/Morse_code#/media/File:Morsetaste.jpg">
+                            wikipedia.org</a>
+                    </small></small>
+                </p>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata: Morse</h3>
+                <h4>Domain - Sender</h4>
+                <small>
+                    <ul>
+                        <li>Given: a <em>message-string</em> has to be translated into a <em>morse-string</em>
+                            <ul>
+                                <li>Basic assumption: No one will pass messages with a length smaller than two
+                                    characters
+                                </li>
+                            </ul>
+                        </li>
+                        <li>(incomplete) Dictionary: see branch "morse" <a
+                                href="/src/main/resources/morse.dict">/src/main/resources</a></li>
+                        <li>Unknown <em>Symbols</em> are translated into <em>the question-mark-morse-code (..--..)</em>
+                        </li>
+                        <li>A Morse code is structured as follows:
+                            <ul>
+                                <li>A Symbol is represented by dots and dashes</li>
+                                <li>There is a space between dots and dashes(short pause)</li>
+                                <li>There are three spaces between words (long pause)</li>
+                                <li>Example:
+                                    "The pug" = "- .... . &nbsp; .--. ..- --."
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </small>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Group exercise</li>
+                        <li>Babysteps</li>
+                        <li>Different Programming paradigms (functional, OO, imperative, ...</li>
+                    </ul>
+                </aside>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata: Morse</h3>
+                <h4>Domain - Reciver</h4>
+                <small>
+                    <ul>
+                        <li>Given: a <em>morse-string</em> has to be translated into a <em>message-string</em>
+                            <ul>
+                                <li>Basic assumption: No one will pass messages with a length smaller than two
+                                    characters
+                                </li>
+                            </ul>
+                        </li>
+                        <li>(incomplete) Dictionary: see branch "morse" <a
+                                href="/src/main/resources/morse.dict">/src/main/resources</a></li>
+                        <li>Unknown <em>morse-symbols</em> are translated into <em>a question-mark (?)</em></li>
+                        <li>A Morse code is structured as follows:
+                            <ul>
+                                <li>A Symbol is represented by dots and dashes</li>
+                                <li>There is a space between dots and dashes(short pause)</li>
+                                <li>There are three spaces between words (long pause)</li>
+                                <li>Example:
+                                    "- .... . &nbsp; .--. ..- --." = "The pug"
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </small>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>individual exercise</li>
+                    </ul>
+                </aside>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata: Morse</h3>
+                <h4>CLI - Console</h4>
+                <small>
+                    <ul>
+                        <li>Implement the domain within a CLI application</li>
+                        <li>The application has exactly <em>one</em> parameter which is the input string to translate
+                        </li>
+                        <li>it automatically recognizes the input either as...
+                            <ul>
+                                <li>...morse-message</li>
+                                <li>...plain-text-message</li>
+                            </ul>
+                        </li>
+                        <li>The result of the translation has to be printed at the console</li>
+                    </ul>
+                </small>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>group exercise</li>
+                        <li>mocking</li>
+                        <li>humble object pattern</li>
+                        <li>shellscript test</li>
+                    </ul>
+                </aside>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata: Morse</h3>
+                <h4>CLI - File</h4>
+                <small>
+                    <ul>
+                        <li>Implement the domain within a CLI application</li>
+                        <li>The <em>last</em> parameter is for the input string to translate</li>
+                        <li>it automatically recognizes the input either as...
+                            <ul>
+                                <li>...morse-message</li>
+                                <li>...plain-text-message</li>
+                            </ul>
+                        </li>
+                        <li>The result of the translation has <em>per default</em> to be printed at the console</li>
+                        <li>
+                            <em>It shall be possible to pass input files or output files with -i and/or -o</em>
+                            <ul>
+                                <li><em>example call: "morse.jar [-o=&lt;outFile&gt;][-i=&lt;inFile&gt;|&lt;inputString&gt;]"</em>
+                                </li>
+                                <li><em>Each file can have multiple lines to translate</em></li>
+                                <li><em>You can only pass either an inFile or an input-string</em></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </small>
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>individual or group exercise</li>
+                        <li>refactoring</li>
+                    </ul>
+                </aside>
+            </section>
+            <section data-auto-animate>
+                <h3>Kata: Morse</h3>
+                <h4>CLI - Signal</h4>
+                <small>
+                    <ul>
+                        <li>In the real world, morse codes are represented by the <em>length of electrical signals</em>.
+                            Either there is no
+                            signal (0) or a signal (1)
+                        </li>
+                        <li>Add the ability to <em>translate those signals</em> represented by "0" and "1" to the
+                            application
+                        <li>depending on the sender the timing (<em>length of a signal in time</em>) is different
+                            <ul>
+                                <li>Hint1: we <em>assume</em> the <em>timing is constant</em></li>
+                                <li>Hint2: you could translate from <em>electrical to morse to plain-text</em></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <small>
+                        <table>
+                            <thead>
+                            <th>signal type</th>
+                            <th>timing factor</th>
+                            <th>example with timing = 1</th>
+                            <th>example with timing = 3</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>pause between words</td>
+                                <td>7</td>
+                                <td>0000000</td>
+                                <td>000000000000000000000</td>
+                            </tr>
+                            <tr>
+                                <td>pause between symbols</td>
+                                <td>3</td>
+                                <td>000</td>
+                                <td>000000000</td>
+                            </tr>
+                            <tr>
+                                <td>pause between dots/dashes</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>000</td>
+                            </tr>
+                            <tr>
+                                <td>dashes</td>
+                                <td>3</td>
+                                <td>111</td>
+                                <td>111111111</td>
+                            </tr>
+                            <tr>
+                                <td>dot</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>111</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </small>
+                </small>
+
+
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>refactoring</li>
+                    </ul>
+                </aside>
+            </section>
+
+        </section>
+    </div>
 </div>
 
 <script src="dist/reveal.js"></script>
@@ -1494,22 +1527,23 @@
 <script src="plugin/highlight/highlight.js"></script>
 <script src="plugin/charts/charts.js"></script>
 <script>
-  // More info about initialization & config:
-  // - https://revealjs.com/initialization/
-  // - https://revealjs.com/config/
-  Reveal.initialize({
-    hash: true,
-    slideNumber: "c/t",
-    history: true,
-    mouseWheel: false,
-    transition: 'fade',
-    navigationMode: "default",
-    plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealZoom],
-    dependencies: [
-      {src: "plugin/countdown/countdown.js"},
-      {src: "//cdn.jsdelivr.net/npm/reveal-plantuml"},
-    ]
-  });
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        touch: false,
+        hash: true,
+        slideNumber: "c/t",
+        history: true,
+        mouseWheel: true,
+        transition: 'fade',
+        navigationMode: "linear",
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealSearch, RevealZoom],
+        dependencies: [
+            {src: "plugin/countdown/countdown.js"},
+            {src: "//cdn.jsdelivr.net/npm/reveal-plantuml"},
+        ]
+    });
 </script>
 <script type="module" src="js/charts/costCharts.js"></script>
 </body>
