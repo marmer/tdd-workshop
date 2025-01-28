@@ -5,15 +5,17 @@ describe("AllmightyEverything", () => {
         let userName = "myUserName";
         let password = "myPW";
         let dbName = "myDB";
+        const host = 'localhost';
+        const port = 5432
 
-        const underTest = new AllmightyEverything(userName, password, dbName);
+        const underTest = new AllmightyEverything(userName, password, dbName, host, port);
         await underTest.doTheMagic("John Doe");
         expect(await underTest.doTheMagic("Jane Doe")).toBe("eoD enaJ");
 
         expect(await underTest.getLastTranslation()).toBe("eoD enaJ");
 
-        const underTest2 = new AllmightyEverything(userName, password, dbName);
-        expect(await underTest.getLastTranslation()).toBe("eoD enaJ");
+        const underTest2 = new AllmightyEverything(userName, password, dbName, host, port);
+        expect(await underTest2.getLastTranslation()).toBe("eoD enaJ");
     });
 });
 
