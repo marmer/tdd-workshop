@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: beispiel_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: myUserName
+      POSTGRES_PASSWORD: myPW
+      POSTGRES_DB: myDB
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

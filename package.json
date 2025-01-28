@@ -1,6 +1,7 @@
 {
   "name": "tdd-workshop",
   "dependencies": {
+    "pg": "^8.13.1",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
@@ -24,7 +25,7 @@
   "version": "1.0.0",
   "main": "build/classes/scripts/application.js",
   "scripts": {
-    "start": "ts-node src/main/scripts/application.ts",
+    "start": "ts-node src/main/scripts/application.ts first second",
     "start-watch": "nodemon --watch 'src/main/scripts/**/*.ts' --exec ts-node src/main/scripts/application.ts Spiderman",
     "test": "jest",
     "test-watch": "jest --watch",

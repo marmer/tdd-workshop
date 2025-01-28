@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import {helloWorld} from "./helloWorld";
+import {allmightyEverything} from "./AllmightyEverything";
 
-helloWorld(process.argv.slice(2))
+allmightyEverything(process.argv.slice(2))
