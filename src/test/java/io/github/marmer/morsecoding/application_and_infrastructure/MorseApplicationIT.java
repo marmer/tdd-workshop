@@ -18,8 +18,8 @@ class MorseApplicationIT {
     @SneakyThrows
     void run_ShouldBeAbleToTranslateAGivenPlainTextToMorseCodeAndPrintItToTheConsole() {
         // Arrange
-        Arguments arguments = new Arguments(new String[]{"The Pug"});
-        var underTest = new MorseApplication(arguments, outputContainer::add);
+        CliArguments cliArguments = new CliArguments(new String[]{"The Pug"});
+        var underTest = new MorseApplication(cliArguments, outputContainer::add);
 
         // Act
         underTest.run();
@@ -33,17 +33,33 @@ class MorseApplicationIT {
     @SneakyThrows
     void run_ShouldBeAbleToTranslateAGivenMorseTestToPlainTestAndPrintItOutToConsole() {
         // Arrange
-        Arguments arguments = new Arguments(new String[]{"- .... .   .--. ..- --."});
+        CliArguments cliArguments = new CliArguments(new String[]{"- .... .   .--. ..- --."});
         var underTest = new MorseApplication(
-                arguments, outputContainer::add);
+                cliArguments, outputContainer::add);
 
         // Act
         underTest.run();
 
         // Assert
-        assertThat(outputContainer).contains("The Pug");
+        assertThat(outputContainer).contains("THE PUG");
     }
 
-    // TODO: marmer 2025-01-10 no arguments passed
-    // TODO: marmer 2025-01-10 too many arguments passed
+    @Test
+    @DisplayName("Should translate plain text from a file to morse code and print it at the console")
+    @SneakyThrows
+    void run_ShouldTranslatePlainTextFromAFileToMorseCodeAndPrintItAtTheConsole() {
+        // Arrange
+        CliArguments cliArguments = new CliArguments(new String[]{"-i=src/test/resources/plainText.txt"});
+        var underTest = new MorseApplication(cliArguments, outputContainer::add);
+
+        // Act
+        underTest.run();
+
+        // Assert
+        assertThat(outputContainer).contains("- .... .   .--. ..- --.");
+        // TODO: marmer 2025-01-10 Multiline support
+    }
+
+    // TODO: marmer 2025-01-10 output file
+    // TODO: marmer 2025-01-10 input at the end of the arguments
 }

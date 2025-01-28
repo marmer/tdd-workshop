@@ -5,25 +5,28 @@ import io.github.marmer.morsecoding.domain.MorseTranslator;
 class MorseApplication {
 
     private final OutputConsumer outputConsumer;
-    private final Arguments arguments;
+    private final CliArguments cliArguments;
     private MorseTranslator morseTranslator;
 
-    public MorseApplication(Arguments arguments, OutputConsumer outputConsumer) {
+    public MorseApplication(CliArguments cliArguments, OutputConsumer outputConsumer) {
         this.outputConsumer = outputConsumer;
-        this.arguments = arguments;
+        this.cliArguments = cliArguments;
         this.morseTranslator = new MorseTranslator();
     }
 
     public static void main(String... args) {
         //allowed to be a reaaaaly disgusting place ... dirty ... ugly ... untested ...
-        new MorseApplication(new Arguments(args), System.out::println).run();
+        new MorseApplication(new CliArguments(args), System.out::println).run();
     }
 
     public void run() {
-        String input = arguments.getInput().value();
-
+        cliArguments.inputFile().ifPresentOrElse(
+                this::translateFromFile,
+                this::translateFromString
+        );
+        
         outputConsumer.consume(
-                morseTranslator.translate(input)
+                morseTranslator.translate(cliArguments.inputString())
         );
     }
 

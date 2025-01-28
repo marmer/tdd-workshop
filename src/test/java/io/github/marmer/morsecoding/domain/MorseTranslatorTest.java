@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MorseTranslatorTest {
     private MorseTranslator underTest = new MorseTranslator();
@@ -17,7 +16,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("a");
+        var result = underTest.translate(new Message("a"));
 
         // Assert
         assertThat(result).isEqualTo(".-");
@@ -30,7 +29,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("b");
+        var result = underTest.translate(new Message("b"));
 
         // Assert
         assertThat(result).isEqualTo("-...");
@@ -43,7 +42,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("B");
+        var result = underTest.translate(new Message("B"));
 
         // Assert
         assertThat(result).isEqualTo("-...");
@@ -57,7 +56,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("#");
+        var result = underTest.translate(new Message("#"));
 
         // Assert
         assertThat(result).isEqualTo("..--..");
@@ -70,7 +69,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("The");
+        var result = underTest.translate(new Message("The"));
 
         // Assert
         assertThat(result).isEqualTo("- .... .");
@@ -83,7 +82,7 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("The pug");
+        var result = underTest.translate(new Message("The pug"));
 
         // Assert
         assertThat(result).isEqualTo("- .... .   .--. ..- --.");
@@ -97,26 +96,88 @@ class MorseTranslatorTest {
         // Arrange
 
         // Act
-        var result = underTest.translate("");
+        var result = underTest.translate(new Message(""));
 
         // Assert
         assertThat(result).isEqualTo("");
     }
 
     @Test
-    @DisplayName("empty strings should stay null strings")
+    @DisplayName("should translate a given plain text symbol A to morse code ... the other way around")
     @SneakyThrows
-    void translate_EmptyStringsShouldStayNullStrings() {
+    void translate_ShouldTranslateAGivenPlainTextSymbolAToMorseCodeTheOtherWayAround() {
         // Arrange
 
+        // Act
+        var result = underTest.translate(new Message(".-"));
+
         // Assert
-        var cause = assertThrows(NullPointerException.class,
+        assertThat(result).isEqualTo("A");
+    }
 
-                // Act
-                () -> underTest.translate(null));
+    @Test
+    @DisplayName("should translate a given plain text symbol B to morse code ... the other way around")
+    @SneakyThrows
+    void translate_ShouldTranslateAGivenPlainTextSymbolBToMorseCodeTheOtherWayAround() {
+        // Arrange
 
-        assertThat(cause.getMessage()).isEqualTo("There can not be no input");
+        // Act
+        var result = underTest.translate(new Message("-..."));
+
+        // Assert
+        assertThat(result).isEqualTo("B");
+    }
+
+    @Test
+    @DisplayName("should translate a given upper case plain text symbol B to morse code ... the other way around")
+    @SneakyThrows
+    void translate_ShouldTranslateAGivenUpperCasePlainTextSymbolBToMorseCodeTheOtherWayAround() {
+        // Arrange
+
+        // Act
+        var result = underTest.translate(new Message("-..."));
+
+        // Assert
+        assertThat(result).isEqualTo("B");
     }
 
 
+    @Test
+    @DisplayName("should translate unkown charts to question marks equivalent ... the other way around")
+    @SneakyThrows
+    void translate_ShouldTranslateUnkownChartsToQuestionMarksEquivalentTheOtherWayAround() {
+        // Arrange
+
+        // Act
+        var result = underTest.translate(new Message(".-.-.-.-.-."));
+
+        // Assert
+        assertThat(result).isEqualTo("?");
+    }
+
+    @Test
+    @DisplayName("should translate a given plain text word intomorse code ... the other way around")
+    @SneakyThrows
+    void translate_ShouldTranslateAGivenPlainTextWordIntomorseCodeTheOtherWayAround() {
+        // Arrange
+
+        // Act
+        var result = underTest.translate(new Message("- .... ."));
+
+        // Assert
+        assertThat(result).isEqualTo("THE");
+    }
+
+    @Test
+    @DisplayName("should translate a given plain text sentence into Morse code ... the other way around")
+    @SneakyThrows
+    void translate_ShouldTranslateAGivenPlainTextSentenceIntoMorseCodeTheOtherWayAround() {
+        // Arrange
+
+        // Act
+        var result = underTest.translate(new Message("- .... .   .--. ..- --."));
+
+        // Assert
+        assertThat(result).isEqualTo("THE PUG");
+    }
 }
