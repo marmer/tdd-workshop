@@ -67,7 +67,7 @@
                 <li>Motivation</li>
                 <li>Tests</li>
                 <li>Theory</li>
-                <li>Critics</li>
+                <li>Criticisms</li>
                 <li>Exercises</li>
             </ul>
             <aside aria-label="speaker notes" class="notes">
@@ -555,7 +555,7 @@
                         <li>UI
                             <ul>
                                 <li>as the name suggests it</li>
-                                <li>Tests should be silly because they are harder to test and more fragile</li>
+                                <li>Tests should be "silly"/small because they are harder to test and more fragile</li>
                                 <li>We won't cover them here</li>
                             </ul>
                         </li>
@@ -1434,15 +1434,13 @@
                                 <li>-> remember the studies</li>
                             </ul>
                         </li>
-                        <li>In Addition
-                            <ul>
-                                <li>No Test First means you cannot really act agile</li>
-                                <li>...you cannot rely on the test suite</li>
-                                <li>You get testable code "for free"</li>
-                                <li>...it's impossible to create hard testable or untestable code</li>
-                                <li>(the prod code) will be decoupled for free</li>
-                            </ul>
-                        </li>
+                    </ul>
+                    <hr/>
+                    <strong>In Addition — don't forget to mention:</strong>
+                    <ul>
+                        <li>No Test First means you cannot really act agile — you cannot rely on the test suite</li>
+                        <li>You get testable code "for free" — it's impossible to create untestable code</li>
+                        <li>Production code will be decoupled for free</li>
                     </ul>
                 </aside>
             </section>
@@ -1459,6 +1457,35 @@
                         <li>at the end of each day he runs a set of function tests</li>
                         <li>TDD on the first, third and fifth day with TDD</li>
                         <li>other days without tdd</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>TDD in the Age of AI</h3>
+                <ul>
+                    <li>AI tools generate code <em>fast</em> — but <em>fast ≠ correct</em></li>
+                    <li>Without a test first, you can't tell if the generated code does what you <em>intended</em></li>
+                    <li>TDD is the ideal companion:
+                        <ul>
+                            <li><em>you</em> define the intent (the test)</li>
+                            <li><em>AI</em> generates the implementation</li>
+                            <li><em>you</em> verify it actually passes — and means something</li>
+                        </ul>
+                    </li>
+                    <li>The discipline matters <em>more</em> than ever:
+                        <ul>
+                            <li>AI lowers the cost of writing code</li>
+                            <li>it does <em>not</em> lower the cost of writing <em>wrong</em> code</li>
+                        </ul>
+                    </li>
+                </ul>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>This is the "so what?" for sceptics who think AI makes TDD obsolete</li>
+                        <li>The opposite is true: AI amplifies the value of a solid test suite</li>
+                        <li>Without TDD discipline, AI-assisted teams ship untested generated code at scale</li>
+                        <li>With TDD: AI becomes a turbocharger for the green step — not a bypass for the red step</li>
                     </ul>
                 </aside>
             </section>
@@ -1554,7 +1581,7 @@
                     <ul>
                         <li>Given: a <em>message-string</em> has to be translated into a <em>morse-string</em>
                             <ul>
-                                <li>Basic assumption: No one will pass messages with a length smaller than two
+                                <li>Basic assumption (to simplify this task): No one will pass messages with a length smaller than two
                                     characters
                                 </li>
                             </ul>
@@ -1591,7 +1618,7 @@
                     <ul>
                         <li>Given: a <em>morse-string</em> has to be translated into a <em>message-string</em>
                             <ul>
-                                <li>Basic assumption: No one will pass messages with a length smaller than two
+                                <li>Basic assumption (to simplify this task): No one will pass messages with a length smaller than two
                                     characters
                                 </li>
                             </ul>
@@ -1723,6 +1750,31 @@
             </section>
 
         </section>
+
+        <section data-auto-animate
+                 data-background-image="./img/Circle.png"
+                 data-background-opacity="0.1">
+            <h3>Questions?</h3>
+            <br/>
+            <p><em>TDD is not about tests — it's about thinking.</em></p>
+            <br/>
+            <ul style="font-size: smaller">
+                <li>Kent Beck — <em>Test Driven Development: By Example</em> (2002)</li>
+                <li>Robert C. Martin — <em>The Clean Coder</em> (2011)</li>
+                <li>Steve Freeman &amp; Nat Pryce — <em>Growing Object-Oriented Software, Guided by Tests</em> (2009)</li>
+                <li>Vladimir Khorikov — <em>Unit Testing: Principles, Practices and Patterns</em> (2020)</li>
+            </ul>
+            <br/>
+            <small><small>by <a href="https://www.linkedin.com/in/mariano-mertinat">Mariano Mertinat</a></small></small>
+            <aside aria-label="speaker notes" class="notes">
+                <ul>
+                    <li>Open the floor for questions</li>
+                    <li>Remind participants: the kata repo stays available for practice at home</li>
+                    <li>Encourage them to try TDD on the next real task — even just for 30 minutes</li>
+                </ul>
+            </aside>
+        </section>
+
     </div>
 </div>
 
