@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>TDD - Test Driven Development (Or how to have a good night's sleep after coding sessions) by MarMer</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -34,7 +34,7 @@
                             <li>All of you, please turn on your cameras (a face is enough). It helps me...
                                 <ul>
                                     <li>... to understand you better</li>
-                                    <li>... to enter into you</li> <!-- auf jemanden eingehen -->
+                                    <li>... to engage with you better</li>
                                     <li>... not to feel like talking with a wall</li>
                                 </ul>
                             </li>
@@ -75,11 +75,11 @@
                     <li>Motivation</li>
                     <li>Tests(in General)</li>
                     <li>Theory</li>
-                    <li>Critics</li>
+                    <li>Criticisms</li>
                     <li>Exercises</li>
 
                     <li>Breaks whenever they are needed. Just ask if you want/need one</li>
-                    <li>The big one for lunch starts between 12 and 12:30</li>
+                    <li>Lunch break — confirm timing with organizer</li>
                 </ul>
             </aside>
         </section>
@@ -300,7 +300,7 @@
           <code data-line-numbers="|3,6,9|2|10-12|13" data-ln-start-from="1" class="language-java" data-trim
                 data-noescape>
             @Test
-            void testThisClassWorksFine throws Exception{
+            void testThisClassWorksFine() throws Exception {
               // Arrange
               final var job = FancyJob();
 
@@ -346,7 +346,7 @@
               // Arrange
               RecalculationBatchJob.class
                 .getField("executionDate")
-                .set(job,"2020-29-05");
+                .set(job,"2020-05-29");
 
               // Act
               RecalculationBatchJob.class
@@ -971,6 +971,9 @@
                 <p><em>Code</em>-Coverage vs. <em>Test</em>-Coverage</p>
                 <p><br/></p>
                 <p><small>Branch "IntegrationUnitShowcase"</small></p>
+                <aside aria-label="speaker notes" class="notes">
+                    Show how 100% code coverage can be achieved with fewer integrative tests, but more unit tests catch more edge cases (test coverage). Walk through the branch live.
+                </aside>
             </section>
 
         </section>
@@ -1360,7 +1363,30 @@
             </section>
 
             <section data-auto-animate>
-                <h3>TDD - critics</h3>
+                <h3>TDD - where to start?</h3>
+                <div>
+                    <h4>Recommendation</h4>
+                    <ul>
+                        <li>Prefer <em>Top Down</em> as a default
+                            <ul>
+                                <li>keeps the <em>big picture</em> in focus</li>
+                                <li>avoids over-engineering details that may not be needed</li>
+                            </ul>
+                        </li>
+                        <li>Switch to <em>Bottom Up</em> when...
+                            <ul>
+                                <li>a specific detail is <em>well understood</em> and clearly bounded</li>
+                                <li>you need to build <em>confidence</em> in a complex algorithm first</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <aside aria-label="speaker notes" class="notes">
+                </aside>
+            </section>
+
+            <section data-auto-animate>
+                <h3>TDD - Criticisms</h3>
                 <ul>
                     <li><em>practice</em> and <em>discipline</em> is required
                         <ul>
@@ -1424,7 +1450,7 @@
             <section data-auto-animate>
                 <h3>Faster without TDD?</h3>
                 <canvas id="romanNumeralsKataChart"></canvas>
-                <p><small><small>Robert C. Martin (2018) - Clean Architecture</small></small></p>
+                <p><small><small>Robert C. Martin (2011) - The Clean Coder</small></small></p>
 
                 <aside aria-label="speaker notes" class="notes">
                     <ul>
@@ -1455,6 +1481,31 @@
                     </small></small>
                 </p>
             </section>
+            <section data-auto-animate>
+                <h3>Kata: Warm-up — FizzBuzz</h3>
+                <small>
+                    <ul>
+                        <li>For numbers <em>1 to 100</em>, print:
+                            <ul>
+                                <li><em>"Fizz"</em> for multiples of 3</li>
+                                <li><em>"Buzz"</em> for multiples of 5</li>
+                                <li><em>"FizzBuzz"</em> for multiples of both</li>
+                                <li>the <em>number itself</em> otherwise</li>
+                            </ul>
+                        </li>
+                        <li>Goal: practice the <em>red-green-refactor</em> loop with baby steps</li>
+                        <li>Tip: start with the <em>simplest</em> case and grow from there — don't implement everything at once</li>
+                    </ul>
+                </small>
+                <aside aria-label="speaker notes" class="notes">
+                    <ul>
+                        <li>Warm-up — ~20-30 minutes, individual or pair</li>
+                        <li>The goal is to internalize the TDD loop before tackling Morse</li>
+                        <li>Remind participants: don't think ahead — let the tests drive the design</li>
+                    </ul>
+                </aside>
+            </section>
+
             <section data-auto-animate>
                 <h3>Kata Morse</h3>
                 <img
